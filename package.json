@@ -1,0 +1,38 @@
+{
+  "name": "ng2-simple-components",
+  "version": "0.0.1",
+  "description": "A set of components and directives for angular 2 applications ",
+  "scripts": {
+    "build": "typings install && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flauc/ng2-simple-components.git"
+  },
+  "keywords": [
+    "Angular 2"
+  ],
+  "author": "filip.lauc93@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flauc/ng2-simple-components/issues"
+  },
+  "homepage": "https://github.com/flauc/ng2-simple-components",
+  "peerDependencies": {
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+  },
+  "devDependencies": {
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "es6-shim": "^0.35.0",
+    "gulp": "^3.9.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.6",
+    "typescript": "^1.8.10",
+    "typings": "^0.7.12",
+    "zone.js": "~0.6.12"
+  },
+  "main": "./components.js",
+  "typings": "./components.d.ts"
+}
