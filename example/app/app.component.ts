@@ -4,7 +4,6 @@ import {RippleDirective} from './ripple.directive';
 
 @Component({
     selector: 'app',
-    directives: [RippleComponent, RippleDirective],
     template: `
         <p>Working</p>
         <p sc-ripple>Proba</p>
