@@ -94,6 +94,8 @@ export class TabsComponent {
             tab.animate = 'enter' + direction;
             this.tabs[oldActive].animate = 'leave' + direction;
         }
+
+        console.log(this.tabs)
     }
 
     addTab(tab: TabComponent) {

@@ -4,55 +4,23 @@ import {AccordionComponent} from './accordion.component';
 @Component({
     selector: 'sc-accord',
     template: `
-        <div class="accord" @accord="state" (click)="trigger()">
+        <div class="accord" (click)="trigger()">
             <div class="bar">
                 <span>{{title}}</span>
             </div>
-            <div class="inner" @inner="inner">
-                <ng-content></ng-content>
+            <div class="inner" [class.active]="act">
+                <div class="pad">
+                    <ng-content></ng-content>
+                </div>
             </div>
         </div>
     `,
-    animations: [
-        trigger('accord', [
-            state('closed', style({width: '90%', margin: '0 5%'})),
-            state('open', style({width: '100%', margin: '1rem 0'})),
-
-            transition('closed => open', [
-                style({width: '90%', margin: '0 5%'}),
-                animate('300ms ease-in-out', style({width: '100%', margin: '1rem 0'}))
-            ]),
-
-            transition('open => closed', [
-                style({width: '100%', margin: '1rem 0'}),
-                animate('300ms ease-in-out', style({width: '90%', margin: '0 5%'}))
-            ])
-        ]),
-
-        trigger('inner', [
-            state('open', style({padding: '0.5rem 1rem', opacit: 1})),
-            state('closed', style({height: 0, padding: 0, opacit: 0})),
-
-            transition('closed => open', [
-                style({opacity: 0}),
-                animate('300ms ease-in-out', style({opacity: 1}))
-            ]),
-
-            transition('open => closed', [
-                style({opacity: 1}),
-                animate('300ms ease-in-out', style({opacity: 0}))
-            ])
-        ])
-    ],
-    styles:  [`
-        .accord {
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-        }
-        
+    styles:  [`  
         .bar {
             width: 100%;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
             height: 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
         }
         
         span {
@@ -66,6 +34,18 @@ import {AccordionComponent} from './accordion.component';
             overflow: hidden;
             display: inline-block;
             background: #F6F6F6;
+            max-height: 0;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .pad {
+            padding: 0.5rem 1rem;
+        }
+        
+        .inner.active {
+            max-height: 1000px;
         }
     `]
 })
