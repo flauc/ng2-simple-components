@@ -6,7 +6,7 @@ import {TabComponent} from './tab.component';
     template: `
         <div class="tab-nav">
           <div class="col" 
-            *ngFor="let tab of tabs; let i = index"
+            *ngFor="let tab of tabs"
             [class.disabled]="tab.disabled"
             [class.active]="tab.active"
             [ngStyle]="{flex: tabs.length}" 
@@ -63,28 +63,35 @@ import {TabComponent} from './tab.component';
         }
         
         .tab-content {
-            padding: 0.5rem 1rem;
             background: #F6F6F6;
+            min-height: 0;
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
         }
     `]
 })
 export class TabsComponent {
     tabs: TabComponent[] = [];
 
-    selectTab(tab: TabComponent, index: number) {
+    selectTab(tab: TabComponent) {
         if (tab.disabled) return;
 
-        let oldActive = this.tabs.findIndex(a => a.active),
-            direction = index > oldActive ? 'Left' : 'Right';
+        let oldActive = this.tabs.findIndex(a => a.act),
+            direction = tab.position > oldActive ? 'Left' : 'Right';
 
-        this.tabs.forEach(tab => tab.active = false);
-        tab.active = true;
+        this.tabs.forEach(tab => tab.act = false);
+        tab.act = true;
 
 
 
         // Animate
-        tab.animate = 'enter';
-        this.tabs[oldActive].animate = 'default';
+        tab.animate = 'enter' + direction;
+        this.tabs[oldActive].animate = 'leave' + direction;
     }
 
     addTab(tab: TabComponent) {
@@ -93,8 +100,8 @@ export class TabsComponent {
 
     indicatorStyle() {
 
-        let active = this.tabs.findIndex(a => a.active),
-            percent = 100/this.tabs.length,
+        let active = this.tabs.findIndex(a => a.act),
+            percent = 100 / this.tabs.length,
             style = {width: percent + '%'};
 
         if (active) {
