@@ -8,13 +8,29 @@ import {AccordionComponent} from './accordion.component';
             <div class="bar">
                 <span>{{title}}</span>
             </div>
-            <div class="inner" [class.active]="act">
+            <div class="inner" @anim="inner">
                 <div class="pad">
                     <ng-content></ng-content>
                 </div>
             </div>
         </div>
     `,
+    animations: [
+        trigger('anim', [
+            state('open', style({height: '*'})),
+            state('closed', style({height: 0})),
+
+            transition('closed => open', [
+                style({height: 0}),
+                animate('300ms ease-in-out', style({height: '*'}))
+            ]),
+
+            transition('open => closed', [
+                style({height: '*'}),
+                animate('300ms ease-in-out', style({height: 0}))
+            ])
+        ])
+    ],
     styles:  [`  
         .bar {
             width: 100%;
@@ -34,18 +50,10 @@ import {AccordionComponent} from './accordion.component';
             overflow: hidden;
             display: inline-block;
             background: #F6F6F6;
-            max-height: 0;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
         }
         
         .pad {
             padding: 0.5rem 1rem;
-        }
-        
-        .inner.active {
-            max-height: 1000px;
         }
     `]
 })
@@ -62,7 +70,6 @@ export class AccordComponent {
     };
 
     act: boolean = false;
-    state: string = 'closed';
     inner: string = 'closed';
 
     trigger() {

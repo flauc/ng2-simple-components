@@ -31,14 +31,11 @@ export class AccordionComponent {
         if (this.singleActive) {
             this.accords.forEach(a => {
                 a.act = false;
-                a.state = 'closed';
                 a.inner = 'closed';
             })
         }
 
         accord.act = toSet;
-
-        accord.state = state;
         accord.inner = state;
     }
 
