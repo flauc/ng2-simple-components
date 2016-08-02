@@ -4,18 +4,15 @@ import {TabsComponent} from './tabs.component';
 @Component({
     selector: 'sc-tab',
     template: `
-        <div class="content" @anim="animate">
+        <div class="content" @anim="animate" [hidden]="!active">
           <ng-content></ng-content>
         </div>
     `,
     animations: [
         trigger('anim', [
-            state('default', style({marginLeft: '110%'})),
-            transition('default => *', [
-                style({left: '100%', background: 'blue'}),
-                animate('80ms ease-in', style({
-                    marginLeft: 0
-                }))
+            transition('* => enter', [
+                style({opacity: 0}),
+                animate('300ms ease-in-out', style({opacity: 1}))
             ])
         ])
     ],

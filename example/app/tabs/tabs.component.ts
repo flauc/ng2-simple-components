@@ -83,8 +83,8 @@ export class TabsComponent {
 
 
         // Animate
-        tab.animate = 'enter' + oldActive;
-        this.tabs[oldActive].animate = 'leave' + oldActive;
+        tab.animate = 'enter';
+        this.tabs[oldActive].animate = 'default';
     }
 
     addTab(tab: TabComponent) {
