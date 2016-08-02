@@ -18,7 +18,7 @@ import {TabComponent} from './tab.component';
         <div class="tab-content">
             <ng-content></ng-content>
         </div>
-  `,
+    `,
     styles: [`
         :host {
             width: 100%;
@@ -90,8 +90,10 @@ export class TabsComponent {
 
 
         // Animate
-        tab.animate = 'enter' + direction;
-        this.tabs[oldActive].animate = 'leave' + direction;
+        if (oldActive !== tab.position) {
+            tab.animate = 'enter' + direction;
+            this.tabs[oldActive].animate = 'leave' + direction;
+        }
     }
 
     addTab(tab: TabComponent) {

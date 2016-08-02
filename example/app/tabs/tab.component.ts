@@ -57,9 +57,7 @@ export class TabComponent {
     @Input() disabled: boolean;
 
     act: boolean = false;
-
     animate: string = 'default';
-
     position: number;
 
     constructor(tabsComp: TabsComponent) {
