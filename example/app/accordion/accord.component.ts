@@ -62,11 +62,8 @@ export class AccordComponent {
 
     @Input() title: string;
     @Input() set active(act: boolean) {
-        let s = act ? 'open' : 'closed';
-
         this.act = act;
-        this.state = s;
-        this.inner = s;
+        this.inner = act ? 'open' : 'closed';
     };
 
     act: boolean = false;

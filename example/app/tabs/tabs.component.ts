@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, trigger, transition, style, animate} from '@angular/core';
 import {TabComponent} from './tab.component';
 
 @Component({
@@ -15,7 +15,7 @@ import {TabComponent} from './tab.component';
             </div>
             <div class="indicator" [ngStyle]="indicatorStyle()"></div>
         </div>
-        <div class="tab-content">
+        <div class="tab-content" [ngStyle]="style">
             <ng-content></ng-content>
         </div>
     `,
@@ -63,19 +63,20 @@ import {TabComponent} from './tab.component';
         }
         
         .tab-content {
-            min-height: 0;
             position: relative;
+            background: #F6F6F6;
             top: auto;
             left: auto;
             right: auto;
             bottom: auto;
             overflow: hidden;
-            transition: all .3s ease;
+            transition: all 0.3s ease-in-out;
         }
     `]
 })
 export class TabsComponent {
     tabs: TabComponent[] = [];
+    style: {height: string};
 
     selectTab(tab: TabComponent) {
         if (tab.disabled) return;
@@ -86,15 +87,17 @@ export class TabsComponent {
         this.tabs.forEach(tab => tab.act = false);
         tab.act = true;
 
-
-
         // Animate
         if (oldActive !== tab.position) {
             tab.animate = 'enter' + direction;
             this.tabs[oldActive].animate = 'leave' + direction;
         }
 
-        console.log(this.tabs)
+        this.setStyle(tab.height)
+    }
+
+    setStyle(tabHeight: number) {
+        this.style = {height: `${tabHeight}px`}
     }
 
     addTab(tab: TabComponent) {
