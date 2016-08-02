@@ -10,39 +10,53 @@ import {TabsComponent} from './tabs.component';
     `,
     animations: [
         trigger('anim', [
-            state('default', style({transform: 'translateX(-100%)', position: 'absolute'})),
-            state('first', style({transform: 'translateX(0)', position: 'relative'})),
+            state('default', style({position: 'absolute', opacity: 0, 'min-height': '0'})),
+            state('first', style({position: 'relative', opacity: 1, 'max-height': '100%'})),
 
-            state('leaveLeft', style({transform: 'translateX(-100%)', position: 'absolute'})),
-            state('leaveRight', style({transform: 'translateX(100%)', position: 'absolute'})),
+            state('leaveLeft', style({ position: 'absolute', opacity: 0, 'min-height': '0'})),
+            state('leaveRight', style({ position: 'absolute', opacity: 0, 'min-height': '0'})),
 
-            state('enterRight', style({transform: 'translateX(0)', position: 'relative'})),
-            state('enterLeft', style({transform: 'translateX(0)', position: 'relative'})),
+            state('enterRight', style({position: 'relative', opacity: 1, 'max-height': '100%'})),
+            state('enterLeft', style({position: 'relative', opacity: 1, 'max-height': '100%'})),
 
             transition('* => enterRight', [
-                style({transform: 'translateX(-100%)'}),
-                animate('300ms ease-in-out', style({transform: 'translateX(0)'}))
+                style({transform: 'translateX(-100%)', opacity: 0}),
+                animate('300ms ease-in-out', style({transform: 'translateX(0)', opacity: 1}))
             ]),
 
             transition('* => enterLeft', [
-                style({transform: 'translateX(100%)'}),
-                animate('300ms ease-in-out', style({transform: 'translateX(0)'}))
+                style({transform: 'translateX(100%)', opacity: 0}),
+                animate('300ms ease-in-out', style({transform: 'translateX(0)', opacity: 1}))
             ]),
 
             transition('* => leaveLeft', [
-                style({transform: 'translateX(0)'}),
-                animate('300ms ease-in-out', style({transform: 'translateX(-100%)'}))
+                style({transform: 'translateX(0)', opacity: 1}),
+                animate('300ms ease-in-out', style({transform: 'translateX(-100%)', opacity: 0}))
             ]),
 
             transition('* => leaveRight', [
-                style({transform: 'translateX(0)'}),
-                animate('300ms ease-in-out', style({transform: 'translateX(100%)'}))
+                style({transform: 'translateX(0)', opacity: 1}),
+                animate('300ms ease-in-out', style({transform: 'translateX(100%)', opacity: 0}))
             ]),
         ])
     ],
     styles: [`
         .content {
-            padding: 0.5rem 1rem;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: all .5s cubic-bezier(.35,0,.25,1);
+            transition: all .5s cubic-bezier(.35,0,.25,1);
+            overflow: auto;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            padding: 1rem;
+        }
+        .content h1 {
+            margin: 0;
         }
     `]
 })

@@ -63,7 +63,6 @@ import {TabComponent} from './tab.component';
         }
         
         .tab-content {
-            background: #F6F6F6;
             min-height: 0;
             position: relative;
             top: auto;
@@ -71,7 +70,7 @@ import {TabComponent} from './tab.component';
             right: auto;
             bottom: auto;
             overflow: hidden;
-            transition: all 0.3s ease-in-out;
+            transition: all .3s ease;
         }
     `]
 })
