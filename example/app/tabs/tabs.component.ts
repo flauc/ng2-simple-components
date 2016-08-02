@@ -6,11 +6,11 @@ import {TabComponent} from './tab.component';
     template: `
         <div class="tab-nav">
           <div class="col" 
-            *ngFor="let tab of tabs"
+            *ngFor="let tab of tabs; let i = index"
             [class.disabled]="tab.disabled"
             [class.active]="tab.active"
             [ngStyle]="{flex: tabs.length}" 
-            (click)="selectTab(tab)">
+            (click)="selectTab(tab, i)">
                 {{tab.title}}
             </div>
             <div class="indicator" [ngStyle]="indicatorStyle()"></div>
@@ -71,10 +71,20 @@ import {TabComponent} from './tab.component';
 export class TabsComponent {
     tabs: TabComponent[] = [];
 
-    selectTab(tab: TabComponent) {
+    selectTab(tab: TabComponent, index: number) {
         if (tab.disabled) return;
-        this.tabs.forEach((tab) => tab.active = false);
+
+        let oldActive = this.tabs.findIndex(a => a.active),
+            direction = index > oldActive ? 'Left' : 'Right';
+
+        this.tabs.forEach(tab => tab.active = false);
         tab.active = true;
+
+
+
+        // Animate
+        tab.animate = 'enter' + oldActive;
+        this.tabs[oldActive].animate = 'leave' + oldActive;
     }
 
     addTab(tab: TabComponent) {

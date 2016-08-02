@@ -1,16 +1,27 @@
+import {Input, Component, trigger, state, style, transition, animate} from '@angular/core';
 import {TabsComponent} from './tabs.component';
-import {Input, Component} from '@angular/core';
 
 @Component({
     selector: 'sc-tab',
     template: `
-        <div class="col" [hidden]="!active">
+        <div class="content" @anim="animate">
           <ng-content></ng-content>
         </div>
     `,
+    animations: [
+        trigger('anim', [
+            state('default', style({marginLeft: '110%'})),
+            transition('default => *', [
+                style({left: '100%', background: 'blue'}),
+                animate('80ms ease-in', style({
+                    marginLeft: 0
+                }))
+            ])
+        ])
+    ],
     styles: [`
-        col {
-            
+        :host {
+            overflow: hidden;
         }
     `]
 })
@@ -19,6 +30,8 @@ export class TabComponent {
     @Input() title: string;
     @Input() active: boolean;
     @Input() disabled: boolean;
+
+    animate: string = 'default';
 
     position: number;
 
