@@ -3,11 +3,44 @@ import {TabsComponent} from './tabs/tabs.component';
 import {TabComponent} from './tabs/tab.component';
 import {AccordionComponent} from './accordion/accordion.component';
 import {AccordComponent} from './accordion/accord.component';
+import {BlockSliderComponent} from './block-slider/block-slider.component';
+import {BlockComponent} from './block-slider/block.component';
 
 @Component({
     selector: 'app',
-    directives: [TabsComponent, TabComponent, AccordionComponent, AccordComponent],
+    directives: [
+        TabsComponent,
+        TabComponent,
+        AccordionComponent,
+        AccordComponent,
+        BlockSliderComponent,
+        BlockComponent
+    ],
     template: `
+        
+        <div class="block-slider">
+            <sc-block-slider [height]="300" [blockCount]="4">
+                <sc-block>
+                    <p>Test-1</p>
+                </sc-block>
+               <sc-block>
+                    <p>Test-2</p>
+                </sc-block>
+                <sc-block>
+                    <p>Test-3</p>
+                </sc-block>    
+                 <sc-block>
+                    <p>Test-4</p>
+                </sc-block>                    
+                <sc-block>
+                    <p>Test-5</p>
+                </sc-block>                    
+                <sc-block>
+                    <p>Test-6</p>
+                </sc-block>    
+            </sc-block-slider>
+        </div>
+
         <div class="tabs">
             <sc-tabs>
                 <sc-tab title="test-1" [active]="true">
@@ -43,6 +76,13 @@ import {AccordComponent} from './accordion/accord.component';
         </div>
     `,
     styles: [`
+
+        .block-slider {
+            float: left;
+            width: 100%;
+            margin: 50px 0;
+        }
+
         .tabs {
             width: 500px;
             float: left;
