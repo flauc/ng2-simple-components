@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, ElementRef, HostBinding} from '@angular/core';
 import {BlockComponent} from './block.component';
 
+
 @Component({
     selector: 'sc-block-slider',
     styles: [`
@@ -94,10 +95,12 @@ import {BlockComponent} from './block.component';
     `
 })
 
-export class BlockSliderComponent {
+export class BlockSliderComponent implements OnInit {
 
     @Input() blockCount: number = 4;
     @Input() height: number = 400;
+    @Input() startingPosition: number = 0;
+
 
     @HostBinding('style.height') get h() {
         return `${this.height}px`
@@ -107,6 +110,11 @@ export class BlockSliderComponent {
 
     position: number = 0;
     positionStyle: string = '0';
+
+    ngOnInit(): void {
+        this.position = this.startingPosition;
+        this.positionStyle = `-${this.position * this.blockWidth()}%`
+    }
 
     blockWidth(): number {
         return 100 / this.blockCount;
