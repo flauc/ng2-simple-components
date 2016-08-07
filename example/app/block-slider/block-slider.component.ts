@@ -111,6 +111,9 @@ export class BlockSliderComponent implements OnInit {
     position: number = 0;
     positionStyle: string = '0';
 
+    private _segments: number;
+    private _lastSegment: [number, number];
+
     ngOnInit(): void {
         this.position = this.startingPosition;
         this.positionStyle = `-${this.position * this.blockWidth()}%`
@@ -122,16 +125,18 @@ export class BlockSliderComponent implements OnInit {
 
     addBlock(block: BlockComponent) {
         this.blocks.push(block);
+        this._segments = this.blocks.length / this.blockCount;
+        this._lastSegment = [(this._segments - 1) * this.blockCount, this._segments * this.blockCount];
     }
 
     moveLeft() {
-        if (!this.position) this.position = this.blockCount;
+        if (!this.position) this.position = this._lastSegment[0];
         else this.position--;
         this.positionStyle = `-${this.position * this.blockWidth()}%`
     }
 
     moveRight() {
-        if (this.position === this.blockCount) this.position = 0;
+        if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1]) this.position = 0;
         else this.position++;
         this.positionStyle = `-${this.position * this.blockWidth()}%`
     }

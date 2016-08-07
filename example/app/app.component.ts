@@ -19,7 +19,7 @@ import {BlockComponent} from './block-slider/block.component';
     template: `
         
         <div class="block-slider">
-            <sc-block-slider [height]="300" [blockCount]="4">
+            <sc-block-slider [height]="300" [blockCount]="3">
                 <sc-block>
                     <p>Test-1</p>
                 </sc-block>
