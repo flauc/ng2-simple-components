@@ -7,9 +7,13 @@ import {AccordionComponent} from './accordion/accordion.component';
 import {BlockSliderComponent} from './block-slider/block-slider.component';
 import {TabComponent} from './tabs/tab.component';
 import {TabsComponent} from './tabs/tabs.component';
+import {SlideToService} from './slide-to/slide-to.service';
 
 @NgModule({
     imports: [BrowserModule],
+    providers: [
+        SlideToService
+    ],
     declarations: [
         TabsComponent,
         TabComponent,

@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {SlideToService} from './slide-to/slide-to.service';
 @Component({
     selector: 'app',
     template: `
-        
+        <button (click)="goTo(slide)">bla</button>
         <div class="block-slider">
             <sc-block-slider [height]="300" [blockCount]="3">
                 <sc-block>
@@ -59,6 +60,10 @@ import {Component} from '@angular/core';
                 </sc-accord>
             </sc-accordion>
         </div>
+        
+        <div class="slideToTest" #slide>
+        
+        </div>
     `,
     styles: [`
 
@@ -78,9 +83,22 @@ import {Component} from '@angular/core';
             width: 100%;
             float: left;
         }
+        
+        .slideToTest {
+            height: 500px;
+            width: 100%;
+            background: #0000AA;
+            float: left;
+        }
     `]
 })
 
 export class AppComponent {
+    constructor(
+        private _slide: SlideToService
+    ) {}
 
+    goTo(el) {
+        this._slide.toElement(el);
+    }
 }
