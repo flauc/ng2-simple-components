@@ -1,21 +1,6 @@
 import {Component} from '@angular/core';
-import {TabsComponent} from './tabs/tabs.component';
-import {TabComponent} from './tabs/tab.component';
-import {AccordionComponent} from './accordion/accordion.component';
-import {AccordComponent} from './accordion/accord.component';
-import {BlockSliderComponent} from './block-slider/block-slider.component';
-import {BlockComponent} from './block-slider/block.component';
-
 @Component({
     selector: 'app',
-    directives: [
-        TabsComponent,
-        TabComponent,
-        AccordionComponent,
-        AccordComponent,
-        BlockSliderComponent,
-        BlockComponent
-    ],
     template: `
         
         <div class="block-slider">
