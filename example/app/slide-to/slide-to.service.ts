@@ -48,7 +48,6 @@ export class SlideToService {
             elm = elm.offsetParent;
             y += el.offsetTop;
         }
-
         return y;
     }
 

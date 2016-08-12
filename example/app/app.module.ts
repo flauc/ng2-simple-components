@@ -8,6 +8,7 @@ import {BlockSliderComponent} from './block-slider/block-slider.component';
 import {TabComponent} from './tabs/tab.component';
 import {TabsComponent} from './tabs/tabs.component';
 import {SlideToService} from './slide-to/slide-to.service';
+import {ScAnimationDirective} from './on-position/sc-animation.directive';
 
 @NgModule({
     imports: [BrowserModule],
@@ -15,6 +16,7 @@ import {SlideToService} from './slide-to/slide-to.service';
         SlideToService
     ],
     declarations: [
+        ScAnimationDirective,
         TabsComponent,
         TabComponent,
         AccordionComponent,

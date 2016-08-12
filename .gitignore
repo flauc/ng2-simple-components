@@ -3,6 +3,7 @@ node_modules
 typings
 example/node_modules
 example/app/**/**.js
+example/app/**/**.js.map
 .idea
 .npmignore
 lib

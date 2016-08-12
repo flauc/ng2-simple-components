@@ -1,7 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, style, animate, transition, state, trigger} from '@angular/core';
 import {SlideToService} from './slide-to/slide-to.service';
 @Component({
     selector: 'app',
+    animations: [
+        trigger('anim', [
+            state('reached', style({background: 'red'})),
+            transition('* => reached', [
+                style({background: 'blue'}),
+                animate('300ms ease-in-out', style({background: 'red'}))
+            ])
+        ])
+    ],
     template: `
         <button (click)="goTo(slide)">bla</button>
         <div class="block-slider">
@@ -61,9 +70,17 @@ import {SlideToService} from './slide-to/slide-to.service';
             </sc-accordion>
         </div>
         
-        <div class="slideToTest" #slide>
-        
+        <div class="slideToTest"
+            #slide
+            [@anim]="slide.animationState" 
+            (click)="slide.animationState = 'reached'"
+            scAnimation 
+            [refEl]="slide">
         </div>
+        
+        <div class="slideToTest green"></div>
+        <div class="slideToTest green"></div>
+        <div class="slideToTest green"></div>
     `,
     styles: [`
 
@@ -89,6 +106,10 @@ import {SlideToService} from './slide-to/slide-to.service';
             width: 100%;
             background: #0000AA;
             float: left;
+        }
+        
+        .green {
+            background: green;
         }
     `]
 })
