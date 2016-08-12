@@ -3,7 +3,7 @@ import {Directive, HostListener, ElementRef, Input, Output, EventEmitter} from '
 @Directive({
     selector: '[scAnimation]'
 })
-export class ScAnimationDirective {
+export class AnimationDirective {
 
     @Input() refEl: any;
 
