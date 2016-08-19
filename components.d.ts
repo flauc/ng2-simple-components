@@ -1,3 +1,9 @@
 export declare class TabsModule {}
 export declare class TabsComponent {}
 export declare class TabComponent {}
+export declare class AccordionModule {}
+export declare class AccordionComponent {}
+export declare class AccordComponent {}
+export declare class BlockSliderModule {}
+export declare class BlockSliderComponent {}
+export declare class BlockComponent {}

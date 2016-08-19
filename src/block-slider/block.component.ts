@@ -34,7 +34,6 @@ export class BlockComponent implements OnInit {
     ngOnInit(): void {
         this.width = this._blocksSliderComp.blockWidth();
         this.index = this._blocksSliderComp.blocks.length;
-        console.log(this.index);
         this._blocksSliderComp.addBlock(this)
     }
 }

@@ -98,13 +98,7 @@ import {BlockComponent} from './block.component';
 export class BlockSliderComponent implements OnInit {
 
     @Input() blockCount: number = 4;
-    @Input() height: number = 400;
     @Input() startingPosition: number = 0;
-
-
-    @HostBinding('style.height') get h() {
-        return `${this.height}px`
-    }
 
     blocks: BlockComponent[] = [];
 

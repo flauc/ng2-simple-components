@@ -14,7 +14,7 @@ import {SlideToService} from './slide-to/slide-to.service';
     template: `
         <button (click)="goTo(slide)">bla</button>
         <div class="block-slider">
-            <sc-block-slider [height]="300" [blockCount]="3">
+            <sc-block-slider [blockCount]="3">
                 <sc-block>
                     <p>Test-1</p>
                 </sc-block>
@@ -88,6 +88,7 @@ import {SlideToService} from './slide-to/slide-to.service';
             float: left;
             width: 100%;
             margin: 50px 0;
+            height: 300px;
         }
 
         .tabs {

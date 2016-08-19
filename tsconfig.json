@@ -18,6 +18,9 @@
     "src/tabs/tab.component.ts",
     "src/accordion/accord.component.ts",
     "src/accordion/accordion.component.ts",
-    "src/accordion/accordion.module.ts"
+    "src/accordion/accordion.module.ts",
+    "src/block-slider/block-slider.module.ts",
+    "src/block-slider/block-slider.component.ts",
+    "src/block-slider/block.component.ts"
   ]
 }

@@ -4,3 +4,6 @@ exports.TabComponent = require('./lib/tabs/tab.component').TabComponent;
 exports.AccordionModule = require('./lib/accordion/accordion.module').AccordionModule;
 exports.AccordionComponent = require('./lib/accordion/accordion.component').AccordionComponent;
 exports.AccordComponent = require('./lib/accordion/accord.component').AccordComponent;
+exports.BlockSliderModule = require('./lib/block-slider/block-slider.module').BlockSliderModule;
+exports.BlockSliderComponent = require('./lib/block-slider/block-slider.component').BlockSliderComponent;
+exports.BlockComponent = require('./lib/block-slider/block.component').BlockComponent;
