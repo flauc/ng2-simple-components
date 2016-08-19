@@ -36,9 +36,9 @@ var packages = {
 
 ## Components
 
-* [Tabs](https://github.com/flauc/angular2-notifications/tree/master/docs/tabs.md)
-* [Accordion](https://github.com/flauc/angular2-notifications/tree/master/docs/accordion.md)
-* [Block Slider](https://github.com/flauc/angular2-notifications/tree/master/docs/block-slider.md)
+* [Tabs](https://github.com/flauc/ng2-simple-components/blob/master/docs/tabs.md)
+* [Accordion](https://github.com/flauc/ng2-simple-components/blob/master/docs/accordion.md)
+* [Block Slider](https://github.com/flauc/ng2-simple-components/blob/master/docs/block-slider.md)
 
 ## Overriding Styles
 
