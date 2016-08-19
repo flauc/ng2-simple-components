@@ -8,7 +8,7 @@ import {AccordionComponent} from './accordion.component';
             <div class="bar">
                 <span>{{title}}</span>
             </div>
-            <div class="inner" @anim="inner">
+            <div class="inner" [@anim]="inner">
                 <div class="pad">
                     <ng-content></ng-content>
                 </div>
