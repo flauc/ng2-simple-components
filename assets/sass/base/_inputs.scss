@@ -1,0 +1,26 @@
+#{$all-text-inputs} {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 1.3rem 1.5rem;
+  display: inline-block;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  font-family: $primary-font;
+  font-weight: 300;
+}
+
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover} {
+  border-bottom: 1px solid $primary-color;
+}
+
+#{$all-text-inputs-active} {
+  border-bottom: 1px solid $primary-color;
+}
+
+.field {
+    display: block;
+    margin-bottom: 2rem;
+}

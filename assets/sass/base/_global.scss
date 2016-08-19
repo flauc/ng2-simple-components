@@ -1,0 +1,52 @@
+
+/*============================
+=          Global            =
+============================*/
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+
+/* Default body styles*/
+body {
+  height: 100%;
+  color: #6d6d6d;
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Set box-sizing globally to handle padding and border widths*/
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+.container {
+  @include outer-container($container-width);
+  margin: auto;
+  position: relative;
+  @include media(max-width 1024px) {
+    padding: 0 30px;
+  }
+  @include media(max-width 480px) {
+    padding: 0 20px;
+  }
+
+}
+
+.title {
+  text-align: center;
+  margin-top: 1rem;
+}

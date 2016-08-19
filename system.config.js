@@ -4,27 +4,20 @@
             'app': 'app',
             '@angular': 'node_modules/@angular',
             'rxjs': 'node_modules/rxjs',
-            'easy-forms': 'node_modules/angular2-easy-forms',
-            // @ngrx/core
-            '@ngrx/core': 'node_modules/@ngrx/core'
+            'ng2-simple-components': 'node_modules/ng2-simple-components'
         },
         packages = {
             'app': { main: 'main.js',  defaultExtension: 'js' },
             'rxjs': { defaultExtension: 'js' },
-            'easy-forms': {main: 'components.js', defaultExtension: 'js'},
-            // @ngrx/core package
-            '@ngrx/core': { main: 'index.js', defaultExtension: 'js'}
+            'ng2-simple-components': {main: 'components.js', defaultExtension: 'js'}
         },
         ngPackageNames = [
             'common',
             'compiler',
             'core',
-            'http',
             'platform-browser',
             'platform-browser-dynamic',
-            'upgrade',
-            'router',
-            'forms'
+            'upgrade'
         ];
 
     function packIndex(pkgName) {packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' }}

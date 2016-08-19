@@ -4,4 +4,4 @@ node_modules
 app/**/**.js
 app/**/**.js.map
 build/temp
-assets
+assets/css
