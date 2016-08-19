@@ -17,7 +17,7 @@ export class AnimationDirective {
     @Output() reached: EventEmitter<any> = new EventEmitter(null);
 
     @HostListener('window:scroll', ['$event']) onScroll() {
-        if (this.refEl.getBoundingClientRect().top + parseFloat(this.offset) <= 0) {
+        if (this.refEl.getBoundingClientRect().top + this.offset <= 0) {
             this._el.nativeElement[this.state] = this.animation;
             this.reached.emit(true)
         }
