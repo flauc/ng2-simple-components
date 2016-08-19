@@ -62,8 +62,8 @@ export class TabComponent implements OnInit {
         }
     };
 
-    @Input() title: string;
-    @Input() disabled: boolean;
+    @Input() title: string = 'Tab';
+    @Input() disabled: boolean = false;
 
     act: boolean = false;
     animate: string = 'default';
