@@ -1,9 +1,7 @@
-npm-debug.log
-node_modules
-typings
-example/node_modules
-example/app/**/**.js
-example/app/**/**.js.map
 .idea
-.npmignore
-lib
+typings
+node_modules
+app/**/**.js
+app/**/**.js.map
+build/temp
+assets

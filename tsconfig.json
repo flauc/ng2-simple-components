@@ -1,26 +1,12 @@
 {
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "removeComments": true,
     "sourceMap": true,
-    "outDir": "./lib",
-    "declaration": true
-  },
-  "files": [
-    "typings/browser.d.ts",
-    "components.d.ts",
-    "src/tabs/tabs.component.ts",
-    "src/tabs/tabs.module.ts",
-    "src/tabs/tab.component.ts",
-    "src/accordion/accord.component.ts",
-    "src/accordion/accordion.component.ts",
-    "src/accordion/accordion.module.ts",
-    "src/block-slider/block-slider.module.ts",
-    "src/block-slider/block-slider.component.ts",
-    "src/block-slider/block.component.ts"
-  ]
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false
+  }
 }
