@@ -5,20 +5,21 @@ import {BlockComponent} from './block-slider/block.component';
 import {AccordComponent} from './accordion/accord.component';
 import {AccordionComponent} from './accordion/accordion.component';
 import {BlockSliderComponent} from './block-slider/block-slider.component';
-import {TabComponent} from './tabs/tab.component';
-import {TabsComponent} from './tabs/tabs.component';
 import {SlideToService} from './slide-to/slide-to.service';
 import {AnimationDirective} from './on-position/animation.directive';
+import {TabsModule} from 'simple-components';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [
+        BrowserModule,
+        TabsModule
+    ],
     providers: [
         SlideToService
     ],
     declarations: [
         AnimationDirective,
-        TabsComponent,
-        TabComponent,
         AccordionComponent,
         AccordComponent,
         BlockSliderComponent,

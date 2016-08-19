@@ -1,13 +1,15 @@
 (function(global) {
     var map = {
-        'app':                        'app', // 'dist',
-        '@angular':                   'node_modules/@angular',
-        'rxjs':                       'node_modules/rxjs'
+        'app': 'app',
+        '@angular': 'node_modules/@angular',
+        'rxjs': 'node_modules/rxjs',
+        'simple-components': 'node_modules/ng2-simple-components'
     };
 
     var packages = {
             'app': {main: 'main.js', defaultExtension: 'js' },
-            'rxjs': {defaultExtension: 'js'}
+            'rxjs': {defaultExtension: 'js'},
+            'simple-components': { main: 'components.js', defaultExtension: 'js' }
         },
         ngPackageNames = [
             'common',

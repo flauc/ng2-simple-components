@@ -5,10 +5,10 @@ var gulp = require('gulp'),
             './lib/**',
             './src/**'
         ],
-        example: './example/node_modules/ng2-simple-component',
+        example: './example/node_modules/ng2-simple-components',
         exampleClean: [
-            './example/node_modules/ng2-simple-component/lib',
-            './example/node_modules/ng2-simple-component/src'
+            './example/node_modules/ng2-simple-components/lib',
+            './example/node_modules/ng2-simple-components/src'
         ]
     };
 

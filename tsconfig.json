@@ -13,7 +13,8 @@
   "files": [
     "typings/browser.d.ts",
     "components.d.ts",
-    "src/tabs/tabs.component",
-    "src/tabs/tab.component"
+    "src/tabs/tabs.component.ts",
+    "src/tabs/tabs.module.ts",
+    "src/tabs/tab.component.ts"
   ]
 }
