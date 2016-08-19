@@ -70,17 +70,17 @@ import {SlideToService} from './slide-to/slide-to.service';
             </sc-accordion>
         </div>
         
-        <div class="slideToTest"
-            #slide
-            [@anim]="slide.animationState" 
-            (click)="slide.animationState = 'reached'"
-            scAnimation 
-            [refEl]="slide">
-        </div>
-        
-        <div class="slideToTest green"></div>
-        <div class="slideToTest green"></div>
-        <div class="slideToTest green"></div>
+        <!--<div class="slideToTest"-->
+            <!--#slide-->
+            <!--[@anim]="slide.animationState" -->
+            <!--(click)="slide.animationState = 'reached'"-->
+            <!--scAnimation -->
+            <!--[refEl]="slide">-->
+        <!--</div>-->
+        <!---->
+        <!--<div class="slideToTest green"></div>-->
+        <!--<div class="slideToTest green"></div>-->
+        <!--<div class="slideToTest green"></div>-->
     `,
     styles: [`
 

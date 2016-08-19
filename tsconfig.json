@@ -12,6 +12,8 @@
   },
   "files": [
     "typings/browser.d.ts",
-    "components.d.ts"
+    "components.d.ts",
+    "src/tabs/tabs.component",
+    "src/tabs/tab.component"
   ]
 }
