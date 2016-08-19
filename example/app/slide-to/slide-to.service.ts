@@ -3,52 +3,43 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class SlideToService {
     toElement(el: any): void {
-        let startY = this._currentYPosition(),
-            stopY = this._elmYPosition(el),
-            distance = stopY > startY ? stopY - startY : startY - stopY;
+        const distance = el.getBoundingClientRect().top,
+            start = this._currentYPosition(),
+            position = start + distance;
 
-        if (distance < 100) {
-            window.scrollTo(0, stopY);
+        if (position < 100) {
+            window.scrollTo(0, position);
             return;
         }
 
-        let speed = Math.round(distance / 100);
+        let speed = Math.abs(Math.round(distance / 100));
 
         if (speed >= 20) speed = 20;
 
         let step = Math.round(distance / 50),
-            leapY = stopY > startY ? startY + step : startY - step,
-            timer = 0;
+            timer = 1,
+            i = start;
 
-        if (stopY > startY) {
-            for (let i = startY; i < stopY; i += step) {
-                this._scrollTo(leapY, timer * speed);
-                leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+        if (step > 0) {
+            while (i < position) {
+                i = (i + step) >= position ? position : i + step;
+                this._scrollTo(i, timer * speed);
+                timer++;
             }
-
-            return;
         }
 
-        for (let i = startY; i > stopY; i -= step) {
-            this._scrollTo(leapY, timer * speed);
-            leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+        else {
+            while (i > position) {
+                i = (i + step) <= position ? position : i + step;
+                this._scrollTo(i, timer * speed);
+                timer++;
+            }
         }
     }
 
     private _scrollTo(pos: number, dur: number): void {
         setTimeout(() => window.scrollTo(0, pos), dur);
         return;
-    }
-
-    private _elmYPosition(el: any): number {
-        let y = el.offsetTop,
-            elm = el;
-
-        while (elm.offsetParent && elm.offsetParent !== document.body) {
-            elm = elm.offsetParent;
-            y += el.offsetTop;
-        }
-        return y;
     }
 
     private _currentYPosition(): number {
