@@ -15,6 +15,10 @@ var gulp = require('gulp'),
     embedTemplates = require('gulp-angular-embed-templates'),
 
     config = {
+
+        // Page name
+        pName: 'ng2-simple-components',
+
         // Sass
         sass: 'assets/sass/**/*.scss',
         sassDest: 'assets/css',
@@ -90,7 +94,7 @@ gulp.task('prod-main', ['prod-base'], () => {
         // appStream = gulp.src(config.buildDir + 'bundle.js', {read: false});
 
     return target
-        .pipe(inject(series(vendorStream, cssStream), {transform: (filepath, file, i, length) => filepath.split('.')[1] === 'css' ? `<link rel="stylesheet" href="${filepath}">` : `<script src="${filepath}" defer async></script>`}))
+        .pipe(inject(series(vendorStream, cssStream), {transform: (filepath, file, i, length) => filepath.split('.')[1] === 'css' ? `<link rel="stylesheet" href="${config.pName}${filepath}">` : `<script src="${config.pName}${filepath}" defer async></script>`}))
         .pipe(gulp.dest(config.clientDir));
 });
 
