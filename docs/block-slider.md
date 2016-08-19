@@ -1,12 +1,12 @@
-# Accordion
-A simple accordion component
+# Block Slider
+A simple block slider component that can also act as a carousel slider.
 
 ## Setup
 
-Import the `TabsModule` in to your `AppModule`
+Import the `BlockSliderModule` in to your `AppModule`
 ```ts
 @NgModule({
-    imports: [BrowserModule, TabsModule],
+    imports: [BrowserModule, BlockSliderModule],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })

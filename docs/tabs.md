@@ -1,5 +1,5 @@
-# Accordion
-A simple accordion component
+# Tabs
+A simple tabs component
 
 ## Setup
 
