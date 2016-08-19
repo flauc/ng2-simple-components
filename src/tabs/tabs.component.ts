@@ -1,4 +1,4 @@
-import {Component, trigger, transition, style, animate} from '@angular/core';
+import {Component, style} from '@angular/core';
 import {TabComponent} from './tab.component';
 
 @Component({
