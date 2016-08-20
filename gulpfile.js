@@ -31,5 +31,6 @@ gulp.task('serve', ['move-example'], () => {
     });
 
     gulp.watch(paths.src, ['move-example']);
-    gulp.watch(paths.example).on('change', browserSync.reload);
+    gulp.watch(paths.example + '/app/**/**').on('change', browserSync.reload);
+    gulp.watch(paths.example + '/node_modules/**/**').on('change', browserSync.reload);
 });

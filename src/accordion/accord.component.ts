@@ -72,7 +72,7 @@ export class AccordComponent {
     inner: string = 'closed';
 
     trigger() {
-        if (!this.locked) this.accordionComp.trigger(this);
+        this.accordionComp.trigger(this);
     }
 
     constructor(

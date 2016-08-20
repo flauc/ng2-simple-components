@@ -57,7 +57,7 @@ import {SlideToService} from './slide-to/slide-to.service';
         
         <div class="accordion">
             <sc-accordion [singleActive]="true">
-                <sc-accord title="test-1">
+                <sc-accord title="test-1" [locked]="true" [active]="true">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto, atque aut autem eaque earum eos eum, ex expedita officia provident quis quo sequi similique ullam veritatis voluptas, voluptates. Deserunt?</p>  
                 </sc-accord>
                 <sc-accord title="test-2">

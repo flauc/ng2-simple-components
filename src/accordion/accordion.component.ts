@@ -24,18 +24,22 @@ export class AccordionComponent {
 
     trigger(accord: AccordComponent) {
 
-        let toSet = !accord.act,
-            state = toSet ? 'open' : 'closed';
+        if (!accord.locked) {
+            let toSet = !accord.act,
+                state = toSet ? 'open' : 'closed';
 
-        if (this.singleActive) {
-            this.accords.forEach(a => {
-                a.act = false;
-                a.inner = 'closed';
-            })
+            if (this.singleActive) {
+                this.accords.forEach(a => {
+                    if (!a.locked) {
+                        a.act = false;
+                        a.inner = 'closed';
+                    }
+                })
+            }
+
+            accord.act = toSet;
+            accord.inner = state;
         }
-
-        accord.act = toSet;
-        accord.inner = state;
     }
 
     addAccord(accord: AccordComponent) {
