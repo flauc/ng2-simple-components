@@ -48,8 +48,7 @@ var gulp = require('gulp'),
 
         tsFiles: 'app/**/**.js',
         tsConfig: 'tsconfig.json',
-        buildDir: 'build/',
-        browserSyncTarger: 'http://localhost:2000'
+        buildDir: 'build/'
 
     };
 
@@ -144,16 +143,16 @@ gulp.task('dev-build', ['sass'], () => {
         .pipe(gulp.dest(config.clientDir));
 });
 
-// Static Server + watching scss/html files
+
 gulp.task('serve', ['sass'], () => {
 
     browserSync.init({
-        proxy: {
-            target: config.browserSyncTarger,
-            ws: true
+        server: {
+            baseDir: "./",
+            index: "index.html"
         }
     });
 
     gulp.watch(config.sass, ['sass']);
-    gulp.watch(config.clientDir + "app/**/**.html").on('change', browserSync.reload);
+    gulp.watch(config.clientDir + "app/**/**").on('change', browserSync.reload);
 });
