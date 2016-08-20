@@ -8,7 +8,7 @@ import {TabComponent} from './tab.component';
           <div class="col" 
             *ngFor="let tab of tabs"
             [class.disabled]="tab.disabled"
-            [class.active]="tab.active"
+            [class.active]="tab.act"
             [ngStyle]="{flex: tabs.length}" 
             (click)="selectTab(tab, i)">
                 {{tab.title}}

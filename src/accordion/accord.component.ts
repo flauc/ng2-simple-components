@@ -4,7 +4,7 @@ import {AccordionComponent} from './accordion.component';
 @Component({
     selector: 'sc-accord',
     template: `
-        <div class="accord">
+        <div class="accord" [class.active]="act">
             <div class="bar" (click)="trigger()">
                 <span>{{title}}</span>
             </div>
