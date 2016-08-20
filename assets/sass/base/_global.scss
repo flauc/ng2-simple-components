@@ -37,7 +37,7 @@ img {
   @include outer-container($container-width);
   margin: auto;
   position: relative;
-  @include media(max-width 1024px) {
+  @include media(max-width $container-width) {
     padding: 0 30px;
   }
   @include media(max-width 480px) {
@@ -46,7 +46,35 @@ img {
 
 }
 
+pre {
+  white-space: pre-wrap;
+}
+
 .title {
   text-align: center;
   margin-top: 1rem;
+}
+
+.section-title {
+  margin: 0 25px;
+  padding: 10px 0;
+  display: block;
+  border-bottom: 1px dashed #e5e5e5;
+  text-align: center;
+}
+
+section {
+  background: #81c784;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  margin: 20px 0;
+
+  .inner-wrapper {
+    padding: 25px;
+  }
+}
+
+.example {
+  .example-inner {
+    padding: 25px;
+  }
 }

@@ -33,11 +33,13 @@ var gulp = require('gulp'),
                 'node_modules/core-js/client/shim.min.js',
                 'node_modules/zone.js/dist/zone.js',
                 'node_modules/reflect-metadata/Reflect.js',
-                'node_modules/systemjs/dist/system.src.js'
+                'node_modules/systemjs/dist/system.src.js',
+                'node_modules/prismjs/prism.js',
             ],
 
             css: [
-                'assets/css/main.css'
+                'assets/css/main.css',
+                'node_modules/prismjs/themes/prism.css'
             ]
         },
 
