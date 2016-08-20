@@ -33,7 +33,7 @@ declare const Prism: any;
                                     </sc-tabs>
                                 </div>   
                             </sc-accord>
-                            <sc-accord title="Code">
+                            <sc-accord title="HTML">
                                 <pre class="language-html"><code class="language-html" [innerHTML]="tabs.one"></code></pre>
                             </sc-accord>
                         </sc-accordion>     
@@ -61,7 +61,7 @@ declare const Prism: any;
                                     </sc-accordion>                        
                                 </div>
                             </sc-accord>
-                            <sc-accord title="Code">
+                            <sc-accord title="HTML">
                                 <pre class="language-html"><code class="language-html" [innerHTML]="accord.one"></code></pre>
                             </sc-accord>    
                         </sc-accordion>                            

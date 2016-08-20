@@ -1,7 +1,5 @@
 .idea
 typings
 node_modules
-app/**/**.js
-app/**/**.js.map
 build/temp
 assets/css
