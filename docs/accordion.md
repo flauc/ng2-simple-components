@@ -48,3 +48,4 @@ singleActive | boolean | false | Defines whether one or many `sc-accord` can be 
 --- | --- | --- | ---
 title | string | 'Accord' | Title of the `sc-accord`
 active | boolean | false | Defines whether the `sc-accord` is open by default
+locked | boolean | false | Defines whether the `sc-accord` is locked (locked `sc-accord`-s can't have thair state changed)
