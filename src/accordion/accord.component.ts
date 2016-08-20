@@ -38,6 +38,7 @@ import {AccordionComponent} from './accordion.component';
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
             border-top: 1px solid rgba(0, 0, 0, 0.12);
             cursor: pointer;
+            background: #fff;
         }
         
         span {
@@ -49,7 +50,7 @@ import {AccordionComponent} from './accordion.component';
         
         .inner {
             overflow: hidden;
-            display: inline-block;
+            display: block;
             background: #F6F6F6;
         }
         
