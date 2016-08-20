@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {AccordComponent} from './accord.component';
-import {single} from 'rxjs/operator/single';
 
 @Component({
     selector: 'sc-accordion',

@@ -4,8 +4,8 @@ import {AccordionComponent} from './accordion.component';
 @Component({
     selector: 'sc-accord',
     template: `
-        <div class="accord" (click)="trigger()">
-            <div class="bar">
+        <div class="accord">
+            <div class="bar" (click)="trigger()">
                 <span>{{title}}</span>
             </div>
             <div class="inner" [@anim]="inner">
@@ -62,6 +62,7 @@ import {AccordionComponent} from './accordion.component';
 export class AccordComponent {
 
     @Input() title: string = 'Accord';
+    @Input() locked: boolean = false;
     @Input() set active(act: boolean) {
         this.act = act;
         this.inner = act ? 'open' : 'closed';
@@ -71,7 +72,7 @@ export class AccordComponent {
     inner: string = 'closed';
 
     trigger() {
-        this.accordionComp.trigger(this);
+        if (!this.locked) this.accordionComp.trigger(this);
     }
 
     constructor(

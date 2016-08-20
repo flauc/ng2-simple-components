@@ -2,8 +2,6 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "lite-server",
-    "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -24,8 +22,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings":"^1.0.4"
+    "typings": "^1.0.4"
   }
 }
