@@ -78,7 +78,7 @@ declare const Prism: any;
                             <sc-accord title="Example" [active]="true" [locked]="true">
                                 <div class="example-inner">
                                     <sc-block-slider [blockCount]="3" class="block-example-1">
-                                        <sc-block *ngFor="let pro duct of bco">
+                                        <sc-block *ngFor="let product of bco">
                                             <div class="img-wrapper">
                                                 <img [src]="product.img" alt="">
                                             </div>
