@@ -70,14 +70,16 @@ import {SlideToService} from './slide-to/slide-to.service';
             </sc-accordion>
         </div>
         
-        <sc-select [items]="scItems">
-            <template #scPlaceholder>
-                <p>Bla</p>
-            </template>
-            <template #scListItem let-item="item">
-                {{item.p}}
-            </template>
-        </sc-select>
+        <div class="select">
+            <sc-select [items]="scItems">
+                <!--<template #scPlaceholder>-->
+                    <!--<p>Bla</p>-->
+                <!--</template>-->
+                <template #scListItem let-item="item">
+                    {{item.p}}
+                </template>
+            </sc-select>
+        </div>
         
         <!--<div class="slideToTest"-->
             <!--#slide-->
@@ -120,6 +122,12 @@ import {SlideToService} from './slide-to/slide-to.service';
         
         .green {
             background: green;
+        }
+        
+        .select {
+            margin: 250px 0;
+            width: 100%;
+            float: left;
         }
     `]
 })
