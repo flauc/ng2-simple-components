@@ -7,3 +7,5 @@ export declare class AccordComponent {}
 export declare class BlockSliderModule {}
 export declare class BlockSliderComponent {}
 export declare class BlockComponent {}
+export declare class SelectModule {}
+export declare class SelectComponent {}

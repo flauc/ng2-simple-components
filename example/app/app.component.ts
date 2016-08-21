@@ -70,6 +70,15 @@ import {SlideToService} from './slide-to/slide-to.service';
             </sc-accordion>
         </div>
         
+        <sc-select [items]="scItems">
+            <template #scPlaceholder>
+                <p>Bla</p>
+            </template>
+            <template #scListItem let-item="item">
+                {{item.p}}
+            </template>
+        </sc-select>
+        
         <!--<div class="slideToTest"-->
             <!--#slide-->
             <!--[@anim]="slide.animationState" -->
@@ -116,6 +125,19 @@ import {SlideToService} from './slide-to/slide-to.service';
 })
 
 export class AppComponent {
+
+    scItems: any = [
+        {
+            p: 'test-1'
+        },
+        {
+            p: 'test-2'
+        },
+        {
+            p: 'test-3'
+        }
+    ];
+
     constructor(
         private _slide: SlideToService
     ) {}

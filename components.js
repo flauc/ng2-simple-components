@@ -7,3 +7,5 @@ exports.AccordComponent = require('./lib/accordion/accord.component').AccordComp
 exports.BlockSliderModule = require('./lib/block-slider/block-slider.module').BlockSliderModule;
 exports.BlockSliderComponent = require('./lib/block-slider/block-slider.component').BlockSliderComponent;
 exports.BlockComponent = require('./lib/block-slider/block.component').BlockComponent;
+exports.SelectModule = require('./lib/select/select.module').SelectModule;
+exports.SelectComponent = require('./lib/select/select.component').SelectComponent;

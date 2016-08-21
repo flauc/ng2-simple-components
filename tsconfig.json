@@ -21,6 +21,8 @@
     "src/accordion/accordion.module.ts",
     "src/block-slider/block-slider.module.ts",
     "src/block-slider/block-slider.component.ts",
-    "src/block-slider/block.component.ts"
+    "src/block-slider/block.component.ts",
+    "src/select/select.module.ts",
+    "src/select/select.component.ts"
   ]
 }
