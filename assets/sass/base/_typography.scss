@@ -2,8 +2,12 @@
 =            Typography            =
 ==================================*/
 p {
-	margin-top: 0;
-	margin-bottom: 2rem;
+	margin: 0;
+	line-height: 2.5rem;
+
+	&.ex {
+		margin-bottom: 2rem;
+	}
 }
 
 h1,

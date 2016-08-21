@@ -70,6 +70,35 @@ declare const Prism: any;
             </section>
             <section>
                 <h2 class="section-title">Block Slider</h2>
+                 <div class="inner-wrapper">
+                    <div class="example">
+                        <h3>Basic Example</h3>
+                        <p class="ex">When creating a block slider you should define a height of the element in your style (take a look at the sass code)</p>
+                        <sc-accordion>
+                            <sc-accord title="Example" [active]="true" [locked]="true">
+                                <div class="example-inner">
+                                    <sc-block-slider [blockCount]="3" class="block-example-1">
+                                        <sc-block *ngFor="let product of bco">
+                                            <div class="img-wrapper">
+                                                <img [src]="product.img" alt="">
+                                            </div>
+                                            <p>{{product.p}}</p>
+                                        </sc-block>
+                                    </sc-block-slider>                           
+                                </div>
+                            </sc-accord>
+                            <sc-accord title="JS">
+                                <pre class="language-javascript"><code class="language-javascript" [innerHTML]="block.one.js"></code></pre>
+                            </sc-accord>    
+                           <sc-accord title="HTML">
+                                <pre class="language-html"><code class="language-html" [innerHTML]="block.one.html"></code></pre>
+                            </sc-accord>  
+                           <sc-accord title="SASS">
+                                <pre class="language-scss"><code class="language-scss" [innerHTML]="block.one.scss"></code></pre>
+                            </sc-accord>  
+                        </sc-accordion>                             
+                    </div>
+                 </div>   
             </section>
         </div>
     `
@@ -110,8 +139,89 @@ export class AppComponent implements OnInit {
 </sc-accordion>`
     };
 
+    bco = [
+        {
+            img: 'assets/img/product-1.jpg',
+            p: 'Product 1'
+        },
+        {
+            img: 'assets/img/product-2.jpg',
+            p: 'Product 2'
+        },
+        {
+            img: 'assets/img/product-3.jpg',
+            p: 'Product 3'
+        },
+        {
+            img: 'assets/img/product-4.jpg',
+            p: 'Product 4'
+        },
+        {
+            img: 'assets/img/product-5.jpg',
+            p: 'Product 5'
+        },
+    ];
+
+    block = {
+        one: {
+            html: `<sc-block-slider [blockCount]="3" class="block-example-1">
+    <sc-block *ngFor="let product of bco">
+        <div class="img-wrapper">
+            <img [src]="product.img" alt="">
+        </div>
+        <p>{{product.p}}</p>
+    </sc-block>
+</sc-block-slider>`,
+            js: `bco = [
+    {
+        img: 'assets/img/product-1.jpg',
+        p: 'Product 1'
+    },
+    {
+        img: 'assets/img/product-2.jpg',
+        p: 'Product 2'
+    },
+    {
+        img: 'assets/img/product-3.jpg',
+        p: 'Product 3'
+    },
+    {
+        img: 'assets/img/product-4.jpg',
+        p: 'Product 4'
+    },
+    {
+        img: 'assets/img/product-5.jpg',
+        p: 'Product 5'
+    },
+]`,
+            scss: `.block-example-1 {
+  height: 250px;
+  background: #fff;
+
+  .img-wrapper {
+    padding: 20px;
+    box-sizing: border-box;
+    height: 200px;
+    text-align: center;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+}`
+        }
+    };
+
     ngOnInit(): void {
         this.tabs.one = Prism.highlight(this.tabs.one, Prism.languages.markup);
-        this.accord.one = Prism.highlight(this.accord.one, Prism.languages.markup)
+        this.accord.one = Prism.highlight(this.accord.one, Prism.languages.markup);
+        this.block.one.html = Prism.highlight(this.block.one.html, Prism.languages.markup);
+        this.block.one.js = Prism.highlight(this.block.one.js, Prism.languages.javascript);
+        this.block.one.scss = Prism.highlight(this.block.one.scss, Prism.languages.css);
     }
 }

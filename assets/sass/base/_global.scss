@@ -13,7 +13,7 @@ html {
 /* Default body styles*/
 body {
   height: 100%;
-  color: #6d6d6d;
+  color: #333;
   font-family: $primary-font;
   font-size: 1.5rem;
   font-weight: 300;
@@ -76,5 +76,26 @@ section {
 .example {
   .example-inner {
     padding: 25px;
+  }
+}
+
+.block-example-1 {
+  height: 250px;
+  background: #fff;
+
+  .img-wrapper {
+    padding: 20px;
+    box-sizing: border-box;
+    height: 200px;
+    text-align: center;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  p {
+    text-align: center;
   }
 }
