@@ -19040,7 +19040,7 @@ $__System.registerDynamic("6", ["3"], true, function($__require, exports, module
         img: 'ng2-simple-components/assets/img/product-4.jpg',
         p: 'Product 4'
       }, {
-        img: 'assets/img/product-5.jpg',
+        img: 'ng2-simple-components/assets/img/product-5.jpg',
         p: 'Product 5'
       }];
       this.block = {one: {

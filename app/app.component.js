@@ -35,7 +35,7 @@ var AppComponent = (function () {
                 p: 'Product 4'
             },
             {
-                img: 'assets/img/product-5.jpg',
+                img: 'ng2-simple-components/assets/img/product-5.jpg',
                 p: 'Product 5'
             },
         ];
