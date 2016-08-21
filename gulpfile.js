@@ -106,7 +106,7 @@ gulp.task('prod-base', ['system-build', 'css-prod', 'font-move'], () => {
 
     return gulp.src(files)
         .pipe(concat('main.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest(config.buildDir))
 });
 
