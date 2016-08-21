@@ -1,4 +1,7 @@
-import {Component, OnInit, Input, Output, EventEmitter, HostBinding, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild} from '@angular/core';
+import {
+    Component, OnInit, Input, Output, EventEmitter, HostBinding, ContentChild, TemplateRef, trigger, state, style,
+    transition, animate, ViewChild, HostListener, ElementRef
+} from '@angular/core';
 
 const animationTime = 200;
 
@@ -70,6 +73,10 @@ export class SelectComponent {
     @ContentChild('scListItem') selectRef: TemplateRef<any>;
     @ContentChild('scPlaceholder') placeholderRef: TemplateRef<any>;
 
+    @HostListener('document:click', ['$event.target']) outsideClick(target) {
+        if (!this._eref.nativeElement.contains(target) && this.animationState === 'open') this.toggle()
+    };
+
     get inSelected(): string {
         if (this.selected) return 'selected';
         if (this.placeholderRef) return 'placeholderRef';
@@ -79,6 +86,8 @@ export class SelectComponent {
 
     animationState: string = 'closed';
     topPosition: string = '0';
+
+    constructor(private _eref: ElementRef) { }
 
     select(index: number): void {
         this.selected = this.items[index];
