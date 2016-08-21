@@ -71,12 +71,13 @@ import {SlideToService} from './slide-to/slide-to.service';
         </div>
         
         <div class="select">
-            <sc-select [items]="scItems">
+            <sc-select [items]="scItems" [(selected)]="selectedItem">
                 <!--<template #scPlaceholder>-->
                     <!--<p>Bla</p>-->
                 <!--</template>-->
                 <template #scListItem let-item="item">
-                    {{item.p}}
+                    <h1>{{item.p}}</h1>
+                    <p>{{item.proba}}</p>
                 </template>
             </sc-select>
         </div>
@@ -136,15 +137,35 @@ export class AppComponent {
 
     scItems: any = [
         {
-            p: 'test-1'
+            p: 'test-1',
+            proba: 'blabla'
         },
         {
-            p: 'test-2'
+            p: 'test-2',
+            proba: 'blabla'
         },
         {
-            p: 'test-3'
+            p: 'test-3',
+            proba: 'blabla'
+        },
+        {
+            p: 'test-3',
+            proba: 'blabla'
+        },
+        {
+            p: 'test-3',
+            proba: 'blabla'
+        },
+        {
+            p: 'test-3',
+            proba: 'blabla'
+        },
+        {
+            p: 'test-3',
+            proba: 'blabla'
         }
     ];
+    selectedItem = this.scItems[0];
 
     constructor(
         private _slide: SlideToService
