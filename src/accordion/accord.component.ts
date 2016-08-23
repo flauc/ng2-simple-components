@@ -1,7 +1,7 @@
 import {Component, Input, style, state, trigger, transition, animate} from '@angular/core';
 import {AccordionComponent} from './accordion.component';
 
-const animationTime = 3000;
+const animationTime = 300;
 
 @Component({
     selector: 'sc-accord',
@@ -62,6 +62,7 @@ export class AccordComponent {
     @Input() locked: boolean = false;
     @Input() set active(act: boolean) {
         this.act = act;
+        this.hasOverflow = !act;
         this.inner = act ? 'open' : 'closed';
     };
 
