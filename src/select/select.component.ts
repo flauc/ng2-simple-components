@@ -70,6 +70,8 @@ export class SelectComponent {
     @Input() placeholder: string = null;
     @Input() maxHeight: number = 250;
 
+    @Output() state: EventEmitter<string> = new EventEmitter();
+
     @ViewChild('selection') selectionEL: any;
 
     @ContentChild('scListItem') selectRef: TemplateRef<any>;
@@ -108,6 +110,7 @@ export class SelectComponent {
 
     toggle(): void {
         this.animationState = this.animationState === 'closed' ? 'open' : 'closed';
+        this.state.emit(this.animationState);
     }
 
     private _createDisplay(index?: number) {
