@@ -111,7 +111,7 @@ declare const Prism: any;
                                 <div class="example-inner">
                                     <sc-select [items]="scItems" [(selected)]="selectedItem">
                                         <template #scPlaceholder>
-                                            <img src="assets/img/select/astronaut.svg">
+                                            <img src="ng2-simple-components/assets/img/select/astronaut.svg">
                                             <h1>John Doe</h1>
                                             <p>I'm a cool guy</p>
                                         </template>
@@ -311,12 +311,12 @@ export class AppComponent implements OnInit {
 
     scItems = [
         {
-            img: 'assets/img/select/doctor.svg',
+            img: 'ng2-simple-components/assets/img/select/doctor.svg',
             name: 'Tony Stark',
             about: `I'm a cool guy`
         },
         {
-            img: 'assets/img/select/detective.svg',
+            img: 'ng2-simple-components/assets/img/select/detective.svg',
             name: 'Mr. Smith',
             about: `I'm a cool guy`
         }
