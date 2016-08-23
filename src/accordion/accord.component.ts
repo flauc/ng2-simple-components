@@ -1,6 +1,8 @@
 import {Component, Input, style, state, trigger, transition, animate} from '@angular/core';
 import {AccordionComponent} from './accordion.component';
 
+const animationTime = 3000;
+
 @Component({
     selector: 'sc-accord',
     template: `
@@ -8,7 +10,7 @@ import {AccordionComponent} from './accordion.component';
             <div class="bar" (click)="trigger()">
                 <span>{{title}}</span>
             </div>
-            <div class="inner" [@anim]="inner">
+            <div class="inner" [@anim]="inner" [ngClass]="{closed: hasOverflow || inner === 'closed'}">
                 <div class="pad">
                     <ng-content></ng-content>
                 </div>
@@ -19,16 +21,7 @@ import {AccordionComponent} from './accordion.component';
         trigger('anim', [
             state('open', style({height: '*'})),
             state('closed', style({height: 0})),
-
-            transition('closed => open', [
-                style({height: 0}),
-                animate('300ms ease-in-out', style({height: '*'}))
-            ]),
-
-            transition('open => closed', [
-                style({height: '*'}),
-                animate('300ms ease-in-out', style({height: 0}))
-            ])
+            transition('closed <=> open', animate(`${animationTime}ms ease-in-out`))
         ])
     ],
     styles:  [`  
@@ -49,9 +42,12 @@ import {AccordionComponent} from './accordion.component';
         }
         
         .inner {
-            overflow: hidden;
             display: block;
             background: #F6F6F6;
+        }
+        
+        .inner.closed {
+            overflow: hidden;
         }
         
         .pad {
@@ -71,8 +67,11 @@ export class AccordComponent {
 
     act: boolean = false;
     inner: string = 'closed';
+    hasOverflow: boolean = true;
 
     trigger() {
+        this.hasOverflow = true;
+        setTimeout(() => this.hasOverflow = this.inner === 'closed', animationTime);
         this.accordionComp.trigger(this);
     }
 

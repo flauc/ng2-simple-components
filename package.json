@@ -1,6 +1,6 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
   "scripts": {
     "build": "typings install && tsc"
