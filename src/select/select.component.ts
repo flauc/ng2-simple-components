@@ -24,8 +24,12 @@ const animationTime = 300;
         .selected .ph {
             text-align: center;
             margin: 0;
-            padding: 10px 15px;
+            padding: 0.5rem 1rem;
             font-size: 1.1rem;
+        }
+        
+        .selected .wp {
+            padding: 0.5rem 1rem;
         }
         
         .selection {
@@ -37,24 +41,15 @@ const animationTime = 300;
             box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
         }
         
-        .selection.active {
-            border-top: 1px dashed #ccc;
-        }
+        .selection.active { border-top: 1px dashed #ccc; }
+        .item { padding: 0.5rem 1rem; }
     `],
     template: `
         <div class="selected" [ngSwitch]="inSelected" (click)="toggle()">
-            <div *ngSwitchCase="'selected'">
-                <template [ngTemplateOutlet]="selectRef" [ngOutletContext]="{item: selected, index: -1}"></template>    
-            </div>
-            <div *ngSwitchCase="'placeholderRef'">
-                <template [ngTemplateOutlet]="placeholderRef"></template>               
-            </div>
-            <div *ngSwitchCase="'placeholder'">
-                <p class="ph">{{placeholder}}</p>
-            </div>     
-            <div *ngSwitchCase="'none'">
-                <p class="ph">Select Something</p>
-            </div>                     
+            <div *ngSwitchCase="'selected'" class="wp"><template [ngTemplateOutlet]="selectRef" [ngOutletContext]="{item: selected, index: -1}"></template></div>
+            <div *ngSwitchCase="'placeholderRef'" class="wp"><template [ngTemplateOutlet]="placeholderRef"></template></div>
+            <p *ngSwitchCase="'placeholder'" class="ph">{{placeholder}}</p>   
+            <p *ngSwitchCase="'none'" class="ph">Select Something</p>                    
         </div>
         <div class="selection" #selection  [@select]="animationState" [ngStyle]="{'max-height': styleMaxHeight}" [class.active]="animationState === 'open'">
             <div class="item" *ngFor="let item of itemsToDisplay; let i = index" (click)="select(i)">
