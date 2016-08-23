@@ -44,6 +44,11 @@ var packages = {
 
 ## FAQ
 
+### I only need one module for my project, does it make any sense to install the entire library?
+
+You can still install and use this library with out any fear from accumulating unused code. 
+You only import the module that you need in to your project.
+
 ## Help and Suggestions 
 
 Any help and/or suggestions are welcome and greatly appreciated. 
