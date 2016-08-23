@@ -99,3 +99,27 @@ section {
     text-align: center;
   }
 }
+
+sc-select {
+  .wrapper {
+    height: 70px;
+
+    img {
+      height: 100%;
+      width: auto;
+      padding: 5px;
+      float: left;
+    }
+
+    h1 {
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 80px;
+      font-size: 18px;
+    }
+
+    p {
+      padding-left: 80px;
+    }
+  }
+}

@@ -19048,6 +19048,21 @@ $__System.registerDynamic("6", ["3"], true, function($__require, exports, module
           js: "bco = [\n    {\n        img: 'assets/img/product-1.jpg',\n        p: 'Product 1'\n    },\n    {\n        img: 'assets/img/product-2.jpg',\n        p: 'Product 2'\n    },\n    {\n        img: 'assets/img/product-3.jpg',\n        p: 'Product 3'\n    },\n    {\n        img: 'assets/img/product-4.jpg',\n        p: 'Product 4'\n    },\n    {\n        img: 'assets/img/product-5.jpg',\n        p: 'Product 5'\n    },\n]",
           scss: ".block-example-1 {\n  height: 250px;\n  background: #fff;\n\n  .img-wrapper {\n    padding: 20px;\n    box-sizing: border-box;\n    height: 200px;\n    text-align: center;\n\n    img {\n      height: 100%;\n      width: auto;\n    }\n  }\n\n  p {\n    text-align: center;\n  }\n}"
         }};
+      this.select = {one: {
+          html: "<sc-select [items]=\"scItems\" [(selected)]=\"selectedItem\">\n    <template #scPlaceholder>\n        <img src=\"assets/img/select/astronaut.svg\">\n        <h1>John Doe</h1>\n        <p>I'm a cool guy</p>\n    </template>\n    <template #scListItem let-item=\"item\">\n        <div class=\"wrapper\">\n            <img [src]=\"item.img\">\n            <h1>{{item.name}}</h1>\n            <p>{{item.about}}</p>\n        </div>\n    </template>\n</sc-select>",
+          js: "scItems = [\n    {\n        img: 'assets/img/select/doctor.svg',\n        name: 'Tony Stark',\n        about: 'Im a cool guy'\n    },\n    {\n        img: 'assets/img/select/detective.svg',\n        name: 'Mr. Smith',\n        about: 'Im a cool guy'\n    }\n]",
+          scss: "sc-select {\n  .wrapper {\n    height: 70px;\n\n    img {\n      height: 100%;\n      width: auto;\n      padding: 5px;\n      float: left;\n    }\n\n    h1 {\n      margin: 0;\n      padding-top: 15px;\n      padding-left: 80px;\n      font-size: 18px;\n    }\n\n    p {\n      padding-left: 80px;\n    }\n  }\n}"
+        }};
+      this.scItems = [{
+        img: 'assets/img/select/doctor.svg',
+        name: 'Tony Stark',
+        about: "I'm a cool guy"
+      }, {
+        img: 'assets/img/select/detective.svg',
+        name: 'Mr. Smith',
+        about: "I'm a cool guy"
+      }];
+      this.selectedItem = this.scItems[0];
     }
     AppComponent.prototype.ngOnInit = function() {
       this.tabs.one = Prism.highlight(this.tabs.one, Prism.languages.markup);
@@ -19055,10 +19070,13 @@ $__System.registerDynamic("6", ["3"], true, function($__require, exports, module
       this.block.one.html = Prism.highlight(this.block.one.html, Prism.languages.markup);
       this.block.one.js = Prism.highlight(this.block.one.js, Prism.languages.javascript);
       this.block.one.scss = Prism.highlight(this.block.one.scss, Prism.languages.css);
+      this.select.one.html = Prism.highlight(this.select.one.html, Prism.languages.markup);
+      this.select.one.js = Prism.highlight(this.select.one.js, Prism.languages.javascript);
+      this.select.one.scss = Prism.highlight(this.select.one.scss, Prism.languages.css);
     };
     AppComponent = __decorate([core_1.Component({
       selector: 'sc-app',
-      template: "\n        <div class=\"container\">\n            <h1 class=\"title\">Ng2 Simple Components</h1>\n            <section>\n                <h2 class=\"section-title\">Tabs</h2>\n                <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-tabs>\n                                        <sc-tab title=\"Tab 1\" [active]=\"true\">\n                                            <h1>Tab 1</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                        </sc-tab>\n                                        <sc-tab title=\"Tab 2\">\n                                            <h1>Tab 2</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid deleniti dignissimos earum excepturi fugiat minima molestias quibusdam reprehenderit tenetur. Ducimus explicabo facilis ipsam, pariatur reiciendis tempore unde vel voluptate!</p>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi aut deserunt dicta fugit iste laboriosam pariatur veniam, voluptate voluptatem! Adipisci commodi consectetur dolores expedita facere nobis odit reprehenderit veritatis?</p>\n                                        </sc-tab>\n                                        <sc-tab title=\"Tab 3\">\n                                            <h1>Tab 3</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                        </sc-tab>                             \n                                    </sc-tabs>\n                                </div>   \n                            </sc-accord>\n                            <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"tabs.one\"></code></pre>\n                            </sc-accord>\n                        </sc-accordion>     \n                    </div>                    \n                </div>   \n            </section>        \n            <section>\n                <h2 class=\"section-title\">Accordion</h2>\n                <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-accordion [singleActive]=\"true\">\n                                        <sc-accord title=\"Accord 1\" [active]=\"true\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                        <sc-accord title=\"Accord 2\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                        <sc-accord title=\"Accord 3\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                    </sc-accordion>                        \n                                </div>\n                            </sc-accord>\n                            <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"accord.one\"></code></pre>\n                            </sc-accord>    \n                        </sc-accordion>                            \n                    </div> \n                </div>            \n            </section>\n            <section>\n                <h2 class=\"section-title\">Block Slider</h2>\n                 <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <p class=\"ex\">When creating a block slider you should define a height of the element in your style (take a look at the sass code)</p>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-block-slider [blockCount]=\"3\" class=\"block-example-1\">\n                                        <sc-block *ngFor=\"let product of bco\">\n                                            <div class=\"img-wrapper\">\n                                                <img [src]=\"product.img\" alt=\"\">\n                                            </div>\n                                            <p>{{product.p}}</p>\n                                        </sc-block>\n                                    </sc-block-slider>                           \n                                </div>\n                            </sc-accord>\n                            <sc-accord title=\"JS\">\n                                <pre class=\"language-javascript\"><code class=\"language-javascript\" [innerHTML]=\"block.one.js\"></code></pre>\n                            </sc-accord>    \n                           <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"block.one.html\"></code></pre>\n                            </sc-accord>  \n                           <sc-accord title=\"SASS\">\n                                <pre class=\"language-scss\"><code class=\"language-scss\" [innerHTML]=\"block.one.scss\"></code></pre>\n                            </sc-accord>  \n                        </sc-accordion>                             \n                    </div>\n                 </div>   \n            </section>\n        </div>\n    "
+      template: "\n        <div class=\"container\">\n            <h1 class=\"title\">Ng2 Simple Components</h1>\n            <section>\n                <h2 class=\"section-title\">Tabs</h2>\n                <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-tabs>\n                                        <sc-tab title=\"Tab 1\" [active]=\"true\">\n                                            <h1>Tab 1</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                        </sc-tab>\n                                        <sc-tab title=\"Tab 2\">\n                                            <h1>Tab 2</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid deleniti dignissimos earum excepturi fugiat minima molestias quibusdam reprehenderit tenetur. Ducimus explicabo facilis ipsam, pariatur reiciendis tempore unde vel voluptate!</p>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi aut deserunt dicta fugit iste laboriosam pariatur veniam, voluptate voluptatem! Adipisci commodi consectetur dolores expedita facere nobis odit reprehenderit veritatis?</p>\n                                        </sc-tab>\n                                        <sc-tab title=\"Tab 3\">\n                                            <h1>Tab 3</h1>\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>\n                                        </sc-tab>                             \n                                    </sc-tabs>\n                                </div>   \n                            </sc-accord>\n                            <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"tabs.one\"></code></pre>\n                            </sc-accord>\n                        </sc-accordion>     \n                    </div>                    \n                </div>   \n            </section>        \n            <section>\n                <h2 class=\"section-title\">Accordion</h2>\n                <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-accordion [singleActive]=\"true\">\n                                        <sc-accord title=\"Accord 1\" [active]=\"true\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                        <sc-accord title=\"Accord 2\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                        <sc-accord title=\"Accord 3\">\n                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, debitis delectus eius esse eum in modi nemo quae quaerat recusandae rem sequi sunt vel veritatis voluptates? At debitis nisi nobis?</p>\n                                        </sc-accord>\n                                    </sc-accordion>                        \n                                </div>\n                            </sc-accord>\n                            <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"accord.one\"></code></pre>\n                            </sc-accord>    \n                        </sc-accordion>                            \n                    </div> \n                </div>            \n            </section>\n            <section>\n                <h2 class=\"section-title\">Block Slider</h2>\n                 <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <p class=\"ex\">When creating a block slider you should define a height of the element in your style (take a look at the sass code)</p>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-block-slider [blockCount]=\"3\" class=\"block-example-1\">\n                                        <sc-block *ngFor=\"let product of bco\">\n                                            <div class=\"img-wrapper\">\n                                                <img [src]=\"product.img\" alt=\"\">\n                                            </div>\n                                            <p>{{product.p}}</p>\n                                        </sc-block>\n                                    </sc-block-slider>                           \n                                </div>\n                            </sc-accord>\n                            <sc-accord title=\"JS\">\n                                <pre class=\"language-javascript\"><code class=\"language-javascript\" [innerHTML]=\"block.one.js\"></code></pre>\n                            </sc-accord>    \n                           <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"block.one.html\"></code></pre>\n                            </sc-accord>  \n                           <sc-accord title=\"SASS\">\n                                <pre class=\"language-scss\"><code class=\"language-scss\" [innerHTML]=\"block.one.scss\"></code></pre>\n                            </sc-accord>  \n                        </sc-accordion>                             \n                    </div>\n                 </div>   \n            </section>\n            <section>\n                <h2 class=\"section-title\">Select</h2>\n                 <div class=\"inner-wrapper\">\n                    <div class=\"example\">\n                        <h3>Basic Example</h3>\n                        <p class=\"ex\">It's very easy to create a custom select. You only need to provide a template and style it with css.</p>\n                        <sc-accordion>\n                            <sc-accord title=\"Example\" [active]=\"true\" [locked]=\"true\">\n                                <div class=\"example-inner\">\n                                    <sc-select [items]=\"scItems\" [(selected)]=\"selectedItem\">\n                                        <template #scPlaceholder>\n                                            <img src=\"assets/img/select/astronaut.svg\">\n                                            <h1>John Doe</h1>\n                                            <p>I'm a cool guy</p>\n                                        </template>\n                                        <template #scListItem let-item=\"item\">\n                                            <div class=\"wrapper\">\n                                                <img [src]=\"item.img\">\n                                                <h1>{{item.name}}</h1>\n                                                <p>{{item.about}}</p>\n                                            </div>\n                                        </template>\n                                    </sc-select>                       \n                                </div>\n                            </sc-accord>\n                            <sc-accord title=\"JS\">\n                                <pre class=\"language-javascript\"><code class=\"language-javascript\" [innerHTML]=\"select.one.js\"></code></pre>\n                            </sc-accord>    \n                           <sc-accord title=\"HTML\">\n                                <pre class=\"language-html\"><code class=\"language-html\" [innerHTML]=\"select.one.html\"></code></pre>\n                            </sc-accord>  \n                           <sc-accord title=\"SASS\">\n                                <pre class=\"language-scss\"><code class=\"language-scss\" [innerHTML]=\"select.one.scss\"></code></pre>\n                            </sc-accord>  \n                        </sc-accordion>                             \n                    </div>\n                 </div>   \n            </section>            \n        </div>\n    "
     }), __metadata('design:paramtypes', [])], AppComponent);
     return AppComponent;
   }());
@@ -19413,6 +19431,7 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
   };
   var core_1 = $__require('3');
   var accordion_component_1 = $__require('b');
+  var animationTime = 300;
   var AccordComponent = (function() {
     function AccordComponent(accordionComp) {
       this.accordionComp = accordionComp;
@@ -19420,11 +19439,13 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
       this.locked = false;
       this.act = false;
       this.inner = 'closed';
+      this.hasOverflow = true;
       accordionComp.addAccord(this);
     }
     Object.defineProperty(AccordComponent.prototype, "active", {
       set: function(act) {
         this.act = act;
+        this.hasOverflow = !act;
         this.inner = act ? 'open' : 'closed';
       },
       enumerable: true,
@@ -19432,6 +19453,11 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
     });
     ;
     AccordComponent.prototype.trigger = function() {
+      var _this = this;
+      this.hasOverflow = true;
+      setTimeout(function() {
+        return _this.hasOverflow = _this.inner === 'closed';
+      }, animationTime);
       this.accordionComp.trigger(this);
     };
     __decorate([core_1.Input(), __metadata('design:type', String)], AccordComponent.prototype, "title", void 0);
@@ -19439,9 +19465,9 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
     __decorate([core_1.Input(), __metadata('design:type', Boolean), __metadata('design:paramtypes', [Boolean])], AccordComponent.prototype, "active", null);
     AccordComponent = __decorate([core_1.Component({
       selector: 'sc-accord',
-      template: "\n        <div class=\"accord\" [class.active]=\"act\">\n            <div class=\"bar\" (click)=\"trigger()\">\n                <span>{{title}}</span>\n            </div>\n            <div class=\"inner\" [@anim]=\"inner\">\n                <div class=\"pad\">\n                    <ng-content></ng-content>\n                </div>\n            </div>\n        </div>\n    ",
-      animations: [core_1.trigger('anim', [core_1.state('open', core_1.style({height: '*'})), core_1.state('closed', core_1.style({height: 0})), core_1.transition('closed => open', [core_1.style({height: 0}), core_1.animate('300ms ease-in-out', core_1.style({height: '*'}))]), core_1.transition('open => closed', [core_1.style({height: '*'}), core_1.animate('300ms ease-in-out', core_1.style({height: 0}))])])],
-      styles: ["  \n        .bar {\n            width: 100%;\n            height: 50px;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            border-top: 1px solid rgba(0, 0, 0, 0.12);\n            cursor: pointer;\n            background: #fff;\n        }\n        \n        span {\n            line-height: 50px;\n            padding: 0 1rem;\n            font-size: 1.1rem;\n            text-transform: uppercase;\n        }\n        \n        .inner {\n            overflow: hidden;\n            display: block;\n            background: #F6F6F6;\n        }\n        \n        .pad {\n            padding: 0.5rem 1rem;\n        }\n    "]
+      template: "\n        <div class=\"accord\" [class.active]=\"act\">\n            <div class=\"bar\" (click)=\"trigger()\">\n                <span>{{title}}</span>\n            </div>\n            <div class=\"inner\" [@anim]=\"inner\" [ngClass]=\"{closed: hasOverflow || inner === 'closed'}\">\n                <div class=\"pad\">\n                    <ng-content></ng-content>\n                </div>\n            </div>\n        </div>\n    ",
+      animations: [core_1.trigger('anim', [core_1.state('open', core_1.style({height: '*'})), core_1.state('closed', core_1.style({height: 0})), core_1.transition('closed <=> open', core_1.animate(animationTime + "ms ease-in-out"))])],
+      styles: ["  \n        .bar {\n            width: 100%;\n            height: 50px;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            border-top: 1px solid rgba(0, 0, 0, 0.12);\n            cursor: pointer;\n            background: #fff;\n        }\n        \n        span {\n            line-height: 50px;\n            padding: 0 1rem;\n            font-size: 1.1rem;\n            text-transform: uppercase;\n        }\n        \n        .inner {\n            display: block;\n            background: #F6F6F6;\n        }\n        \n        .inner.closed {\n            overflow: hidden;\n        }\n        \n        .pad {\n            padding: 0.5rem 1rem;\n        }\n    "]
     }), __metadata('design:paramtypes', [accordion_component_1.AccordionComponent])], AccordComponent);
     return AccordComponent;
   }());
@@ -19449,13 +19475,183 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
   return module.exports;
 });
 
-$__System.registerDynamic("d", ["e"], true, function($__require, exports, module) {
+$__System.registerDynamic("d", ["3", "5", "e", "f"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('e');
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var platform_browser_1 = $__require('5');
+  var block_slider_component_1 = $__require('e');
+  var block_component_1 = $__require('f');
+  var BlockSliderModule = (function() {
+    function BlockSliderModule() {}
+    BlockSliderModule = __decorate([core_1.NgModule({
+      imports: [platform_browser_1.BrowserModule],
+      declarations: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
+      exports: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
+      bootstrap: [block_slider_component_1.BlockSliderComponent]
+    }), __metadata('design:paramtypes', [])], BlockSliderModule);
+    return BlockSliderModule;
+  }());
+  exports.BlockSliderModule = BlockSliderModule;
+  return module.exports;
+});
+
+$__System.registerDynamic("e", ["3"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var BlockSliderComponent = (function() {
+    function BlockSliderComponent() {
+      this.blockCount = 4;
+      this.startingPosition = 0;
+      this.blocks = [];
+      this.position = 0;
+      this.positionStyle = '0';
+    }
+    BlockSliderComponent.prototype.ngOnInit = function() {
+      this.position = this.startingPosition;
+      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
+    };
+    BlockSliderComponent.prototype.blockWidth = function() {
+      return 100 / this.blockCount;
+    };
+    BlockSliderComponent.prototype.addBlock = function(block) {
+      this.blocks.push(block);
+      this._segments = this.blocks.length / this.blockCount;
+      this._lastSegment = [(this._segments - 1) * this.blockCount, this._segments * this.blockCount];
+    };
+    BlockSliderComponent.prototype.moveLeft = function() {
+      if (!this.position)
+        this.position = this._lastSegment[0];
+      else
+        this.position--;
+      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
+    };
+    BlockSliderComponent.prototype.moveRight = function() {
+      if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1])
+        this.position = 0;
+      else
+        this.position++;
+      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
+    };
+    __decorate([core_1.Input(), __metadata('design:type', Number)], BlockSliderComponent.prototype, "blockCount", void 0);
+    __decorate([core_1.Input(), __metadata('design:type', Number)], BlockSliderComponent.prototype, "startingPosition", void 0);
+    BlockSliderComponent = __decorate([core_1.Component({
+      selector: 'sc-block-slider',
+      styles: ["\n        :host {\n            display: block;\n            width: 100%;\n            position: relative;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .arrow {\n            height: 100%;\n            position: absolute;\n            width: 5%;\n            top: 0;\n            cursor: pointer;\n        }\n        \n        .arrow.right {\n            right: 0;\n            border-left: 1px solid rgba(0, 0, 0, 0.12);\n        }\n       .arrow.left {\n            left: 0;\n            border-right: 1px solid rgba(0, 0, 0, 0.12);\n        } \n        \n        .arrow .line {\n            position: absolute;\n            top: 50%;\n            width: 3px;\n            height: 14px;\n            transform-origin: 50% 0;\n        }\n        \n        .arrow.right .line { \n            transform: rotate(45deg);\n            left: 60%;\n        }\n        .arrow.right .line:nth-child(2) { transform: translateY(1px) rotate(135deg) }\n        \n        .arrow.left .line { \n            transform: rotate(-45deg);\n            right: 60%;\n        }\n        .arrow.left .line:nth-child(2) { transform: translateY(1px) rotate(-135deg) }\n        \n        .arrow .line:after {\n            content: \"\";\n            position: absolute;\n            left: 0;\n            top: 0;\n            width: 100%;\n            height: 100%;\n            background-color: #888;\n            transition: background-color 0.3s;\n        }       \n        \n        .block-wrapper {\n            width: 90%;\n            display: block;\n            margin: 0 5%;\n            height: 100%;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .slide-wrapper {\n            width: 100%;\n            position: absolute;\n            top: 0;\n            transition: all 0.3s ease-in-out;\n            left: 0;\n            height: 100%;\n        }\n    "],
+      template: "\n        <div class=\"arrow right\" (click)=\"moveRight()\">\n            <span class=\"line\"></span>    \n            <span class=\"line\"></span>    \n        </div>\n        <div class=\"arrow left\" (click)=\"moveLeft()\">\n            <span class=\"line\"></span>    \n            <span class=\"line\"></span>    \n        </div>\n        <div class=\"block-wrapper\">\n            <div class=\"slide-wrapper\" [style.left]=\"positionStyle\" [ngStyle]=\"{'width': blockWidth() * blockCount + '%'}\">\n                <ng-content></ng-content>\n            </div>\n        </div>\n    "
+    }), __metadata('design:paramtypes', [])], BlockSliderComponent);
+    return BlockSliderComponent;
+  }());
+  exports.BlockSliderComponent = BlockSliderComponent;
+  return module.exports;
+});
+
+$__System.registerDynamic("f", ["3", "e"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var block_slider_component_1 = $__require('e');
+  var BlockComponent = (function() {
+    function BlockComponent(_blocksSliderComp) {
+      this._blocksSliderComp = _blocksSliderComp;
+    }
+    Object.defineProperty(BlockComponent.prototype, "w", {
+      get: function() {
+        return this.width + "%";
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(BlockComponent.prototype, "l", {
+      get: function() {
+        return this.width * this.index + "%";
+      },
+      enumerable: true,
+      configurable: true
+    });
+    BlockComponent.prototype.ngOnInit = function() {
+      this.width = this._blocksSliderComp.blockWidth();
+      this.index = this._blocksSliderComp.blocks.length;
+      this._blocksSliderComp.addBlock(this);
+    };
+    __decorate([core_1.HostBinding('style.width'), __metadata('design:type', Object)], BlockComponent.prototype, "w", null);
+    __decorate([core_1.HostBinding('style.left'), __metadata('design:type', Object)], BlockComponent.prototype, "l", null);
+    BlockComponent = __decorate([core_1.Component({
+      selector: 'sc-block',
+      styles: ["\n        :host {\n            height: 100%;\n            position: absolute;\n        }\n    "],
+      template: "\n        <ng-content></ng-content>\n    "
+    }), __metadata('design:paramtypes', [block_slider_component_1.BlockSliderComponent])], BlockComponent);
+    return BlockComponent;
+  }());
+  exports.BlockComponent = BlockComponent;
+  return module.exports;
+});
+
+$__System.registerDynamic("10", ["11"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var root_1 = $__require('11');
   function toPromise(PromiseCtor) {
     var _this = this;
     if (!PromiseCtor) {
@@ -19483,7 +19679,7 @@ $__System.registerDynamic("d", ["e"], true, function($__require, exports, module
   return module.exports;
 });
 
-$__System.registerDynamic("f", ["e", "10"], true, function($__require, exports, module) {
+$__System.registerDynamic("12", ["11", "13"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -19498,8 +19694,8 @@ $__System.registerDynamic("f", ["e", "10"], true, function($__require, exports, 
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var root_1 = $__require('e');
-  var Observable_1 = $__require('10');
+  var root_1 = $__require('11');
+  var Observable_1 = $__require('13');
   var PromiseObservable = (function(_super) {
     __extends(PromiseObservable, _super);
     function PromiseObservable(promise, scheduler) {
@@ -19609,7 +19805,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/core"), require("rxjs/operator/toPromise"), require("rxjs/Subject"), require("rxjs/Observable"), require("rxjs/observable/PromiseObservable")) : "function" == typeof define && define.amd ? define("11", ["exports", "3", "d", "12", "10", "f"], factory) : factory((global.ng = global.ng || {}, global.ng.common = global.ng.common || {}), global.ng.core, global.Rx.Observable.prototype, global.Rx, global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/core"), require("rxjs/operator/toPromise"), require("rxjs/Subject"), require("rxjs/Observable"), require("rxjs/observable/PromiseObservable")) : "function" == typeof define && define.amd ? define("14", ["exports", "3", "10", "15", "13", "12"], factory) : factory((global.ng = global.ng || {}, global.ng.common = global.ng.common || {}), global.ng.core, global.Rx.Observable.prototype, global.Rx, global.Rx, global.Rx);
 }(this, function(exports, _angular_core, rxjs_operator_toPromise, rxjs_Subject, rxjs_Observable, rxjs_observable_PromiseObservable) {
   "use strict";
   function getTypeNameForDebugging(type) {
@@ -22672,7 +22868,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/common"), require("@angular/core"), require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("5", ["exports", "11", "3", "12", "10"], factory) : factory((global.ng = global.ng || {}, global.ng.platformBrowser = global.ng.platformBrowser || {}), global.ng.common, global.ng.core, global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/common"), require("@angular/core"), require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("5", ["exports", "14", "3", "15", "13"], factory) : factory((global.ng = global.ng || {}, global.ng.platformBrowser = global.ng.platformBrowser || {}), global.ng.common, global.ng.core, global.Rx, global.Rx);
 }(this, function(exports, _angular_common, _angular_core, rxjs_Subject, rxjs_Observable) {
   "use strict";
   function isPresent(obj) {
@@ -25890,7 +26086,7 @@ var __extends = this && this.__extends || function(d, b) {
 });
 
 })();
-$__System.registerDynamic("13", ["3", "5", "14", "15"], true, function($__require, exports, module) {
+$__System.registerDynamic("16", ["3", "5", "17"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -25914,23 +26110,22 @@ $__System.registerDynamic("13", ["3", "5", "14", "15"], true, function($__requir
   };
   var core_1 = $__require('3');
   var platform_browser_1 = $__require('5');
-  var block_slider_component_1 = $__require('14');
-  var block_component_1 = $__require('15');
-  var BlockSliderModule = (function() {
-    function BlockSliderModule() {}
-    BlockSliderModule = __decorate([core_1.NgModule({
+  var select_component_1 = $__require('17');
+  var SelectModule = (function() {
+    function SelectModule() {}
+    SelectModule = __decorate([core_1.NgModule({
       imports: [platform_browser_1.BrowserModule],
-      declarations: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
-      exports: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
-      bootstrap: [block_slider_component_1.BlockSliderComponent]
-    }), __metadata('design:paramtypes', [])], BlockSliderModule);
-    return BlockSliderModule;
+      declarations: [select_component_1.SelectComponent],
+      exports: [select_component_1.SelectComponent],
+      bootstrap: [select_component_1.SelectComponent]
+    }), __metadata('design:paramtypes', [])], SelectModule);
+    return SelectModule;
   }());
-  exports.BlockSliderModule = BlockSliderModule;
+  exports.SelectModule = SelectModule;
   return module.exports;
 });
 
-$__System.registerDynamic("16", ["17"], true, function($__require, exports, module) {
+$__System.registerDynamic("18", ["19"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -25945,7 +26140,7 @@ $__System.registerDynamic("16", ["17"], true, function($__require, exports, modu
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var Subscription_1 = $__require('17');
+  var Subscription_1 = $__require('19');
   var SubjectSubscription = (function(_super) {
     __extends(SubjectSubscription, _super);
     function SubjectSubscription(subject, observer) {
@@ -25976,7 +26171,7 @@ $__System.registerDynamic("16", ["17"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("18", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1a", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -25989,7 +26184,7 @@ $__System.registerDynamic("18", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("19", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1b", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26016,7 +26211,7 @@ $__System.registerDynamic("19", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("12", ["10", "1a", "17", "16", "1b", "18", "19"], true, function($__require, exports, module) {
+$__System.registerDynamic("15", ["13", "1c", "19", "18", "1d", "1a", "1b"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26031,13 +26226,13 @@ $__System.registerDynamic("12", ["10", "1a", "17", "16", "1b", "18", "19"], true
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var Observable_1 = $__require('10');
-  var Subscriber_1 = $__require('1a');
-  var Subscription_1 = $__require('17');
-  var SubjectSubscription_1 = $__require('16');
-  var rxSubscriber_1 = $__require('1b');
-  var throwError_1 = $__require('18');
-  var ObjectUnsubscribedError_1 = $__require('19');
+  var Observable_1 = $__require('13');
+  var Subscriber_1 = $__require('1c');
+  var Subscription_1 = $__require('19');
+  var SubjectSubscription_1 = $__require('18');
+  var rxSubscriber_1 = $__require('1d');
+  var throwError_1 = $__require('1a');
+  var ObjectUnsubscribedError_1 = $__require('1b');
   var Subject = (function(_super) {
     __extends(Subject, _super);
     function Subject(destination, source) {
@@ -26214,13 +26409,13 @@ $__System.registerDynamic("12", ["10", "1a", "17", "16", "1b", "18", "19"], true
   return module.exports;
 });
 
-$__System.registerDynamic("1c", ["e"], true, function($__require, exports, module) {
+$__System.registerDynamic("1e", ["11"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('e');
+  var root_1 = $__require('11');
   var Symbol = root_1.root.Symbol;
   if (typeof Symbol === 'function') {
     if (Symbol.observable) {
@@ -26239,7 +26434,7 @@ $__System.registerDynamic("1c", ["e"], true, function($__require, exports, modul
   return module.exports;
 });
 
-$__System.registerDynamic("1d", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1f", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26251,7 +26446,7 @@ $__System.registerDynamic("1d", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1e", [], true, function($__require, exports, module) {
+$__System.registerDynamic("20", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26264,7 +26459,7 @@ $__System.registerDynamic("1e", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1f", [], true, function($__require, exports, module) {
+$__System.registerDynamic("21", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26277,13 +26472,13 @@ $__System.registerDynamic("1f", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("20", ["21"], true, function($__require, exports, module) {
+$__System.registerDynamic("22", ["23"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var errorObject_1 = $__require('21');
+  var errorObject_1 = $__require('23');
   var tryCatchTarget;
   function tryCatcher() {
     try {
@@ -26302,7 +26497,7 @@ $__System.registerDynamic("20", ["21"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("21", [], true, function($__require, exports, module) {
+$__System.registerDynamic("23", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26312,7 +26507,7 @@ $__System.registerDynamic("21", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("22", [], true, function($__require, exports, module) {
+$__System.registerDynamic("24", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26343,18 +26538,18 @@ $__System.registerDynamic("22", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("17", ["1d", "1e", "1f", "20", "21", "22"], true, function($__require, exports, module) {
+$__System.registerDynamic("19", ["1f", "20", "21", "22", "23", "24"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var isArray_1 = $__require('1d');
-  var isObject_1 = $__require('1e');
-  var isFunction_1 = $__require('1f');
-  var tryCatch_1 = $__require('20');
-  var errorObject_1 = $__require('21');
-  var UnsubscriptionError_1 = $__require('22');
+  var isArray_1 = $__require('1f');
+  var isObject_1 = $__require('20');
+  var isFunction_1 = $__require('21');
+  var tryCatch_1 = $__require('22');
+  var errorObject_1 = $__require('23');
+  var UnsubscriptionError_1 = $__require('24');
   var Subscription = (function() {
     function Subscription(unsubscribe) {
       this.isUnsubscribed = false;
@@ -26448,7 +26643,7 @@ $__System.registerDynamic("17", ["1d", "1e", "1f", "20", "21", "22"], true, func
   return module.exports;
 });
 
-$__System.registerDynamic("23", [], true, function($__require, exports, module) {
+$__System.registerDynamic("25", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26465,7 +26660,7 @@ $__System.registerDynamic("23", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1a", ["1f", "17", "1b", "23"], true, function($__require, exports, module) {
+$__System.registerDynamic("1c", ["21", "19", "1d", "25"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26480,10 +26675,10 @@ $__System.registerDynamic("1a", ["1f", "17", "1b", "23"], true, function($__requ
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var isFunction_1 = $__require('1f');
-  var Subscription_1 = $__require('17');
-  var rxSubscriber_1 = $__require('1b');
-  var Observer_1 = $__require('23');
+  var isFunction_1 = $__require('21');
+  var Subscription_1 = $__require('19');
+  var rxSubscriber_1 = $__require('1d');
+  var Observer_1 = $__require('25');
   var Subscriber = (function(_super) {
     __extends(Subscriber, _super);
     function Subscriber(destinationOrNext, error, complete) {
@@ -26663,7 +26858,7 @@ $__System.registerDynamic("1a", ["1f", "17", "1b", "23"], true, function($__requ
   return module.exports;
 });
 
-$__System.registerDynamic("e", [], true, function($__require, exports, module) {
+$__System.registerDynamic("11", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26687,26 +26882,26 @@ $__System.registerDynamic("e", [], true, function($__require, exports, module) {
   return module.exports;
 });
 
-$__System.registerDynamic("1b", ["e"], true, function($__require, exports, module) {
+$__System.registerDynamic("1d", ["11"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('e');
+  var root_1 = $__require('11');
   var Symbol = root_1.root.Symbol;
   exports.$$rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function') ? Symbol.for('rxSubscriber') : '@@rxSubscriber';
   return module.exports;
 });
 
-$__System.registerDynamic("24", ["1a", "1b"], true, function($__require, exports, module) {
+$__System.registerDynamic("26", ["1c", "1d"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var Subscriber_1 = $__require('1a');
-  var rxSubscriber_1 = $__require('1b');
+  var Subscriber_1 = $__require('1c');
+  var rxSubscriber_1 = $__require('1d');
   function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver && typeof nextOrObserver === 'object') {
       if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -26721,15 +26916,15 @@ $__System.registerDynamic("24", ["1a", "1b"], true, function($__require, exports
   return module.exports;
 });
 
-$__System.registerDynamic("10", ["e", "1c", "24"], true, function($__require, exports, module) {
+$__System.registerDynamic("13", ["11", "1e", "26"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('e');
-  var observable_1 = $__require('1c');
-  var toSubscriber_1 = $__require('24');
+  var root_1 = $__require('11');
+  var observable_1 = $__require('1e');
+  var toSubscriber_1 = $__require('26');
   var Observable = (function() {
     function Observable(subscribe) {
       this._isScalar = false;
@@ -26808,7 +27003,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("3", ["exports", "12", "10"], factory) : factory((global.ng = global.ng || {}, global.ng.core = global.ng.core || {}), global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("3", ["exports", "15", "13"], factory) : factory((global.ng = global.ng || {}, global.ng.core = global.ng.core || {}), global.Rx, global.Rx);
 }(this, function(exports, rxjs_Subject, rxjs_Observable) {
   "use strict";
   function scheduleMicroTask(fn) {
@@ -32046,7 +32241,7 @@ var __extends = this && this.__extends || function(d, b) {
 });
 
 })();
-$__System.registerDynamic("14", ["3"], true, function($__require, exports, module) {
+$__System.registerDynamic("17", ["3"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -32069,114 +32264,98 @@ $__System.registerDynamic("14", ["3"], true, function($__require, exports, modul
       return Reflect.metadata(k, v);
   };
   var core_1 = $__require('3');
-  var BlockSliderComponent = (function() {
-    function BlockSliderComponent() {
-      this.blockCount = 4;
-      this.startingPosition = 0;
-      this.blocks = [];
-      this.position = 0;
-      this.positionStyle = '0';
+  var animationTime = 300;
+  var SelectComponent = (function() {
+    function SelectComponent(_eref) {
+      this._eref = _eref;
+      this.selected = null;
+      this.selectedChange = new core_1.EventEmitter();
+      this.placeholder = null;
+      this.maxHeight = 250;
+      this.state = new core_1.EventEmitter();
+      this.animationState = 'closed';
+      this.itemsToDisplay = [];
+      this.itemsOriginal = [];
+      this.topPosition = '0';
     }
-    BlockSliderComponent.prototype.ngOnInit = function() {
-      this.position = this.startingPosition;
-      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
-    };
-    BlockSliderComponent.prototype.blockWidth = function() {
-      return 100 / this.blockCount;
-    };
-    BlockSliderComponent.prototype.addBlock = function(block) {
-      this.blocks.push(block);
-      this._segments = this.blocks.length / this.blockCount;
-      this._lastSegment = [(this._segments - 1) * this.blockCount, this._segments * this.blockCount];
-    };
-    BlockSliderComponent.prototype.moveLeft = function() {
-      if (!this.position)
-        this.position = this._lastSegment[0];
-      else
-        this.position--;
-      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
-    };
-    BlockSliderComponent.prototype.moveRight = function() {
-      if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1])
-        this.position = 0;
-      else
-        this.position++;
-      this.positionStyle = "-" + this.position * this.blockWidth() + "%";
-    };
-    __decorate([core_1.Input(), __metadata('design:type', Number)], BlockSliderComponent.prototype, "blockCount", void 0);
-    __decorate([core_1.Input(), __metadata('design:type', Number)], BlockSliderComponent.prototype, "startingPosition", void 0);
-    BlockSliderComponent = __decorate([core_1.Component({
-      selector: 'sc-block-slider',
-      styles: ["\n        :host {\n            display: block;\n            width: 100%;\n            position: relative;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .arrow {\n            height: 100%;\n            position: absolute;\n            width: 5%;\n            top: 0;\n            cursor: pointer;\n        }\n        \n        .arrow.right {\n            right: 0;\n            border-left: 1px solid rgba(0, 0, 0, 0.12);\n        }\n       .arrow.left {\n            left: 0;\n            border-right: 1px solid rgba(0, 0, 0, 0.12);\n        } \n        \n        .arrow .line {\n            position: absolute;\n            top: 50%;\n            width: 3px;\n            height: 14px;\n            transform-origin: 50% 0;\n        }\n        \n        .arrow.right .line { \n            transform: rotate(45deg);\n            left: 60%;\n        }\n        .arrow.right .line:nth-child(2) { transform: translateY(1px) rotate(135deg) }\n        \n        .arrow.left .line { \n            transform: rotate(-45deg);\n            right: 60%;\n        }\n        .arrow.left .line:nth-child(2) { transform: translateY(1px) rotate(-135deg) }\n        \n        .arrow .line:after {\n            content: \"\";\n            position: absolute;\n            left: 0;\n            top: 0;\n            width: 100%;\n            height: 100%;\n            background-color: #888;\n            transition: background-color 0.3s;\n        }       \n        \n        .block-wrapper {\n            width: 90%;\n            display: block;\n            margin: 0 5%;\n            height: 100%;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .slide-wrapper {\n            width: 100%;\n            position: absolute;\n            top: 0;\n            transition: all 0.3s ease-in-out;\n            left: 0;\n            height: 100%;\n        }\n    "],
-      template: "\n        <div class=\"arrow right\" (click)=\"moveRight()\">\n            <span class=\"line\"></span>    \n            <span class=\"line\"></span>    \n        </div>\n        <div class=\"arrow left\" (click)=\"moveLeft()\">\n            <span class=\"line\"></span>    \n            <span class=\"line\"></span>    \n        </div>\n        <div class=\"block-wrapper\">\n            <div class=\"slide-wrapper\" [style.left]=\"positionStyle\" [ngStyle]=\"{'width': blockWidth() * blockCount + '%'}\">\n                <ng-content></ng-content>\n            </div>\n        </div>\n    "
-    }), __metadata('design:paramtypes', [])], BlockSliderComponent);
-    return BlockSliderComponent;
-  }());
-  exports.BlockSliderComponent = BlockSliderComponent;
-  return module.exports;
-});
-
-$__System.registerDynamic("15", ["3", "14"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var define,
-      global = this || self,
-      GLOBAL = global;
-  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i = decorators.length - 1; i >= 0; i--)
-        if (d = decorators[i])
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-  var __metadata = (this && this.__metadata) || function(k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
-  var core_1 = $__require('3');
-  var block_slider_component_1 = $__require('14');
-  var BlockComponent = (function() {
-    function BlockComponent(_blocksSliderComp) {
-      this._blocksSliderComp = _blocksSliderComp;
-    }
-    Object.defineProperty(BlockComponent.prototype, "w", {
-      get: function() {
-        return this.width + "%";
+    Object.defineProperty(SelectComponent.prototype, "items", {
+      set: function(it) {
+        this.itemsOriginal = it;
+        if (this.selected)
+          this._createDisplay();
       },
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(BlockComponent.prototype, "l", {
+    ;
+    SelectComponent.prototype.outsideClick = function(target) {
+      if (!this._eref.nativeElement.contains(target) && this.animationState === 'open')
+        this.toggle();
+    };
+    ;
+    Object.defineProperty(SelectComponent.prototype, "styleMaxHeight", {
       get: function() {
-        return this.width * this.index + "%";
+        return this.maxHeight + 'px';
       },
       enumerable: true,
       configurable: true
     });
-    BlockComponent.prototype.ngOnInit = function() {
-      this.width = this._blocksSliderComp.blockWidth();
-      this.index = this._blocksSliderComp.blocks.length;
-      this._blocksSliderComp.addBlock(this);
+    Object.defineProperty(SelectComponent.prototype, "inSelected", {
+      get: function() {
+        if (this.selected)
+          return 'selected';
+        if (this.placeholderRef)
+          return 'placeholderRef';
+        if (this.placeholder)
+          return 'placeholder';
+        return 'none';
+      },
+      enumerable: true,
+      configurable: true
+    });
+    SelectComponent.prototype.ngOnInit = function() {
+      console.log('bla', this.itemsToDisplay);
     };
-    __decorate([core_1.HostBinding('style.width'), __metadata('design:type', Object)], BlockComponent.prototype, "w", null);
-    __decorate([core_1.HostBinding('style.left'), __metadata('design:type', Object)], BlockComponent.prototype, "l", null);
-    BlockComponent = __decorate([core_1.Component({
-      selector: 'sc-block',
-      styles: ["\n        :host {\n            height: 100%;\n            position: absolute;\n        }\n    "],
-      template: "\n        <ng-content></ng-content>\n    "
-    }), __metadata('design:paramtypes', [block_slider_component_1.BlockSliderComponent])], BlockComponent);
-    return BlockComponent;
+    SelectComponent.prototype.select = function(index) {
+      this.selected = this.itemsToDisplay[index];
+      this.selectedChange.emit(this.selected);
+      this._createDisplay(index);
+      this.toggle();
+    };
+    SelectComponent.prototype.toggle = function() {
+      this.animationState = this.animationState === 'closed' ? 'open' : 'closed';
+      this.state.emit(this.animationState);
+    };
+    SelectComponent.prototype._createDisplay = function(index) {
+      var ind = index || this.itemsOriginal.indexOf(this.selected);
+      this.itemsToDisplay = this.itemsOriginal.filter(function(a, i) {
+        if (i !== ind)
+          return a;
+      });
+    };
+    __decorate([core_1.Input(), __metadata('design:type', Object)], SelectComponent.prototype, "selected", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "selectedChange", void 0);
+    __decorate([core_1.Input(), __metadata('design:type', Object), __metadata('design:paramtypes', [Object])], SelectComponent.prototype, "items", null);
+    __decorate([core_1.Input(), __metadata('design:type', String)], SelectComponent.prototype, "placeholder", void 0);
+    __decorate([core_1.Input(), __metadata('design:type', Number)], SelectComponent.prototype, "maxHeight", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "state", void 0);
+    __decorate([core_1.ViewChild('selection'), __metadata('design:type', Object)], SelectComponent.prototype, "selectionEL", void 0);
+    __decorate([core_1.ContentChild('scListItem'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "selectRef", void 0);
+    __decorate([core_1.ContentChild('scPlaceholder'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "placeholderRef", void 0);
+    __decorate([core_1.HostListener('document:click', ['$event.target']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], SelectComponent.prototype, "outsideClick", null);
+    SelectComponent = __decorate([core_1.Component({
+      selector: 'sc-select',
+      animations: [core_1.trigger('select', [core_1.state('closed', core_1.style({height: 0})), core_1.state('open', core_1.style({height: '*'})), core_1.transition('closed <=> open', core_1.animate(animationTime + "ms cubic-bezier(.17,.67,0,1)"))])],
+      styles: ["\n        :host {\n            display: block;\n            cursor: pointer;\n            position: relative;\n            width: 200px;\n            background: #fff;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selected .ph {\n            text-align: center;\n            margin: 0;\n            padding: 0.5rem 1rem;\n            font-size: 1.1rem;\n        }\n        \n        .selected .wp {\n            padding: 0.5rem 1rem;\n        }\n        \n        .selection {\n            position: absolute;\n            width: 100%;\n            background: #fff;\n            overflow: auto;\n            top: 100%;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selection.active { border-top: 1px dashed #ccc; }\n        .item { padding: 0.5rem 1rem; }\n    "],
+      template: "\n        <div class=\"selected\" [ngSwitch]=\"inSelected\" (click)=\"toggle()\">\n            <div *ngSwitchCase=\"'selected'\" class=\"wp\"><template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: selected, index: -1}\"></template></div>\n            <div *ngSwitchCase=\"'placeholderRef'\" class=\"wp\"><template [ngTemplateOutlet]=\"placeholderRef\"></template></div>\n            <p *ngSwitchCase=\"'placeholder'\" class=\"ph\">{{placeholder}}</p>   \n            <p *ngSwitchCase=\"'none'\" class=\"ph\">Select Something</p>                    \n        </div>\n        <div class=\"selection\" #selection  [@select]=\"animationState\" [ngStyle]=\"{'max-height': styleMaxHeight}\" [class.active]=\"animationState === 'open'\">\n            <div class=\"item\" *ngFor=\"let item of itemsToDisplay; let i = index\" (click)=\"select(i)\">\n                <template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: item, index: i}\"></template>\n            </div>\n        </div>\n    "
+    }), __metadata('design:paramtypes', [core_1.ElementRef])], SelectComponent);
+    return SelectComponent;
   }());
-  exports.BlockComponent = BlockComponent;
+  exports.SelectComponent = SelectComponent;
   return module.exports;
 });
 
-$__System.registerDynamic("25", ["7", "8", "9", "a", "b", "c", "13", "14", "15"], true, function($__require, exports, module) {
+$__System.registerDynamic("27", ["7", "8", "9", "a", "b", "c", "d", "e", "f", "16", "17"], true, function($__require, exports, module) {
   ;
   var define,
       global = this || self,
@@ -32187,13 +32366,15 @@ $__System.registerDynamic("25", ["7", "8", "9", "a", "b", "c", "13", "14", "15"]
   exports.AccordionModule = $__require('a').AccordionModule;
   exports.AccordionComponent = $__require('b').AccordionComponent;
   exports.AccordComponent = $__require('c').AccordComponent;
-  exports.BlockSliderModule = $__require('13').BlockSliderModule;
-  exports.BlockSliderComponent = $__require('14').BlockSliderComponent;
-  exports.BlockComponent = $__require('15').BlockComponent;
+  exports.BlockSliderModule = $__require('d').BlockSliderModule;
+  exports.BlockSliderComponent = $__require('e').BlockSliderComponent;
+  exports.BlockComponent = $__require('f').BlockComponent;
+  exports.SelectModule = $__require('16').SelectModule;
+  exports.SelectComponent = $__require('17').SelectComponent;
   return module.exports;
 });
 
-$__System.registerDynamic("26", ["3", "5", "6", "25"], true, function($__require, exports, module) {
+$__System.registerDynamic("28", ["3", "5", "6", "27"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -32218,11 +32399,11 @@ $__System.registerDynamic("26", ["3", "5", "6", "25"], true, function($__require
   var core_1 = $__require('3');
   var platform_browser_1 = $__require('5');
   var app_component_1 = $__require('6');
-  var ng2_simple_components_1 = $__require('25');
+  var ng2_simple_components_1 = $__require('27');
   var AppModule = (function() {
     function AppModule() {}
     AppModule = __decorate([core_1.NgModule({
-      imports: [platform_browser_1.BrowserModule, ng2_simple_components_1.TabsModule, ng2_simple_components_1.AccordionModule, ng2_simple_components_1.BlockSliderModule],
+      imports: [platform_browser_1.BrowserModule, ng2_simple_components_1.TabsModule, ng2_simple_components_1.AccordionModule, ng2_simple_components_1.BlockSliderModule, ng2_simple_components_1.SelectModule],
       declarations: [app_component_1.AppComponent],
       bootstrap: [app_component_1.AppComponent]
     }), __metadata('design:paramtypes', [])], AppModule);
@@ -32232,14 +32413,14 @@ $__System.registerDynamic("26", ["3", "5", "6", "25"], true, function($__require
   return module.exports;
 });
 
-$__System.registerDynamic("1", ["4", "26"], true, function($__require, exports, module) {
+$__System.registerDynamic("1", ["4", "28"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
   var platform_browser_dynamic_1 = $__require('4');
-  var app_module_1 = $__require('26');
+  var app_module_1 = $__require('28');
   platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
   return module.exports;
 });

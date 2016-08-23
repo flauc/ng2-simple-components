@@ -100,6 +100,44 @@ declare const Prism: any;
                     </div>
                  </div>   
             </section>
+            <section>
+                <h2 class="section-title">Select</h2>
+                 <div class="inner-wrapper">
+                    <div class="example">
+                        <h3>Basic Example</h3>
+                        <p class="ex">It's very easy to create a custom select. You only need to provide a template and style it with css.</p>
+                        <sc-accordion>
+                            <sc-accord title="Example" [active]="true" [locked]="true">
+                                <div class="example-inner">
+                                    <sc-select [items]="scItems" [(selected)]="selectedItem">
+                                        <template #scPlaceholder>
+                                            <img src="assets/img/select/astronaut.svg">
+                                            <h1>John Doe</h1>
+                                            <p>I'm a cool guy</p>
+                                        </template>
+                                        <template #scListItem let-item="item">
+                                            <div class="wrapper">
+                                                <img [src]="item.img">
+                                                <h1>{{item.name}}</h1>
+                                                <p>{{item.about}}</p>
+                                            </div>
+                                        </template>
+                                    </sc-select>                       
+                                </div>
+                            </sc-accord>
+                            <sc-accord title="JS">
+                                <pre class="language-javascript"><code class="language-javascript" [innerHTML]="select.one.js"></code></pre>
+                            </sc-accord>    
+                           <sc-accord title="HTML">
+                                <pre class="language-html"><code class="language-html" [innerHTML]="select.one.html"></code></pre>
+                            </sc-accord>  
+                           <sc-accord title="SASS">
+                                <pre class="language-scss"><code class="language-scss" [innerHTML]="select.one.scss"></code></pre>
+                            </sc-accord>  
+                        </sc-accordion>                             
+                    </div>
+                 </div>   
+            </section>            
         </div>
     `
 })
@@ -217,11 +255,82 @@ export class AppComponent implements OnInit {
         }
     };
 
+    select = {
+        one: {
+            html: `<sc-select [items]="scItems" [(selected)]="selectedItem">
+    <template #scPlaceholder>
+        <img src="assets/img/select/astronaut.svg">
+        <h1>John Doe</h1>
+        <p>I'm a cool guy</p>
+    </template>
+    <template #scListItem let-item="item">
+        <div class="wrapper">
+            <img [src]="item.img">
+            <h1>{{item.name}}</h1>
+            <p>{{item.about}}</p>
+        </div>
+    </template>
+</sc-select>`,
+            js: `scItems = [
+    {
+        img: 'assets/img/select/doctor.svg',
+        name: 'Tony Stark',
+        about: 'Im a cool guy'
+    },
+    {
+        img: 'assets/img/select/detective.svg',
+        name: 'Mr. Smith',
+        about: 'Im a cool guy'
+    }
+]`,
+            scss: `sc-select {
+  .wrapper {
+    height: 70px;
+
+    img {
+      height: 100%;
+      width: auto;
+      padding: 5px;
+      float: left;
+    }
+
+    h1 {
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 80px;
+      font-size: 18px;
+    }
+
+    p {
+      padding-left: 80px;
+    }
+  }
+}`
+        }
+    };
+
+    scItems = [
+        {
+            img: 'assets/img/select/doctor.svg',
+            name: 'Tony Stark',
+            about: `I'm a cool guy`
+        },
+        {
+            img: 'assets/img/select/detective.svg',
+            name: 'Mr. Smith',
+            about: `I'm a cool guy`
+        }
+    ];
+    selectedItem = this.scItems[0];
+
     ngOnInit(): void {
         this.tabs.one = Prism.highlight(this.tabs.one, Prism.languages.markup);
         this.accord.one = Prism.highlight(this.accord.one, Prism.languages.markup);
         this.block.one.html = Prism.highlight(this.block.one.html, Prism.languages.markup);
         this.block.one.js = Prism.highlight(this.block.one.js, Prism.languages.javascript);
         this.block.one.scss = Prism.highlight(this.block.one.scss, Prism.languages.css);
+        this.select.one.html = Prism.highlight(this.select.one.html, Prism.languages.markup);
+        this.select.one.js = Prism.highlight(this.select.one.js, Prism.languages.javascript);
+        this.select.one.scss = Prism.highlight(this.select.one.scss, Prism.languages.css);
     }
 }

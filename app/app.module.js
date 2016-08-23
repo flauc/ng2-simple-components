@@ -21,7 +21,8 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 ng2_simple_components_1.TabsModule,
                 ng2_simple_components_1.AccordionModule,
-                ng2_simple_components_1.BlockSliderModule
+                ng2_simple_components_1.BlockSliderModule,
+                ng2_simple_components_1.SelectModule
             ],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
