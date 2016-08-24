@@ -9,3 +9,6 @@ exports.BlockSliderComponent = require('./lib/block-slider/block-slider.componen
 exports.BlockComponent = require('./lib/block-slider/block.component').BlockComponent;
 exports.SelectModule = require('./lib/select/select.module').SelectModule;
 exports.SelectComponent = require('./lib/select/select.component').SelectComponent;
+exports.ModalComponent = require('./lib/modal/modal.component').ModalComponent;
+exports.ModalModule = require('./lib/modal/modal.module').ModalModule;
+exports.ModalService = require('./lib/modal/modal.service').ModalService;

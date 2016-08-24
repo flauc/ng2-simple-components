@@ -1,5 +1,6 @@
-import {Component, ViewChild, style, animate, transition, state, trigger} from '@angular/core';
+import {Component, ViewChild, style, animate, transition, state, trigger, ViewContainerRef} from '@angular/core';
 import {SlideToService} from './slide-to/slide-to.service';
+import {ModalService} from 'simple-components';
 @Component({
     selector: 'app',
     animations: [
@@ -81,6 +82,8 @@ import {SlideToService} from './slide-to/slide-to.service';
                 </template>
             </sc-select>
         </div>
+        
+        <button (click)="create()">Bla</button>
         
         <!--<div class="slideToTest"-->
             <!--#slide-->
@@ -168,10 +171,16 @@ export class AppComponent {
     selectedItem = this.scItems[0];
 
     constructor(
-        private _slide: SlideToService
+        private _slide: SlideToService,
+        private _modal: ModalService,
+        private _vr: ViewContainerRef
     ) {}
 
     goTo(el) {
         this._slide.toElement(el);
+    }
+
+    create() {
+        this._modal.withComp(this._vr)
     }
 }

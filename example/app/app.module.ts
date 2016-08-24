@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {SlideToService} from './slide-to/slide-to.service';
 import {AnimationDirective} from './on-position/animation.directive';
 import {TabsModule, AccordionModule, BlockSliderModule, SelectModule} from 'simple-components';
+import {ModalModule} from '../../src/modal/modal.module';
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import {TabsModule, AccordionModule, BlockSliderModule, SelectModule} from 'simp
         TabsModule,
         AccordionModule,
         BlockSliderModule,
-        SelectModule
+        SelectModule,
+        ModalModule
     ],
     providers: [
         SlideToService
