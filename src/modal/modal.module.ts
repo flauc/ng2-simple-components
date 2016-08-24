@@ -6,6 +6,7 @@ import {ModalService} from './modal.service';
 @NgModule({
     imports: [BrowserModule],
     providers: [ModalService],
-    declarations: [ModalComponent]
+    declarations: [ModalComponent],
+    exports: [ModalComponent]
 })
 export class ModalModule {}

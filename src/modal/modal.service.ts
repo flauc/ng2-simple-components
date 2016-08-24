@@ -1,4 +1,4 @@
-import {Injectable, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
+import {Injectable, ViewContainerRef, ComponentFactoryResolver, ComponentFactory} from '@angular/core';
 import {ModalComponent} from './modal.component';
 
 @Injectable()
@@ -16,7 +16,8 @@ export class ModalService {
 
     // Creates the modal
     private _create(vcRef: ViewContainerRef) {
-        const factory = this.componentfactoryResolver.resolveComponentFactory(ModalComponent);
-        vcRef.createComponent(factory)
+        this._resolver.resolveComponentFactory(ModalComponent).then((factory: ComponentFactory<any>) => {
+            vcRef.createComponent(factory);
+        });
     }
 }
