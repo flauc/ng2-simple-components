@@ -9,3 +9,6 @@ export declare class BlockSliderComponent {}
 export declare class BlockComponent {}
 export declare class SelectModule {}
 export declare class SelectComponent {}
+export declare class ModalModule {}
+export declare class ModalComponent {}
+export declare class ModalService {}

@@ -24,8 +24,8 @@
     "src/block-slider/block.component.ts",
     "src/select/select.module.ts",
     "src/select/select.component.ts",
-    "src/modal/modal.component",
-    "src/modal/modal.module",
-    "src/modal/modal.service"
+    "src/modal/modal.component.ts",
+    "src/modal/modal.module.ts",
+    "src/modal/modal.service.ts"
   ]
 }
