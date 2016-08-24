@@ -5,14 +5,7 @@ import {AccordComponent} from './accord.component';
 
 @NgModule({
     imports: [BrowserModule],
-    declarations: [
-        AccordionComponent,
-        AccordComponent
-    ],
-    exports: [
-        AccordionComponent,
-        AccordComponent
-    ],
-    bootstrap: [AccordionComponent]
+    declarations: [AccordionComponent, AccordComponent],
+    exports: [AccordionComponent, AccordComponent]
 })
 export class AccordionModule {}

@@ -5,14 +5,7 @@ import {BlockComponent} from './block.component';
 
 @NgModule({
     imports: [BrowserModule],
-    declarations: [
-        BlockSliderComponent,
-        BlockComponent
-    ],
-    exports: [
-        BlockSliderComponent,
-        BlockComponent
-    ],
-    bootstrap: [BlockSliderComponent]
+    declarations: [BlockSliderComponent, BlockComponent],
+    exports: [BlockSliderComponent, BlockComponent]
 })
 export class BlockSliderModule {}

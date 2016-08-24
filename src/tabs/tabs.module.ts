@@ -5,14 +5,7 @@ import {TabComponent} from './tab.component';
 
 @NgModule({
     imports: [BrowserModule],
-    declarations: [
-        TabsComponent,
-        TabComponent
-    ],
-    exports: [
-        TabsComponent,
-        TabComponent
-    ],
-    bootstrap: [TabsComponent]
+    declarations: [TabsComponent, TabComponent],
+    exports: [TabsComponent, TabComponent]
 })
 export class TabsModule {}
