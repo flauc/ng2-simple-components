@@ -4,23 +4,29 @@ import {ModalComponent} from './modal.component';
 @Injectable()
 export class ModalService {
 
+    private _vc: ViewContainerRef;
+
     constructor(
         private _comp: Compiler
     ) {}
 
-    withComp(vcRef: ViewContainerRef/*, comp: any*/) {
-        this._create(vcRef);
+    withComp(comp: any, vcRef: ViewContainerRef/*, comp: any*/) {
+        this._create(comp, vcRef);
         // const factory = this.componentfactoryResolver.resolveComponentFactory(comp);
         // vcRef.createComponent(factory)
     }
 
+    close(): void {
+        this._vc.clear();
+    }
+
     // Creates the modal
-    private _create(vcRef: ViewContainerRef) {
-        console.log(ModalComponent);
+    private _create(comp: any, vcRef: ViewContainerRef): void {
         this._comp.compileComponentAsync(ModalComponent).then(a => {
-            const injector = ReflectiveInjector.fromResolvedProviders([], this._vr.injector);
-            this._vr.clear();
-            this._vr.createComponent(a, 0);
+            vcRef.clear();
+            a.childComp = comp;
+            vcRef.createComponent(a, 0);
+            this._vc = vcRef;
         });
     }
 }

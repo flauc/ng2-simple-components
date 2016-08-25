@@ -187,14 +187,6 @@ export class AppComponent {
     }
 
     create() {
-        this._comp.compileComponentAsync(TestComponent).then(a => {
-            const injector = ReflectiveInjector.fromResolvedProviders([], this._vr.injector);
-            this._vr.clear();
-            this._vr.createComponent(a, 0);
-        });
-        // this._resolver.resolveComponentFactory(TestComponent).then((factory: ComponentFactory<any>) => {
-        //     this._vr.createComponent(factory);
-        // });
-        this._modal.withComp(this._vr)
+        this._modal.withComp(TestComponent, this._vr)
     }
 }
