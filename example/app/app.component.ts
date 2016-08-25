@@ -1,6 +1,10 @@
-import {Component, ViewChild, style, animate, transition, state, trigger, ViewContainerRef} from '@angular/core';
+import {
+    Component, ViewChild, style, animate, transition, state, trigger, ViewContainerRef,
+    ComponentFactoryResolver, ComponentFactory, Compiler, ReflectiveInjector
+} from '@angular/core';
 import {SlideToService} from './slide-to/slide-to.service';
-import {ModalService} from 'simple-components';
+import {ModalService} from 'ng2-simple-components';
+import {TestComponent} from './modal-test/test.component';
 @Component({
     selector: 'app',
     animations: [
@@ -173,7 +177,9 @@ export class AppComponent {
     constructor(
         private _slide: SlideToService,
         private _modal: ModalService,
-        private _vr: ViewContainerRef
+        private _vr: ViewContainerRef,
+        private _resolver: ComponentFactoryResolver,
+        private _comp: Compiler
     ) {}
 
     goTo(el) {
@@ -181,6 +187,14 @@ export class AppComponent {
     }
 
     create() {
+        this._comp.compileComponentAsync(TestComponent).then(a => {
+            const injector = ReflectiveInjector.fromResolvedProviders([], this._vr.injector);
+            this._vr.clear();
+            this._vr.createComponent(a, 0);
+        });
+        // this._resolver.resolveComponentFactory(TestComponent).then((factory: ComponentFactory<any>) => {
+        //     this._vr.createComponent(factory);
+        // });
         this._modal.withComp(this._vr)
     }
 }

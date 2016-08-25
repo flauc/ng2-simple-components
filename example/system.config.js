@@ -3,13 +3,13 @@
         'app': 'app',
         '@angular': 'node_modules/@angular',
         'rxjs': 'node_modules/rxjs',
-        'simple-components': 'node_modules/ng2-simple-components'
+        'ng2-simple-components': 'node_modules/ng2-simple-components'
     };
 
     var packages = {
             'app': {main: 'main.js', defaultExtension: 'js' },
             'rxjs': {defaultExtension: 'js'},
-            'simple-components': { main: 'components.js', defaultExtension: 'js' }
+            'ng2-simple-components': { main: 'components.js', defaultExtension: 'js' }
         },
         ngPackageNames = [
             'common',
