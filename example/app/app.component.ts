@@ -191,6 +191,6 @@ export class AppComponent {
     }
 
     create() {
-        this._modal.withComp(TestComponent, this._vr)
+        this._modal.withComp(TestComponent)
     }
 }

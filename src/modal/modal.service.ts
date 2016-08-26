@@ -12,7 +12,8 @@ export class ModalService {
     private _settings: ModalSettings = {
         overlay: true,
         overlayClickToClose: true,
-        defaultFooter: false
+        defaultFooter: false,
+        showCloseButton: true
     };
 
     constructor(private _comp: Compiler) {}

@@ -20,16 +20,60 @@ const animationTime = 200;
         }
         
         .wrapper {
-            position: fixed;
+            position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
+            padding: 1rem;
             margin: auto;
             width: 200px;
             height: 200px;
             background: #fff;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
         }
+        
+        .close {
+            position: absolute;
+            border: none;
+            top: -25px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;
+        }
+        
+        .close .ex-close {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+        }
+        
+        .close .ex-close::before,
+        .close .ex-close::after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            margin-top: -1px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        
+        .close .ex-close::before { transform: rotate(45deg) }
+        .close .ex-close::after { transform: rotate(-45deg) }
     `],
     animations: [
         trigger('overlay', [
@@ -45,8 +89,11 @@ const animationTime = 200;
         ])
     ],
     template: `
-        <div class="overlay"  [@overlay]="state" (click)="close()"></div>
+        <div class="overlay"  [@overlay]="state" (click)="overlayClose()"></div>
         <div class="wrapper" [@wrapper]="state">
+            <button class="close" *ngIf="settings.showCloseButton" (click)="close()">
+                <span class="ex-close"></span>
+            </button>
             <div #wrapper></div>
         </div>
     `
@@ -67,6 +114,10 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._comp.compileComponentAsync(this.childComp).then(a => this.wrapperRef.createComponent(a));
+    }
+
+    overlayClose(): void {
+        if (this.settings.overlayClickToClose) this.close();
     }
 
     close(): void {
