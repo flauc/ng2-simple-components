@@ -39,6 +39,8 @@ var packages = {
 * [Tabs](https://github.com/flauc/ng2-simple-components/blob/master/docs/tabs.md)
 * [Accordion](https://github.com/flauc/ng2-simple-components/blob/master/docs/accordion.md)
 * [Block Slider](https://github.com/flauc/ng2-simple-components/blob/master/docs/block-slider.md)
+* [Select](https://github.com/flauc/ng2-simple-components/blob/master/docs/select.md)
+* [Modal](https://github.com/flauc/ng2-simple-components/blob/master/docs/modal.md)
 
 ## Overriding Styles
 
