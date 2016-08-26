@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
 
 This is the minimal required configuration for the Modal to work now you can inject the `ModalService` in to any component and create a modal like this: 
 
-```
+```ts
 createModal() {
     // The component you want injected in to the Modal
     this._modal.create(MyComponent);
