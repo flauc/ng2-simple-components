@@ -3,6 +3,7 @@ import {
     Compiler
 } from '@angular/core';
 import {ModalService} from './modal.service';
+import {ModalSettings} from './settings.interface';
 
 const animationTime = 200;
 
@@ -54,6 +55,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     @ViewChild('wrapper', {read: ViewContainerRef}) wrapperRef: ViewContainerRef;
 
+    settings: ModalSettings;
     state: string = 'open';
 
     childComp: any;

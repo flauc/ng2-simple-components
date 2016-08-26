@@ -1,30 +1,49 @@
 import {Injectable, ViewContainerRef, Compiler} from '@angular/core';
 import {ModalComponent} from './modal.component';
+import {ModalSettings} from './settings.interface';
+
 
 @Injectable()
 export class ModalService {
 
     private _vc: ViewContainerRef;
+    private _vcToUse: ViewContainerRef;
+    // Default Settings
+    private _settings: ModalSettings = {
+        overlay: true,
+        overlayClickToClose: true,
+        defaultFooter: false
+    };
 
-    constructor(
-        private _comp: Compiler
-    ) {}
+    constructor(private _comp: Compiler) {}
 
-    withComp(comp: any, vcRef: ViewContainerRef/*, comp: any*/) {
-        this._create(comp, vcRef);
+    vc(vc: ViewContainerRef): void { this._vc = vc }
+    settings(set?: ModalSettings): ModalSettings {
+        this._settings = Object.assign(this._settings, set);
+        return this._settings;
+    }
+
+    /*
+        Modal Methods
+     */
+    withComp(comp: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
+        this._vcToUse = vcRef || this._vc;
+        this._create(comp, settings || this._settings, this._vcToUse);
     }
 
     close(): void {
-        this._vc.clear();
+        this._vcToUse.clear();
     }
 
-    // Creates the modal
-    private _create(comp: any, vcRef: ViewContainerRef): void {
+
+    private _create(comp: any, settings: ModalSettings, vcRef: ViewContainerRef): void {
         this._comp.compileComponentAsync(ModalComponent).then(a => {
             vcRef.clear();
             let created = vcRef.createComponent(a, 0);
+
+            // Set Component Params
             created.instance['childComp'] = comp;
-            this._vc = vcRef;
+            created.instance['settings'] = settings;
         });
     }
 }

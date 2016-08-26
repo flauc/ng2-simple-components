@@ -12,3 +12,4 @@ exports.SelectComponent = require('./lib/select/select.component').SelectCompone
 exports.ModalComponent = require('./lib/modal/modal.component').ModalComponent;
 exports.ModalModule = require('./lib/modal/modal.module').ModalModule;
 exports.ModalService = require('./lib/modal/modal.service').ModalService;
+exports.ModalSettings = require('./lib/modal/settings.interface').ModalSettings;

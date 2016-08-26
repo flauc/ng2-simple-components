@@ -182,6 +182,10 @@ export class AppComponent {
         private _comp: Compiler
     ) {}
 
+    ngOnInit() {
+        this._modal.vc(this._vr)
+    }
+
     goTo(el) {
         this._slide.toElement(el);
     }
