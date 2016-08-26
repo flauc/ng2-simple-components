@@ -26,11 +26,11 @@ You can also clone this repository and check out the example folder.
 Map the library in your `system.config.js`.
 ```js
 var map = {
-    'simple-components': 'node_modules/ng2-simple-components'
+    'ng2-simple-components': 'node_modules/ng2-simple-components'
 }
 
 var packages = {
-    'simple-components': { main: 'components.js', defaultExtension: 'js' }
+    'ng2-simple-components': { main: 'components.js', defaultExtension: 'js' }
 }
 ```
 

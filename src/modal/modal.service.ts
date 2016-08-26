@@ -2,7 +2,6 @@ import {Injectable, ViewContainerRef, Compiler} from '@angular/core';
 import {ModalComponent} from './modal.component';
 import {ModalSettings} from './settings.interface';
 
-
 @Injectable()
 export class ModalService {
 
