@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter, HostBinding, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild, HostListener, ElementRef} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild, HostListener, ElementRef} from '@angular/core';
 
 const animationTime = 300;
 
@@ -36,7 +36,6 @@ const animationTime = 300;
             position: absolute;
             width: 100%;
             background: #fff;
-            overflow: auto;
             top: 100%;
             box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
         }
@@ -51,7 +50,7 @@ const animationTime = 300;
             <p *ngSwitchCase="'placeholder'" class="ph">{{placeholder}}</p>   
             <p *ngSwitchCase="'none'" class="ph">Select Something</p>                    
         </div>
-        <div class="selection" #selection  [@select]="animationState" [ngStyle]="{'max-height': styleMaxHeight}" [class.active]="animationState === 'open'">
+        <div class="selection" #selection  [@select]="animationState" [ngStyle]="style" [class.active]="animationState === 'open'">
             <div class="item" *ngFor="let item of itemsToDisplay; let i = index" (click)="select(i)">
                 <template [ngTemplateOutlet]="selectRef" [ngOutletContext]="{item: item, index: i}"></template>
             </div>
@@ -59,6 +58,12 @@ const animationTime = 300;
     `
 })
 export class SelectComponent {
+
+    animationState: string = 'closed';
+    opening: boolean = false;
+    itemsToDisplay: any = [];
+    itemsOriginal: any = [];
+    topPosition: string = '0';
 
     @Input() selected: any = null;
     @Output() selectedChange: EventEmitter<any> = new EventEmitter();
@@ -81,22 +86,13 @@ export class SelectComponent {
         if (!this._eref.nativeElement.contains(target) && this.animationState === 'open') this.toggle()
     };
 
-    get styleMaxHeight(): string { return this.maxHeight + 'px' }
+    get style() { return {'max-height': this.maxHeight + 'px', 'overflow': this.opening ? 'hidden' : 'auto' } }
 
     get inSelected(): string {
         if (this.selected) return 'selected';
         if (this.placeholderRef) return 'placeholderRef';
         if (this.placeholder) return 'placeholder';
         return 'none'
-    }
-
-    animationState: string = 'closed';
-    itemsToDisplay: any = [];
-    itemsOriginal: any = [];
-    topPosition: string = '0';
-
-    ngOnInit() {
-        console.log('bla', this.itemsToDisplay);
     }
 
     constructor(private _eref: ElementRef) { }
@@ -109,7 +105,9 @@ export class SelectComponent {
     }
 
     toggle(): void {
+        this.opening = true;
         this.animationState = this.animationState === 'closed' ? 'open' : 'closed';
+        setTimeout(() => this.opening = false, animationTime);
         this.state.emit(this.animationState);
     }
 
