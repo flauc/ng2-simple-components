@@ -20,7 +20,14 @@ const animationTime = 200;
         
         .wrapper {
             position: fixed;
-            top: 50px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            background: #fff;
         }
     `],
     animations: [
@@ -28,12 +35,18 @@ const animationTime = 200;
             state('void', style({opacity: 0})),
             state('open', style({opacity: 1})),
             transition('void <=> open', animate(`${animationTime}ms ease-in-out`))
+        ]),
+
+        trigger('wrapper', [
+            state('void', style({opacity: 0, transform: 'translateY(20%)'})),
+            state('open', style({opacity: 1, transform: 'translateY(0)'})),
+            transition('void <=> open', animate(`${animationTime}ms ease-in-out`))
         ])
     ],
     template: `
         <div class="overlay"  [@overlay]="state" (click)="close()"></div>
-        <div class="wrapper" #wrapper>
-            <p>Test</p>
+        <div class="wrapper" [@wrapper]="state">
+            <div #wrapper></div>
         </div>
     `
 })
@@ -51,11 +64,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit(): void {
-        console.log(this.wrapperRef);
-        console.log(this.childComp);
-        this._comp.compileComponentAsync(this.childComp).then(a => {
-            this.wrapperRef.createComponent(a, 0);
-        });
+        this._comp.compileComponentAsync(this.childComp).then(a => this.wrapperRef.createComponent(a));
     }
 
     close(): void {

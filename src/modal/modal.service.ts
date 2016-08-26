@@ -12,8 +12,6 @@ export class ModalService {
 
     withComp(comp: any, vcRef: ViewContainerRef/*, comp: any*/) {
         this._create(comp, vcRef);
-        // const factory = this.componentfactoryResolver.resolveComponentFactory(comp);
-        // vcRef.createComponent(factory)
     }
 
     close(): void {
@@ -24,8 +22,8 @@ export class ModalService {
     private _create(comp: any, vcRef: ViewContainerRef): void {
         this._comp.compileComponentAsync(ModalComponent).then(a => {
             vcRef.clear();
-            a.childComp = comp;
-            vcRef.createComponent(a, 0);
+            let created = vcRef.createComponent(a, 0);
+            created.instance['childComp'] = comp;
             this._vc = vcRef;
         });
     }
