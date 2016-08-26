@@ -32,6 +32,10 @@ const animationTime = 300;
             border-top: 1px solid rgba(0, 0, 0, 0.12);
             cursor: pointer;
             background: #fff;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; 
+            -moz-user-select: none
         }
         
         span {

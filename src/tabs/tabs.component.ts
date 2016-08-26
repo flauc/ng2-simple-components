@@ -35,6 +35,10 @@ import {TabComponent} from './tab.component';
             background: #fff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
             width: 100%;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; 
+            -moz-user-select: none
         }
         
         .indicator {
