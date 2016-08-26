@@ -8158,6 +8158,7 @@ Prism.languages.js = Prism.languages.javascript;
 
 (["1"], [], true, function($__System) {
 var require = this.require, exports = this.exports, module = this.module;
+!function(e){function r(e,r){for(var n=e.split(".");n.length;)r=r[n.shift()];return r}function n(n){if("string"==typeof n)return r(n,e);if(!(n instanceof Array))throw new Error("Global exports must be a string or array.");for(var t={},o=!0,f=0;f<n.length;f++){var i=r(n[f],e);o&&(t["default"]=i,o=!1),t[n[f].split(".").pop()]=i}return t}function t(r){if(Object.keys)Object.keys(e).forEach(r);else for(var n in e)a.call(e,n)&&r(n)}function o(r){t(function(n){if(-1==l.call(s,n)){try{var t=e[n]}catch(o){s.push(n)}r(n,t)}})}var f,i=$__System,a=Object.prototype.hasOwnProperty,l=Array.prototype.indexOf||function(e){for(var r=0,n=this.length;n>r;r++)if(this[r]===e)return r;return-1},s=["_g","sessionStorage","localStorage","clipboardData","frames","frameElement","external","mozAnimationStartTime","webkitStorageInfo","webkitIndexedDB","mozInnerScreenY","mozInnerScreenX"];i.set("@@global-helpers",i.newModule({prepareGlobal:function(r,t,i){var a=e.define;e.define=void 0;var l;if(i){l={};for(var s in i)l[s]=e[s],e[s]=i[s]}return t||(f={},o(function(e,r){f[e]=r})),function(){var r;if(t)r=n(t);else{r={};var i,s;o(function(e,n){f[e]!==n&&"undefined"!=typeof n&&(r[e]=n,"undefined"!=typeof i?s||i===n||(s=!0):i=n)}),r=s?r:i}if(l)for(var u in l)e[u]=l[u];return e.define=a,r}}}))}("undefined"!=typeof self?self:global);
 !function(e){function n(e,n){e=e.replace(l,"");var r=e.match(u),t=(r[1].split(",")[n]||"require").replace(s,""),i=p[t]||(p[t]=new RegExp(a+t+f,"g"));i.lastIndex=0;for(var o,c=[];o=i.exec(e);)c.push(o[2]||o[3]);return c}function r(e,n,t,o){if("object"==typeof e&&!(e instanceof Array))return r.apply(null,Array.prototype.splice.call(arguments,1,arguments.length-1));if("string"==typeof e&&"function"==typeof n&&(e=[e]),!(e instanceof Array)){if("string"==typeof e){var l=i.get(e);return l.__useDefault?l["default"]:l}throw new TypeError("Invalid require")}for(var a=[],f=0;f<e.length;f++)a.push(i["import"](e[f],o));Promise.all(a).then(function(e){n&&n.apply(null,e)},t)}function t(t,l,a){"string"!=typeof t&&(a=l,l=t,t=null),l instanceof Array||(a=l,l=["require","exports","module"].splice(0,a.length)),"function"!=typeof a&&(a=function(e){return function(){return e}}(a)),void 0===l[l.length-1]&&l.pop();var f,u,s;-1!=(f=o.call(l,"require"))&&(l.splice(f,1),t||(l=l.concat(n(a.toString(),f)))),-1!=(u=o.call(l,"exports"))&&l.splice(u,1),-1!=(s=o.call(l,"module"))&&l.splice(s,1);var p={name:t,deps:l,execute:function(n,t,o){for(var p=[],c=0;c<l.length;c++)p.push(n(l[c]));o.uri=o.id,o.config=function(){},-1!=s&&p.splice(s,0,o),-1!=u&&p.splice(u,0,t),-1!=f&&p.splice(f,0,function(e,t,l){return"string"==typeof e&&"function"!=typeof t?n(e):r.call(i,e,t,l,o.id)});var d=a.apply(-1==u?e:t,p);return"undefined"==typeof d&&o&&(d=o.exports),"undefined"!=typeof d?d:void 0}};if(t)c.anonDefine||c.isBundle?c.anonDefine&&c.anonDefine.name&&(c.anonDefine=null):c.anonDefine=p,c.isBundle=!0,i.registerDynamic(p.name,p.deps,!1,p.execute);else{if(c.anonDefine&&!c.anonDefine.name)throw new Error("Multiple anonymous defines in module "+t);c.anonDefine=p}}var i=$__System,o=Array.prototype.indexOf||function(e){for(var n=0,r=this.length;r>n;n++)if(this[n]===e)return n;return-1},l=/(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/gm,a="(?:^|[^$_a-zA-Z\\xA0-\\uFFFF.])",f="\\s*\\(\\s*(\"([^\"]+)\"|'([^']+)')\\s*\\)",u=/\(([^\)]*)\)/,s=/^\s+|\s+$/g,p={};t.amd={};var c={isBundle:!1,anonDefine:null};i.amdDefine=t,i.amdRequire=r}("undefined"!=typeof self?self:global);
 (function() {
 var define = $__System.amdDefine;
@@ -19115,8 +19116,7 @@ $__System.registerDynamic("7", ["3", "5", "8", "9"], true, function($__require, 
     TabsModule = __decorate([core_1.NgModule({
       imports: [platform_browser_1.BrowserModule],
       declarations: [tabs_component_1.TabsComponent, tab_component_1.TabComponent],
-      exports: [tabs_component_1.TabsComponent, tab_component_1.TabComponent],
-      bootstrap: [tabs_component_1.TabsComponent]
+      exports: [tabs_component_1.TabsComponent, tab_component_1.TabComponent]
     }), __metadata('design:paramtypes', [])], TabsModule);
     return TabsModule;
   }());
@@ -19192,7 +19192,7 @@ $__System.registerDynamic("8", ["3"], true, function($__require, exports, module
     TabsComponent = __decorate([core_1.Component({
       selector: 'sc-tabs',
       template: "\n        <div class=\"tab-nav\">\n          <div class=\"col\" \n            *ngFor=\"let tab of tabs\"\n            [class.disabled]=\"tab.disabled\"\n            [class.active]=\"tab.act\"\n            [ngStyle]=\"{flex: tabs.length}\" \n            (click)=\"selectTab(tab, i)\">\n                {{tab.title}}\n            </div>\n            <div class=\"indicator\" [ngStyle]=\"indicatorStyle()\"></div>\n        </div>\n        <div class=\"tab-content\" [ngStyle]=\"style\">\n            <ng-content></ng-content>\n        </div>\n    ",
-      styles: ["\n        :host {\n            width: 100%;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n            display: block;\n            border: 1px solid rgba(0, 0, 0, 0.12);\n            box-sizing: border-box;\n            color: #212121;\n        }\n        \n        .tab-nav {\n            display: flex;\n            position: relative;\n            background: #fff;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            width: 100%;\n        }\n        \n        .indicator {\n            position: absolute;\n            bottom: 0;\n            height: 2px;\n            background-color: #8BC34A;\n            will-change: left, right;\n            transition: all 0.2s ease-in-out;\n        }\n        \n        .col {\n            text-align: center;\n            padding: 1rem 0.5rem;\n            cursor: pointer;\n            text-transform: uppercase;\n        }\n        \n        .col.disabled {\n            cursor: default;\n            color: #d6d6d6;\n        }\n        \n        .col.active {\n            color: #8BC34A;\n        }\n        \n        .tab-content {\n            position: relative;\n            background: #F6F6F6;\n            top: auto;\n            left: auto;\n            right: auto;\n            bottom: auto;\n            overflow: hidden;\n            transition: all 0.3s ease-in-out;\n        }\n    "]
+      styles: ["\n        :host {\n            width: 100%;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n            display: block;\n            border: 1px solid rgba(0, 0, 0, 0.12);\n            box-sizing: border-box;\n            color: #212121;\n        }\n        \n        .tab-nav {\n            display: flex;\n            position: relative;\n            background: #fff;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            width: 100%;\n            user-select: none;\n            -webkit-touch-callout: none;\n            -webkit-user-select: none; \n            -moz-user-select: none\n        }\n        \n        .indicator {\n            position: absolute;\n            bottom: 0;\n            height: 2px;\n            background-color: #8BC34A;\n            will-change: left, right;\n            transition: all 0.2s ease-in-out;\n        }\n        \n        .col {\n            text-align: center;\n            padding: 1rem 0.5rem;\n            cursor: pointer;\n            text-transform: uppercase;\n        }\n        \n        .col.disabled {\n            cursor: default;\n            color: #d6d6d6;\n        }\n        \n        .col.active {\n            color: #8BC34A;\n        }\n        \n        .tab-content {\n            position: relative;\n            background: #F6F6F6;\n            top: auto;\n            left: auto;\n            right: auto;\n            bottom: auto;\n            overflow: hidden;\n            transition: all 0.3s ease-in-out;\n        }\n    "]
     }), __metadata('design:paramtypes', [])], TabsComponent);
     return TabsComponent;
   }());
@@ -19339,8 +19339,7 @@ $__System.registerDynamic("a", ["3", "5", "b", "c"], true, function($__require, 
     AccordionModule = __decorate([core_1.NgModule({
       imports: [platform_browser_1.BrowserModule],
       declarations: [accordion_component_1.AccordionComponent, accord_component_1.AccordComponent],
-      exports: [accordion_component_1.AccordionComponent, accord_component_1.AccordComponent],
-      bootstrap: [accordion_component_1.AccordionComponent]
+      exports: [accordion_component_1.AccordionComponent, accord_component_1.AccordComponent]
     }), __metadata('design:paramtypes', [])], AccordionModule);
     return AccordionModule;
   }());
@@ -19467,7 +19466,7 @@ $__System.registerDynamic("c", ["3", "b"], true, function($__require, exports, m
       selector: 'sc-accord',
       template: "\n        <div class=\"accord\" [class.active]=\"act\">\n            <div class=\"bar\" (click)=\"trigger()\">\n                <span>{{title}}</span>\n            </div>\n            <div class=\"inner\" [@anim]=\"inner\" [ngClass]=\"{closed: hasOverflow || inner === 'closed'}\">\n                <div class=\"pad\">\n                    <ng-content></ng-content>\n                </div>\n            </div>\n        </div>\n    ",
       animations: [core_1.trigger('anim', [core_1.state('open', core_1.style({height: '*'})), core_1.state('closed', core_1.style({height: 0})), core_1.transition('closed <=> open', core_1.animate(animationTime + "ms ease-in-out"))])],
-      styles: ["  \n        .bar {\n            width: 100%;\n            height: 50px;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            border-top: 1px solid rgba(0, 0, 0, 0.12);\n            cursor: pointer;\n            background: #fff;\n        }\n        \n        span {\n            line-height: 50px;\n            padding: 0 1rem;\n            font-size: 1.1rem;\n            text-transform: uppercase;\n        }\n        \n        .inner {\n            display: block;\n            background: #F6F6F6;\n        }\n        \n        .inner.closed {\n            overflow: hidden;\n        }\n        \n        .pad {\n            padding: 0.5rem 1rem;\n        }\n    "]
+      styles: ["  \n        .bar {\n            width: 100%;\n            height: 50px;\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n            border-top: 1px solid rgba(0, 0, 0, 0.12);\n            cursor: pointer;\n            background: #fff;\n            user-select: none;\n            -webkit-touch-callout: none;\n            -webkit-user-select: none; \n            -moz-user-select: none\n        }\n        \n        span {\n            line-height: 50px;\n            padding: 0 1rem;\n            font-size: 1.1rem;\n            text-transform: uppercase;\n        }\n        \n        .inner {\n            display: block;\n            background: #F6F6F6;\n        }\n        \n        .inner.closed {\n            overflow: hidden;\n        }\n        \n        .pad {\n            padding: 0.5rem 1rem;\n        }\n    "]
     }), __metadata('design:paramtypes', [accordion_component_1.AccordionComponent])], AccordComponent);
     return AccordComponent;
   }());
@@ -19506,8 +19505,7 @@ $__System.registerDynamic("d", ["3", "5", "e", "f"], true, function($__require, 
     BlockSliderModule = __decorate([core_1.NgModule({
       imports: [platform_browser_1.BrowserModule],
       declarations: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
-      exports: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent],
-      bootstrap: [block_slider_component_1.BlockSliderComponent]
+      exports: [block_slider_component_1.BlockSliderComponent, block_component_1.BlockComponent]
     }), __metadata('design:paramtypes', [])], BlockSliderModule);
     return BlockSliderModule;
   }());
@@ -19645,13 +19643,171 @@ $__System.registerDynamic("f", ["3", "e"], true, function($__require, exports, m
   return module.exports;
 });
 
-$__System.registerDynamic("10", ["11"], true, function($__require, exports, module) {
+$__System.registerDynamic("10", ["3", "5", "11"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('11');
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var platform_browser_1 = $__require('5');
+  var select_component_1 = $__require('11');
+  var SelectModule = (function() {
+    function SelectModule() {}
+    SelectModule = __decorate([core_1.NgModule({
+      imports: [platform_browser_1.BrowserModule],
+      declarations: [select_component_1.SelectComponent],
+      exports: [select_component_1.SelectComponent]
+    }), __metadata('design:paramtypes', [])], SelectModule);
+    return SelectModule;
+  }());
+  exports.SelectModule = SelectModule;
+  return module.exports;
+});
+
+$__System.registerDynamic("11", ["3"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var animationTime = 300;
+  var SelectComponent = (function() {
+    function SelectComponent(_eref) {
+      this._eref = _eref;
+      this.animationState = 'closed';
+      this.opening = false;
+      this.itemsToDisplay = [];
+      this.itemsOriginal = [];
+      this.topPosition = '0';
+      this.selected = null;
+      this.selectedChange = new core_1.EventEmitter();
+      this.placeholder = null;
+      this.maxHeight = 250;
+      this.state = new core_1.EventEmitter();
+    }
+    Object.defineProperty(SelectComponent.prototype, "items", {
+      set: function(it) {
+        this.itemsOriginal = it;
+        if (this.selected)
+          this._createDisplay();
+      },
+      enumerable: true,
+      configurable: true
+    });
+    ;
+    SelectComponent.prototype.outsideClick = function(target) {
+      if (!this._eref.nativeElement.contains(target) && this.animationState === 'open')
+        this.toggle();
+    };
+    ;
+    Object.defineProperty(SelectComponent.prototype, "style", {
+      get: function() {
+        return {
+          'max-height': this.maxHeight + 'px',
+          'overflow': this.opening ? 'hidden' : 'auto'
+        };
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(SelectComponent.prototype, "inSelected", {
+      get: function() {
+        if (this.selected)
+          return 'selected';
+        if (this.placeholderRef)
+          return 'placeholderRef';
+        if (this.placeholder)
+          return 'placeholder';
+        return 'none';
+      },
+      enumerable: true,
+      configurable: true
+    });
+    SelectComponent.prototype.select = function(index) {
+      this.selected = this.itemsToDisplay[index];
+      this.selectedChange.emit(this.selected);
+      this._createDisplay(index);
+      this.toggle();
+    };
+    SelectComponent.prototype.toggle = function() {
+      var _this = this;
+      this.opening = true;
+      this.animationState = this.animationState === 'closed' ? 'open' : 'closed';
+      setTimeout(function() {
+        return _this.opening = false;
+      }, animationTime);
+      this.state.emit(this.animationState);
+    };
+    SelectComponent.prototype._createDisplay = function(index) {
+      var ind = index || this.itemsOriginal.indexOf(this.selected);
+      this.itemsToDisplay = this.itemsOriginal.filter(function(a, i) {
+        if (i !== ind)
+          return a;
+      });
+    };
+    __decorate([core_1.Input(), __metadata('design:type', Object)], SelectComponent.prototype, "selected", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "selectedChange", void 0);
+    __decorate([core_1.Input(), __metadata('design:type', Object), __metadata('design:paramtypes', [Object])], SelectComponent.prototype, "items", null);
+    __decorate([core_1.Input(), __metadata('design:type', String)], SelectComponent.prototype, "placeholder", void 0);
+    __decorate([core_1.Input(), __metadata('design:type', Number)], SelectComponent.prototype, "maxHeight", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "state", void 0);
+    __decorate([core_1.ViewChild('selection'), __metadata('design:type', Object)], SelectComponent.prototype, "selectionEL", void 0);
+    __decorate([core_1.ContentChild('scListItem'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "selectRef", void 0);
+    __decorate([core_1.ContentChild('scPlaceholder'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "placeholderRef", void 0);
+    __decorate([core_1.HostListener('document:click', ['$event.target']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], SelectComponent.prototype, "outsideClick", null);
+    SelectComponent = __decorate([core_1.Component({
+      selector: 'sc-select',
+      animations: [core_1.trigger('select', [core_1.state('closed', core_1.style({height: 0})), core_1.state('open', core_1.style({height: '*'})), core_1.transition('closed <=> open', core_1.animate(animationTime + "ms cubic-bezier(.17,.67,0,1)"))])],
+      styles: ["\n        :host {\n            display: block;\n            cursor: pointer;\n            position: relative;\n            width: 200px;\n            background: #fff;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selected .ph {\n            text-align: center;\n            margin: 0;\n            padding: 0.5rem 1rem;\n            font-size: 1.1rem;\n        }\n        \n        .selected .wp {\n            padding: 0.5rem 1rem;\n        }\n        \n        .selection {\n            position: absolute;\n            width: 100%;\n            background: #fff;\n            top: 100%;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selection.active { border-top: 1px dashed #ccc; }\n        .item { padding: 0.5rem 1rem; }\n    "],
+      template: "\n        <div class=\"selected\" [ngSwitch]=\"inSelected\" (click)=\"toggle()\">\n            <div *ngSwitchCase=\"'selected'\" class=\"wp\"><template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: selected, index: -1}\"></template></div>\n            <div *ngSwitchCase=\"'placeholderRef'\" class=\"wp\"><template [ngTemplateOutlet]=\"placeholderRef\"></template></div>\n            <p *ngSwitchCase=\"'placeholder'\" class=\"ph\">{{placeholder}}</p>   \n            <p *ngSwitchCase=\"'none'\" class=\"ph\">Select Something</p>                    \n        </div>\n        <div class=\"selection\" #selection  [@select]=\"animationState\" [ngStyle]=\"style\" [class.active]=\"animationState === 'open'\">\n            <div class=\"item\" *ngFor=\"let item of itemsToDisplay; let i = index\" (click)=\"select(i)\">\n                <template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: item, index: i}\"></template>\n            </div>\n        </div>\n    "
+    }), __metadata('design:paramtypes', [core_1.ElementRef])], SelectComponent);
+    return SelectComponent;
+  }());
+  exports.SelectComponent = SelectComponent;
+  return module.exports;
+});
+
+$__System.registerDynamic("12", ["13"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var root_1 = $__require('13');
   function toPromise(PromiseCtor) {
     var _this = this;
     if (!PromiseCtor) {
@@ -19679,7 +19835,7 @@ $__System.registerDynamic("10", ["11"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("12", ["11", "13"], true, function($__require, exports, module) {
+$__System.registerDynamic("14", ["13", "15"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -19694,8 +19850,8 @@ $__System.registerDynamic("12", ["11", "13"], true, function($__require, exports
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var root_1 = $__require('11');
-  var Observable_1 = $__require('13');
+  var root_1 = $__require('13');
+  var Observable_1 = $__require('15');
   var PromiseObservable = (function(_super) {
     __extends(PromiseObservable, _super);
     function PromiseObservable(promise, scheduler) {
@@ -19805,7 +19961,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/core"), require("rxjs/operator/toPromise"), require("rxjs/Subject"), require("rxjs/Observable"), require("rxjs/observable/PromiseObservable")) : "function" == typeof define && define.amd ? define("14", ["exports", "3", "10", "15", "13", "12"], factory) : factory((global.ng = global.ng || {}, global.ng.common = global.ng.common || {}), global.ng.core, global.Rx.Observable.prototype, global.Rx, global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/core"), require("rxjs/operator/toPromise"), require("rxjs/Subject"), require("rxjs/Observable"), require("rxjs/observable/PromiseObservable")) : "function" == typeof define && define.amd ? define("16", ["exports", "3", "12", "17", "15", "14"], factory) : factory((global.ng = global.ng || {}, global.ng.common = global.ng.common || {}), global.ng.core, global.Rx.Observable.prototype, global.Rx, global.Rx, global.Rx);
 }(this, function(exports, _angular_core, rxjs_operator_toPromise, rxjs_Subject, rxjs_Observable, rxjs_observable_PromiseObservable) {
   "use strict";
   function getTypeNameForDebugging(type) {
@@ -22868,7 +23024,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/common"), require("@angular/core"), require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("5", ["exports", "14", "3", "15", "13"], factory) : factory((global.ng = global.ng || {}, global.ng.platformBrowser = global.ng.platformBrowser || {}), global.ng.common, global.ng.core, global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("@angular/common"), require("@angular/core"), require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("5", ["exports", "16", "3", "17", "15"], factory) : factory((global.ng = global.ng || {}, global.ng.platformBrowser = global.ng.platformBrowser || {}), global.ng.common, global.ng.core, global.Rx, global.Rx);
 }(this, function(exports, _angular_common, _angular_core, rxjs_Subject, rxjs_Observable) {
   "use strict";
   function isPresent(obj) {
@@ -26086,7 +26242,7 @@ var __extends = this && this.__extends || function(d, b) {
 });
 
 })();
-$__System.registerDynamic("16", ["3", "5", "17"], true, function($__require, exports, module) {
+$__System.registerDynamic("18", ["3", "5", "19", "1a"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26110,22 +26266,23 @@ $__System.registerDynamic("16", ["3", "5", "17"], true, function($__require, exp
   };
   var core_1 = $__require('3');
   var platform_browser_1 = $__require('5');
-  var select_component_1 = $__require('17');
-  var SelectModule = (function() {
-    function SelectModule() {}
-    SelectModule = __decorate([core_1.NgModule({
+  var modal_component_1 = $__require('19');
+  var modal_service_1 = $__require('1a');
+  var ModalModule = (function() {
+    function ModalModule() {}
+    ModalModule = __decorate([core_1.NgModule({
       imports: [platform_browser_1.BrowserModule],
-      declarations: [select_component_1.SelectComponent],
-      exports: [select_component_1.SelectComponent],
-      bootstrap: [select_component_1.SelectComponent]
-    }), __metadata('design:paramtypes', [])], SelectModule);
-    return SelectModule;
+      providers: [modal_service_1.ModalService],
+      declarations: [modal_component_1.ModalComponent],
+      exports: [modal_component_1.ModalComponent]
+    }), __metadata('design:paramtypes', [])], ModalModule);
+    return ModalModule;
   }());
-  exports.SelectModule = SelectModule;
+  exports.ModalModule = ModalModule;
   return module.exports;
 });
 
-$__System.registerDynamic("18", ["19"], true, function($__require, exports, module) {
+$__System.registerDynamic("1b", ["1c"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26140,7 +26297,7 @@ $__System.registerDynamic("18", ["19"], true, function($__require, exports, modu
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var Subscription_1 = $__require('19');
+  var Subscription_1 = $__require('1c');
   var SubjectSubscription = (function(_super) {
     __extends(SubjectSubscription, _super);
     function SubjectSubscription(subject, observer) {
@@ -26171,7 +26328,7 @@ $__System.registerDynamic("18", ["19"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("1a", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1d", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26184,7 +26341,7 @@ $__System.registerDynamic("1a", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1b", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1e", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26211,7 +26368,7 @@ $__System.registerDynamic("1b", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("15", ["13", "1c", "19", "18", "1d", "1a", "1b"], true, function($__require, exports, module) {
+$__System.registerDynamic("17", ["15", "1f", "1c", "1b", "20", "1d", "1e"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26226,13 +26383,13 @@ $__System.registerDynamic("15", ["13", "1c", "19", "18", "1d", "1a", "1b"], true
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var Observable_1 = $__require('13');
-  var Subscriber_1 = $__require('1c');
-  var Subscription_1 = $__require('19');
-  var SubjectSubscription_1 = $__require('18');
-  var rxSubscriber_1 = $__require('1d');
-  var throwError_1 = $__require('1a');
-  var ObjectUnsubscribedError_1 = $__require('1b');
+  var Observable_1 = $__require('15');
+  var Subscriber_1 = $__require('1f');
+  var Subscription_1 = $__require('1c');
+  var SubjectSubscription_1 = $__require('1b');
+  var rxSubscriber_1 = $__require('20');
+  var throwError_1 = $__require('1d');
+  var ObjectUnsubscribedError_1 = $__require('1e');
   var Subject = (function(_super) {
     __extends(Subject, _super);
     function Subject(destination, source) {
@@ -26409,13 +26566,13 @@ $__System.registerDynamic("15", ["13", "1c", "19", "18", "1d", "1a", "1b"], true
   return module.exports;
 });
 
-$__System.registerDynamic("1e", ["11"], true, function($__require, exports, module) {
+$__System.registerDynamic("21", ["13"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('11');
+  var root_1 = $__require('13');
   var Symbol = root_1.root.Symbol;
   if (typeof Symbol === 'function') {
     if (Symbol.observable) {
@@ -26434,7 +26591,7 @@ $__System.registerDynamic("1e", ["11"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("1f", [], true, function($__require, exports, module) {
+$__System.registerDynamic("22", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26446,7 +26603,7 @@ $__System.registerDynamic("1f", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("20", [], true, function($__require, exports, module) {
+$__System.registerDynamic("23", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26459,7 +26616,7 @@ $__System.registerDynamic("20", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("21", [], true, function($__require, exports, module) {
+$__System.registerDynamic("24", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26472,13 +26629,13 @@ $__System.registerDynamic("21", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("22", ["23"], true, function($__require, exports, module) {
+$__System.registerDynamic("25", ["26"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var errorObject_1 = $__require('23');
+  var errorObject_1 = $__require('26');
   var tryCatchTarget;
   function tryCatcher() {
     try {
@@ -26497,7 +26654,7 @@ $__System.registerDynamic("22", ["23"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("23", [], true, function($__require, exports, module) {
+$__System.registerDynamic("26", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26507,7 +26664,7 @@ $__System.registerDynamic("23", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("24", [], true, function($__require, exports, module) {
+$__System.registerDynamic("27", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26538,18 +26695,18 @@ $__System.registerDynamic("24", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("19", ["1f", "20", "21", "22", "23", "24"], true, function($__require, exports, module) {
+$__System.registerDynamic("1c", ["22", "23", "24", "25", "26", "27"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var isArray_1 = $__require('1f');
-  var isObject_1 = $__require('20');
-  var isFunction_1 = $__require('21');
-  var tryCatch_1 = $__require('22');
-  var errorObject_1 = $__require('23');
-  var UnsubscriptionError_1 = $__require('24');
+  var isArray_1 = $__require('22');
+  var isObject_1 = $__require('23');
+  var isFunction_1 = $__require('24');
+  var tryCatch_1 = $__require('25');
+  var errorObject_1 = $__require('26');
+  var UnsubscriptionError_1 = $__require('27');
   var Subscription = (function() {
     function Subscription(unsubscribe) {
       this.isUnsubscribed = false;
@@ -26643,7 +26800,7 @@ $__System.registerDynamic("19", ["1f", "20", "21", "22", "23", "24"], true, func
   return module.exports;
 });
 
-$__System.registerDynamic("25", [], true, function($__require, exports, module) {
+$__System.registerDynamic("28", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26660,7 +26817,7 @@ $__System.registerDynamic("25", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1c", ["21", "19", "1d", "25"], true, function($__require, exports, module) {
+$__System.registerDynamic("1f", ["24", "1c", "20", "28"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26675,10 +26832,10 @@ $__System.registerDynamic("1c", ["21", "19", "1d", "25"], true, function($__requ
     }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
   };
-  var isFunction_1 = $__require('21');
-  var Subscription_1 = $__require('19');
-  var rxSubscriber_1 = $__require('1d');
-  var Observer_1 = $__require('25');
+  var isFunction_1 = $__require('24');
+  var Subscription_1 = $__require('1c');
+  var rxSubscriber_1 = $__require('20');
+  var Observer_1 = $__require('28');
   var Subscriber = (function(_super) {
     __extends(Subscriber, _super);
     function Subscriber(destinationOrNext, error, complete) {
@@ -26858,7 +27015,7 @@ $__System.registerDynamic("1c", ["21", "19", "1d", "25"], true, function($__requ
   return module.exports;
 });
 
-$__System.registerDynamic("11", [], true, function($__require, exports, module) {
+$__System.registerDynamic("13", [], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -26882,26 +27039,26 @@ $__System.registerDynamic("11", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("1d", ["11"], true, function($__require, exports, module) {
+$__System.registerDynamic("20", ["13"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('11');
+  var root_1 = $__require('13');
   var Symbol = root_1.root.Symbol;
   exports.$$rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function') ? Symbol.for('rxSubscriber') : '@@rxSubscriber';
   return module.exports;
 });
 
-$__System.registerDynamic("26", ["1c", "1d"], true, function($__require, exports, module) {
+$__System.registerDynamic("29", ["1f", "20"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var Subscriber_1 = $__require('1c');
-  var rxSubscriber_1 = $__require('1d');
+  var Subscriber_1 = $__require('1f');
+  var rxSubscriber_1 = $__require('20');
   function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver && typeof nextOrObserver === 'object') {
       if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -26916,15 +27073,15 @@ $__System.registerDynamic("26", ["1c", "1d"], true, function($__require, exports
   return module.exports;
 });
 
-$__System.registerDynamic("13", ["11", "1e", "26"], true, function($__require, exports, module) {
+$__System.registerDynamic("15", ["13", "21", "29"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
-  var root_1 = $__require('11');
-  var observable_1 = $__require('1e');
-  var toSubscriber_1 = $__require('26');
+  var root_1 = $__require('13');
+  var observable_1 = $__require('21');
+  var toSubscriber_1 = $__require('29');
   var Observable = (function() {
     function Observable(subscribe) {
       this._isScalar = false;
@@ -27003,7 +27160,7 @@ var __extends = this && this.__extends || function(d, b) {
   d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __);
 };
 !function(global, factory) {
-  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("3", ["exports", "15", "13"], factory) : factory((global.ng = global.ng || {}, global.ng.core = global.ng.core || {}), global.Rx, global.Rx);
+  "object" == typeof exports && "undefined" != typeof module ? factory(exports, require("rxjs/Subject"), require("rxjs/Observable")) : "function" == typeof define && define.amd ? define("3", ["exports", "17", "15"], factory) : factory((global.ng = global.ng || {}, global.ng.core = global.ng.core || {}), global.Rx, global.Rx);
 }(this, function(exports, rxjs_Subject, rxjs_Observable) {
   "use strict";
   function scheduleMicroTask(fn) {
@@ -32241,7 +32398,7 @@ var __extends = this && this.__extends || function(d, b) {
 });
 
 })();
-$__System.registerDynamic("17", ["3"], true, function($__require, exports, module) {
+$__System.registerDynamic("19", ["3", "1a"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -32264,98 +32421,122 @@ $__System.registerDynamic("17", ["3"], true, function($__require, exports, modul
       return Reflect.metadata(k, v);
   };
   var core_1 = $__require('3');
-  var animationTime = 300;
-  var SelectComponent = (function() {
-    function SelectComponent(_eref) {
-      this._eref = _eref;
-      this.selected = null;
-      this.selectedChange = new core_1.EventEmitter();
-      this.placeholder = null;
-      this.maxHeight = 250;
-      this.state = new core_1.EventEmitter();
-      this.animationState = 'closed';
-      this.itemsToDisplay = [];
-      this.itemsOriginal = [];
-      this.topPosition = '0';
+  var modal_service_1 = $__require('1a');
+  var animationTime = 200;
+  var ModalComponent = (function() {
+    function ModalComponent(_comp, _service) {
+      this._comp = _comp;
+      this._service = _service;
+      this.state = 'open';
     }
-    Object.defineProperty(SelectComponent.prototype, "items", {
-      set: function(it) {
-        this.itemsOriginal = it;
-        if (this.selected)
-          this._createDisplay();
-      },
-      enumerable: true,
-      configurable: true
-    });
-    ;
-    SelectComponent.prototype.outsideClick = function(target) {
-      if (!this._eref.nativeElement.contains(target) && this.animationState === 'open')
-        this.toggle();
-    };
-    ;
-    Object.defineProperty(SelectComponent.prototype, "styleMaxHeight", {
-      get: function() {
-        return this.maxHeight + 'px';
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(SelectComponent.prototype, "inSelected", {
-      get: function() {
-        if (this.selected)
-          return 'selected';
-        if (this.placeholderRef)
-          return 'placeholderRef';
-        if (this.placeholder)
-          return 'placeholder';
-        return 'none';
-      },
-      enumerable: true,
-      configurable: true
-    });
-    SelectComponent.prototype.ngOnInit = function() {
-      console.log('bla', this.itemsToDisplay);
-    };
-    SelectComponent.prototype.select = function(index) {
-      this.selected = this.itemsToDisplay[index];
-      this.selectedChange.emit(this.selected);
-      this._createDisplay(index);
-      this.toggle();
-    };
-    SelectComponent.prototype.toggle = function() {
-      this.animationState = this.animationState === 'closed' ? 'open' : 'closed';
-      this.state.emit(this.animationState);
-    };
-    SelectComponent.prototype._createDisplay = function(index) {
-      var ind = index || this.itemsOriginal.indexOf(this.selected);
-      this.itemsToDisplay = this.itemsOriginal.filter(function(a, i) {
-        if (i !== ind)
-          return a;
+    ModalComponent.prototype.ngOnInit = function() {
+      var _this = this;
+      this._comp.compileComponentAsync(this.childComp).then(function(a) {
+        return _this.wrapperRef.createComponent(a);
       });
     };
-    __decorate([core_1.Input(), __metadata('design:type', Object)], SelectComponent.prototype, "selected", void 0);
-    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "selectedChange", void 0);
-    __decorate([core_1.Input(), __metadata('design:type', Object), __metadata('design:paramtypes', [Object])], SelectComponent.prototype, "items", null);
-    __decorate([core_1.Input(), __metadata('design:type', String)], SelectComponent.prototype, "placeholder", void 0);
-    __decorate([core_1.Input(), __metadata('design:type', Number)], SelectComponent.prototype, "maxHeight", void 0);
-    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], SelectComponent.prototype, "state", void 0);
-    __decorate([core_1.ViewChild('selection'), __metadata('design:type', Object)], SelectComponent.prototype, "selectionEL", void 0);
-    __decorate([core_1.ContentChild('scListItem'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "selectRef", void 0);
-    __decorate([core_1.ContentChild('scPlaceholder'), __metadata('design:type', core_1.TemplateRef)], SelectComponent.prototype, "placeholderRef", void 0);
-    __decorate([core_1.HostListener('document:click', ['$event.target']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], SelectComponent.prototype, "outsideClick", null);
-    SelectComponent = __decorate([core_1.Component({
-      selector: 'sc-select',
-      animations: [core_1.trigger('select', [core_1.state('closed', core_1.style({height: 0})), core_1.state('open', core_1.style({height: '*'})), core_1.transition('closed <=> open', core_1.animate(animationTime + "ms cubic-bezier(.17,.67,0,1)"))])],
-      styles: ["\n        :host {\n            display: block;\n            cursor: pointer;\n            position: relative;\n            width: 200px;\n            background: #fff;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selected .ph {\n            text-align: center;\n            margin: 0;\n            padding: 0.5rem 1rem;\n            font-size: 1.1rem;\n        }\n        \n        .selected .wp {\n            padding: 0.5rem 1rem;\n        }\n        \n        .selection {\n            position: absolute;\n            width: 100%;\n            background: #fff;\n            overflow: auto;\n            top: 100%;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .selection.active { border-top: 1px dashed #ccc; }\n        .item { padding: 0.5rem 1rem; }\n    "],
-      template: "\n        <div class=\"selected\" [ngSwitch]=\"inSelected\" (click)=\"toggle()\">\n            <div *ngSwitchCase=\"'selected'\" class=\"wp\"><template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: selected, index: -1}\"></template></div>\n            <div *ngSwitchCase=\"'placeholderRef'\" class=\"wp\"><template [ngTemplateOutlet]=\"placeholderRef\"></template></div>\n            <p *ngSwitchCase=\"'placeholder'\" class=\"ph\">{{placeholder}}</p>   \n            <p *ngSwitchCase=\"'none'\" class=\"ph\">Select Something</p>                    \n        </div>\n        <div class=\"selection\" #selection  [@select]=\"animationState\" [ngStyle]=\"{'max-height': styleMaxHeight}\" [class.active]=\"animationState === 'open'\">\n            <div class=\"item\" *ngFor=\"let item of itemsToDisplay; let i = index\" (click)=\"select(i)\">\n                <template [ngTemplateOutlet]=\"selectRef\" [ngOutletContext]=\"{item: item, index: i}\"></template>\n            </div>\n        </div>\n    "
-    }), __metadata('design:paramtypes', [core_1.ElementRef])], SelectComponent);
-    return SelectComponent;
+    ModalComponent.prototype.overlayClose = function() {
+      if (this.settings.overlayClickToClose)
+        this.close();
+    };
+    ModalComponent.prototype.close = function() {
+      var _this = this;
+      this.state = 'void';
+      setTimeout(function() {
+        return _this._service.close();
+      }, animationTime);
+    };
+    ModalComponent.prototype.ngOnDestroy = function() {};
+    __decorate([core_1.ViewChild('wrapper', {read: core_1.ViewContainerRef}), __metadata('design:type', core_1.ViewContainerRef)], ModalComponent.prototype, "wrapperRef", void 0);
+    ModalComponent = __decorate([core_1.Component({
+      selector: 'sc-modal',
+      styles: ["\n        .overlay {\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            background: rgba(0, 0, 0, 0.6);\n        }\n        \n        .wrapper {\n            position: absolute;\n            top: 0;\n            bottom: 0;\n            left: 0;\n            right: 0;\n            padding: 1rem;\n            margin: auto;\n            width: 200px;\n            height: 200px;\n            background: #fff;\n            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);\n        }\n        \n        .close {\n            position: absolute;\n            border: none;\n            top: -25px;\n            right: -25px;\n            width: 50px;\n            height: 50px;\n            background: #333;\n            border-radius: 50%;\n            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n            transition: all 0.3s cubic-bezier(.25,.8,.25,1);\n            cursor: pointer;\n        }\n        \n        .close:hover {\n            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;\n        }\n        \n        .close .ex-close {\n            position: relative;\n            display: inline-block;\n            width: 20px;\n            height: 20px;\n            overflow: hidden;\n        }\n        \n        .close .ex-close::before,\n        .close .ex-close::after {\n            content: '';\n            position: absolute;\n            height: 4px;\n            width: 100%;\n            top: 50%;\n            left: 0;\n            margin-top: -1px;\n            background: #fff;\n            border-radius: 5px;\n        }\n        \n        .close .ex-close::before { transform: rotate(45deg) }\n        .close .ex-close::after { transform: rotate(-45deg) }\n    "],
+      animations: [core_1.trigger('overlay', [core_1.state('void', core_1.style({opacity: 0})), core_1.state('open', core_1.style({opacity: 1})), core_1.transition('void <=> open', core_1.animate(animationTime + "ms ease-in-out"))]), core_1.trigger('wrapper', [core_1.state('void', core_1.style({
+        opacity: 0,
+        transform: 'translateY(20%)'
+      })), core_1.state('open', core_1.style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })), core_1.transition('void <=> open', core_1.animate(animationTime + "ms ease-in-out"))])],
+      template: "\n        <div class=\"overlay\"  [@overlay]=\"state\" (click)=\"overlayClose()\"></div>\n        <div class=\"wrapper\" [@wrapper]=\"state\">\n            <button class=\"close\" *ngIf=\"settings.showCloseButton\" (click)=\"close()\">\n                <span class=\"ex-close\"></span>\n            </button>\n            <div #wrapper></div>\n        </div>\n    "
+    }), __metadata('design:paramtypes', [core_1.Compiler, modal_service_1.ModalService])], ModalComponent);
+    return ModalComponent;
   }());
-  exports.SelectComponent = SelectComponent;
+  exports.ModalComponent = ModalComponent;
   return module.exports;
 });
 
-$__System.registerDynamic("27", ["7", "8", "9", "a", "b", "c", "d", "e", "f", "16", "17"], true, function($__require, exports, module) {
+$__System.registerDynamic("1a", ["3", "19"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var define,
+      global = this || self,
+      GLOBAL = global;
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var core_1 = $__require('3');
+  var modal_component_1 = $__require('19');
+  var ModalService = (function() {
+    function ModalService(_comp) {
+      this._comp = _comp;
+      this._settings = {
+        overlay: true,
+        overlayClickToClose: true,
+        defaultFooter: false,
+        showCloseButton: true
+      };
+    }
+    ModalService.prototype.vc = function(vc) {
+      this._vc = vc;
+    };
+    ModalService.prototype.settings = function(set) {
+      this._settings = Object.assign(this._settings, set);
+      return this._settings;
+    };
+    ModalService.prototype.withComp = function(comp, settings, vcRef) {
+      this._vcToUse = vcRef || this._vc;
+      this._create(comp, settings || this._settings, this._vcToUse);
+    };
+    ModalService.prototype.close = function() {
+      this._vcToUse.clear();
+    };
+    ModalService.prototype._create = function(comp, settings, vcRef) {
+      this._comp.compileComponentAsync(modal_component_1.ModalComponent).then(function(a) {
+        vcRef.clear();
+        var created = vcRef.createComponent(a, 0);
+        created.instance['childComp'] = comp;
+        created.instance['settings'] = settings;
+      });
+    };
+    ModalService = __decorate([core_1.Injectable(), __metadata('design:paramtypes', [core_1.Compiler])], ModalService);
+    return ModalService;
+  }());
+  exports.ModalService = ModalService;
+  return module.exports;
+});
+
+$__System.registerDynamic("2a", [], false, function ($__require, $__exports, $__module) {
+  var _retrieveGlobal = $__System.get("@@global-helpers").prepareGlobal($__module.id, null, null);
+
+  (function ($__global) {})(this);
+
+  return _retrieveGlobal();
+});
+$__System.registerDynamic("2b", ["7", "8", "9", "a", "b", "c", "d", "e", "f", "10", "11", "19", "18", "1a", "2a"], true, function($__require, exports, module) {
   ;
   var define,
       global = this || self,
@@ -32369,12 +32550,16 @@ $__System.registerDynamic("27", ["7", "8", "9", "a", "b", "c", "d", "e", "f", "1
   exports.BlockSliderModule = $__require('d').BlockSliderModule;
   exports.BlockSliderComponent = $__require('e').BlockSliderComponent;
   exports.BlockComponent = $__require('f').BlockComponent;
-  exports.SelectModule = $__require('16').SelectModule;
-  exports.SelectComponent = $__require('17').SelectComponent;
+  exports.SelectModule = $__require('10').SelectModule;
+  exports.SelectComponent = $__require('11').SelectComponent;
+  exports.ModalComponent = $__require('19').ModalComponent;
+  exports.ModalModule = $__require('18').ModalModule;
+  exports.ModalService = $__require('1a').ModalService;
+  exports.ModalSettings = $__require('2a').ModalSettings;
   return module.exports;
 });
 
-$__System.registerDynamic("28", ["3", "5", "6", "27"], true, function($__require, exports, module) {
+$__System.registerDynamic("2c", ["3", "5", "6", "2b"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -32399,7 +32584,7 @@ $__System.registerDynamic("28", ["3", "5", "6", "27"], true, function($__require
   var core_1 = $__require('3');
   var platform_browser_1 = $__require('5');
   var app_component_1 = $__require('6');
-  var ng2_simple_components_1 = $__require('27');
+  var ng2_simple_components_1 = $__require('2b');
   var AppModule = (function() {
     function AppModule() {}
     AppModule = __decorate([core_1.NgModule({
@@ -32413,14 +32598,14 @@ $__System.registerDynamic("28", ["3", "5", "6", "27"], true, function($__require
   return module.exports;
 });
 
-$__System.registerDynamic("1", ["4", "28"], true, function($__require, exports, module) {
+$__System.registerDynamic("1", ["4", "2c"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
       global = this || self,
       GLOBAL = global;
   var platform_browser_dynamic_1 = $__require('4');
-  var app_module_1 = $__require('28');
+  var app_module_1 = $__require('2c');
   platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
   return module.exports;
 });
