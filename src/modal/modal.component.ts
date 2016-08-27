@@ -115,10 +115,10 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._comp.compileComponentAsync(this.childComp).then(comp => {
-            this.wrapperRef.createComponent(comp);
+            let ref = this.wrapperRef.createComponent(comp);
             if (this.toSet) {
                 const keys = Object.keys(this.toSet);
-                keys.forEach(a => comp.instance[a] = this.toSet[a])
+                keys.forEach(a => ref.instance[a] = this.toSet[a])
             }
         });
     }

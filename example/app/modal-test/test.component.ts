@@ -5,11 +5,14 @@ import {ModalService} from 'ng2-simple-components';
     selector: 'test-bla',
     template: `
         <h1>Test</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolorum eius optio sed tenetur. Amet quasi, ut! Accusamus aperiam architecto atque illum, iste, magni molestias optio qui rerum totam vero?</p>
+        <p>{{test}}</p>
         <button (click)="close()">Close</button>
     `
 })
 export class TestComponent {
+
+    test: string = 'pero';
+
     constructor(private _modal: ModalService) {}
 
     close() {
