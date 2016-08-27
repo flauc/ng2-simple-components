@@ -1,8 +1,10 @@
-import {Component, style} from '@angular/core';
+import {Component, style, ViewEncapsulation} from '@angular/core';
 import {TabComponent} from './tab.component';
 
 @Component({
     selector: 'sc-tabs',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     template: `
         <div class="tab-nav">
           <div class="col" 

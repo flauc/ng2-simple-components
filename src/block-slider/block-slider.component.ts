@@ -1,9 +1,11 @@
-import {Component, OnInit, Input, ElementRef, HostBinding} from '@angular/core';
+import {Component, OnInit, Input, ElementRef, HostBinding, ViewEncapsulation} from '@angular/core';
 import {BlockComponent} from './block.component';
 
 
 @Component({
     selector: 'sc-block-slider',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     styles: [`
         :host {
             display: block;

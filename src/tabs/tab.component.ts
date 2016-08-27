@@ -1,8 +1,13 @@
-import {Input, Component, trigger, state, style, transition, animate, ElementRef, OnInit} from '@angular/core';
+import {
+    Input, Component, trigger, state, style, transition, animate, ElementRef, OnInit,
+    ViewEncapsulation
+} from '@angular/core';
 import {TabsComponent} from './tabs.component';
 
 @Component({
     selector: 'sc-tab',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     template: `
       <ng-content></ng-content>
     `,

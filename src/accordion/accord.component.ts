@@ -1,10 +1,12 @@
-import {Component, Input, style, state, trigger, transition, animate} from '@angular/core';
+import {Component, Input, style, state, trigger, transition, animate, ViewEncapsulation} from '@angular/core';
 import {AccordionComponent} from './accordion.component';
 
 const animationTime = 300;
 
 @Component({
     selector: 'sc-accord',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     template: `
         <div class="accord" [class.active]="act">
             <div class="bar" (click)="trigger()">

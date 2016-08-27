@@ -1,6 +1,6 @@
 import {
     Component, OnInit, trigger, state, style, transition, animate, OnDestroy, ViewChild, ViewContainerRef,
-    Compiler
+    Compiler, ViewEncapsulation
 } from '@angular/core';
 import {ModalService} from './modal.service';
 import {ModalSettings} from './settings.interface';
@@ -9,6 +9,8 @@ const animationTime = 200;
 
 @Component({
     selector: 'sc-modal',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     styles: [`
         .overlay {
             position: fixed;

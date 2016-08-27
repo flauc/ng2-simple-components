@@ -1,9 +1,14 @@
-import {Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild, HostListener, ElementRef} from '@angular/core';
+import {
+    Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate,
+    ViewChild, HostListener, ElementRef, ViewEncapsulation
+} from '@angular/core';
 
 const animationTime = 300;
 
 @Component({
     selector: 'sc-select',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('select', [
             state('closed', style({height: 0})),

@@ -3,6 +3,8 @@ import {AccordComponent} from './accord.component';
 
 @Component({
     selector: 'sc-accordion',
+    // TODO Remove when a better soluction is available
+    encapsulation: ViewEncapsulation.None,
     template: `
         <ng-content></ng-content>
     `,
