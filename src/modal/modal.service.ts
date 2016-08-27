@@ -26,9 +26,9 @@ export class ModalService {
     /*
         Modal Methods
      */
-    withComp(comp: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
+    withComp(comp: any, toSet?: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
         this._vcToUse = vcRef || this._vc;
-        this._create(comp, settings || this._settings, this._vcToUse);
+        this._create(comp, settings || this._settings, this._vcToUse, toSet);
     }
 
     close(): void {
@@ -36,7 +36,7 @@ export class ModalService {
     }
 
 
-    private _create(comp: any, settings: ModalSettings, vcRef: ViewContainerRef): void {
+    private _create(comp: any, settings: ModalSettings, vcRef: ViewContainerRef, toSet?: any): void {
         this._comp.compileComponentAsync(ModalComponent).then(a => {
             vcRef.clear();
             let created = vcRef.createComponent(a, 0);
@@ -44,6 +44,8 @@ export class ModalService {
             // Set Component Params
             created.instance['childComp'] = comp;
             created.instance['settings'] = settings;
+
+            if (toSet) created.instance['toSet'] = toSet;
         });
     }
 }

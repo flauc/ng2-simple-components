@@ -104,6 +104,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     settings: ModalSettings;
     state: string = 'open';
+    toSet: any;
 
     childComp: any;
 
@@ -113,7 +114,13 @@ export class ModalComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit(): void {
-        this._comp.compileComponentAsync(this.childComp).then(a => this.wrapperRef.createComponent(a));
+        this._comp.compileComponentAsync(this.childComp).then(comp => {
+            this.wrapperRef.createComponent(comp);
+            if (this.toSet) {
+                const keys = Object.keys(this.toSet);
+                keys.forEach(a => comp.instance[a] = this.toSet[a])
+            }
+        });
     }
 
     overlayClose(): void {
