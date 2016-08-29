@@ -17,3 +17,5 @@ export declare class ModalModule {}
 export declare class ModalComponent {}
 export declare class ModalService {}
 export declare interface ModalSettings {}
+
+export declare class OverrideComponent {}

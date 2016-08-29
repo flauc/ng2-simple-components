@@ -42,7 +42,7 @@ import {TestComponent} from './modal-test/test.component';
         </div>
 
         <div class="tabs">
-            <sc-tabs>
+            <sc-tabs scOverride="test">
                 <sc-tab title="test-1" [active]="true">
                     <h1>Test 1</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut, beatae, cum, dolorum excepturi fugiat fugit hic maiores maxime molestiae mollitia praesentium quaerat quasi repellendus sit velit voluptas voluptates voluptatum?</p>
@@ -102,6 +102,10 @@ import {TestComponent} from './modal-test/test.component';
         <!--<div class="slideToTest green"></div>-->
     `,
     styles: [`
+
+        .test:host .tab-content {
+            background: red;
+        }
 
         .block-slider {
             float: left;

@@ -27,6 +27,7 @@
     "src/modal/modal.component.ts",
     "src/modal/modal.module.ts",
     "src/modal/modal.service.ts",
-    "src/modal/settings.interface.ts"
+    "src/modal/settings.interface.ts",
+    "src/style-override.directive.ts"
   ]
 }
