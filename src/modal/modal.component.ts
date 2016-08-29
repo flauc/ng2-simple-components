@@ -1,7 +1,4 @@
-import {
-    Component, OnInit, trigger, state, style, transition, animate, OnDestroy, ViewChild, ViewContainerRef,
-    Compiler, ViewEncapsulation
-} from '@angular/core';
+import {Component, OnInit, trigger, state, style, transition, animate, OnDestroy, ViewChild, ViewContainerRef, Compiler} from '@angular/core';
 import {ModalService} from './modal.service';
 import {ModalSettings} from './settings.interface';
 
@@ -9,9 +6,12 @@ const animationTime = 200;
 
 @Component({
     selector: 'sc-modal',
-    // TODO Remove when a better soluction is available
-    encapsulation: ViewEncapsulation.None,
     styles: [`
+    
+        :host {
+            display: block;
+        }
+
         .overlay {
             position: fixed;
             top: 0;
@@ -22,7 +22,7 @@ const animationTime = 200;
         }
         
         .wrapper {
-            position: absolute;
+            position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
@@ -47,10 +47,11 @@ const animationTime = 200;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             cursor: pointer;
+            outline: none;
         }
         
         .close:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
         
         .close .ex-close {
@@ -59,6 +60,7 @@ const animationTime = 200;
             width: 20px;
             height: 20px;
             overflow: hidden;
+            padding: 0;
         }
         
         .close .ex-close::before,

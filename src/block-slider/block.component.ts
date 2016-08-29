@@ -1,10 +1,8 @@
-import {Component, OnInit, HostBinding, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, HostBinding} from '@angular/core';
 import {BlockSliderComponent} from './block-slider.component';
 
 @Component({
     selector: 'sc-block',
-    // TODO Remove when a better soluction is available
-    encapsulation: ViewEncapsulation.None,
     styles: [`
         :host {
             height: 100%;

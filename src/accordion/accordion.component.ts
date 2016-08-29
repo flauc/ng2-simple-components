@@ -1,10 +1,8 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {AccordComponent} from './accord.component';
 
 @Component({
     selector: 'sc-accordion',
-    // TODO Remove when a better soluction is available
-    encapsulation: ViewEncapsulation.None,
     template: `
         <ng-content></ng-content>
     `,
