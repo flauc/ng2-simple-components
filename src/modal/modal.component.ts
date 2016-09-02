@@ -1,5 +1,4 @@
-import {Component, OnInit, trigger, state, style, transition, animate, OnDestroy, ViewChild, ViewContainerRef, Compiler} from '@angular/core';
-import {ModalService} from './modal.service';
+import {Component, OnInit, trigger, state, style, transition, animate, OnDestroy, ViewChild, ViewContainerRef, Compiler, EventEmitter, Output} from '@angular/core';
 import {ModalSettings} from './settings.interface';
 
 const animationTime = 200;
@@ -102,24 +101,20 @@ const animationTime = 200;
         </div>
     `
 })
-export class ModalComponent implements OnInit, OnDestroy {
+export class ModalComponent {
 
     @ViewChild('wrapper', {read: ViewContainerRef}) wrapperRef: ViewContainerRef;
+    @Output() doClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     settings: ModalSettings;
     state: string = 'open';
     toSet: any;
 
-    childComp: any;
+    constructor(private _comp: Compiler) {}
 
-    constructor(
-        private _comp: Compiler,
-        private _service: ModalService
-    ) {}
-
-    ngOnInit(): void {
-        this._comp.compileComponentAsync(this.childComp).then(comp => {
-            let ref = this.wrapperRef.createComponent(comp);
+    createWithComp(modal: any, comp: string) {
+        this._comp.compileModuleAndAllComponentsAsync(modal).then(res => {
+            let ref = this.wrapperRef.createComponent(res.componentFactories.find(a => a.componentType === comp));
             if (this.toSet) {
                 const keys = Object.keys(this.toSet);
                 keys.forEach(a => ref.instance[a] = this.toSet[a])
@@ -133,10 +128,6 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     close(): void {
         this.state = 'void';
-        setTimeout(() => this._service.close(), animationTime)
-    }
-
-    ngOnDestroy(): void {
-
+        setTimeout(() => this.doClose.emit(true), animationTime)
     }
 }

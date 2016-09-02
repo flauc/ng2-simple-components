@@ -1,12 +1,17 @@
-import {Injectable, ViewContainerRef, Compiler} from '@angular/core';
-import {ModalComponent} from './modal.component';
+import {Injectable, ViewContainerRef, Compiler, ComponentRef} from '@angular/core';
 import {ModalSettings} from './settings.interface';
+import {SingleModule} from './single.module';
+import {ModalComponent} from './modal.component';
 
 @Injectable()
 export class ModalService {
 
     private _vc: ViewContainerRef;
     private _vcToUse: ViewContainerRef;
+
+    // Instance of the open module
+    private _openModal: ComponentRef<ModalComponent>;
+
     // Default Settings
     private _settings: ModalSettings = {
         overlay: true,
@@ -26,26 +31,28 @@ export class ModalService {
     /*
         Modal Methods
      */
-    withComp(comp: any, toSet?: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
+    withComp(modal: any, comp: any, toSet?: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
         this._vcToUse = vcRef || this._vc;
-        this._create(comp, settings || this._settings, this._vcToUse, toSet);
+        this._create(modal, comp, settings || this._settings, this._vcToUse, toSet);
     }
 
     close(): void {
         this._vcToUse.clear();
     }
 
-
-    private _create(comp: any, settings: ModalSettings, vcRef: ViewContainerRef, toSet?: any): void {
-        this._comp.compileComponentAsync(ModalComponent).then(a => {
+    private _create(modal: any, comp: any, settings: ModalSettings, vcRef: ViewContainerRef, toSet?: any): void {
+        this._comp.compileModuleAndAllComponentsAsync(SingleModule).then(a => {
             vcRef.clear();
-            let created = vcRef.createComponent(a, 0);
+            this._openModal = vcRef.createComponent(a.componentFactories[0]);
+            this._openModal.instance.settings = settings;
+            this._openModal.instance.toSet = toSet;
 
-            // Set Component Params
-            created.instance['childComp'] = comp;
-            created.instance['settings'] = settings;
+            this._openModal.instance.doClose.subscribe(a => {
+                console.log(a);
+                this.close();
+            });
 
-            if (toSet) created.instance['toSet'] = toSet;
+            this._openModal.instance.createWithComp(modal, comp);
         });
     }
 }

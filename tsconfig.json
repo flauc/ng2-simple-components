@@ -25,6 +25,7 @@
     "src/select/select.module.ts",
     "src/select/select.component.ts",
     "src/modal/modal.component.ts",
+    "src/modal/single.module.ts",
     "src/modal/modal.module.ts",
     "src/modal/modal.service.ts",
     "src/modal/settings.interface.ts",

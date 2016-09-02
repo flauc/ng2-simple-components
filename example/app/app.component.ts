@@ -5,6 +5,7 @@ import {
 import {SlideToService} from './slide-to/slide-to.service';
 import {ModalService} from 'ng2-simple-components';
 import {TestComponent} from './modal-test/test.component';
+import {TestModule} from './modal-test/test.module';
 @Component({
     selector: 'app',
     animations: [
@@ -195,6 +196,6 @@ export class AppComponent {
     }
 
     create() {
-        this._modal.withComp(TestComponent, {test: '123'})
+        this._modal.withComp(TestModule, TestComponent, {test: '123'})
     }
 }
