@@ -33,11 +33,15 @@ export class AppComponent implements OnInit {
 }
 ```
 
-This is the minimal required configuration for the Modal to work now you can inject the `ModalService` in to any component and create a modal like this: 
+### Modal with injected component
+
+To create a modal that has an injected component, because of the way Angular works you will need to provide the entire modal that component is declared in. 
+
+You call the `withComp()` method on the `ModalService` and pass the modal and component to the function: 
 
 ```ts
 createModal() {
     // The component you want injected in to the Modal
-    this._modal.create(MyComponent);
+    this._modal.createWithModal(MyModal, MyComponent);
 }
 ```
