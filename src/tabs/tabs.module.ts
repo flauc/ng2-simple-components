@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import {TabsComponent} from './tabs.component';
 import {TabComponent} from './tab.component';
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [CommonModule],
     declarations: [TabsComponent, TabComponent],
     exports: [TabsComponent, TabComponent]
 })

@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import {ModalComponent} from './modal.component';
 import {ModalService} from './modal.service';
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [CommonModule],
     providers: [ModalService],
     declarations: [ModalComponent],
     exports: [ModalComponent]

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import {SelectComponent} from './select.component';
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [CommonModule],
     declarations: [SelectComponent],
     exports: [SelectComponent]
 })
