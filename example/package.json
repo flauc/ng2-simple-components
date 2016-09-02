@@ -22,7 +22,7 @@
     "zone.js": "^0.6.17"
   },
   "devDependencies": {
-    "typescript": "^2.0.1",
+    "typescript": "^2.0.2",
     "typings": "^1.0.4"
   }
 }
