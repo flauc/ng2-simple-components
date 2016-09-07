@@ -31,7 +31,7 @@ export class ModalService {
     /*
         Modal Methods
      */
-    withComp(modal: any, comp: any, toSet?: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
+    createWithModal(modal: any, comp: any, toSet?: any, settings?: ModalSettings, vcRef?: ViewContainerRef) {
         this._vcToUse = vcRef || this._vc;
         this._create(modal, comp, settings || this._settings, this._vcToUse, toSet);
     }
@@ -47,10 +47,7 @@ export class ModalService {
             this._openModal.instance.settings = settings;
             this._openModal.instance.toSet = toSet;
 
-            this._openModal.instance.doClose.subscribe(a => {
-                console.log(a);
-                this.close();
-            });
+            this._openModal.instance.doClose.subscribe(a => this.close());
 
             this._openModal.instance.createWithComp(modal, comp);
         });
