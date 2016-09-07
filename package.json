@@ -1,6 +1,6 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
   "scripts": {
     "build": "typings install && tsc"
@@ -24,13 +24,15 @@
     "@angular/platform-browser": "2.0.0-rc.6"
   },
   "devDependencies": {
-    "@angular/core": "^2.0.0-rc.6",
     "@angular/common": "^2.0.0-rc.6",
+    "@angular/core": "^2.0.0-rc.6",
     "@angular/platform-browser": "2.0.0-rc.6",
+    "browser-sync": "^2.14.0",
     "del": "^2.2.2",
     "es6-shim": "^0.35.0",
     "gulp": "^3.9.1",
-    "browser-sync": "^2.14.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-delete-lines": "0.0.7",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.11",
     "typescript": "^2.0.2",
