@@ -196,6 +196,6 @@ export class AppComponent {
     }
 
     create() {
-        this._modal.withComp(TestModule, TestComponent, {test: '123'})
+        this._modal.createWithModal(TestModule, TestComponent, {test: '123'})
     }
 }
