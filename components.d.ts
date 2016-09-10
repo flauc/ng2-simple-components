@@ -1,3 +1,5 @@
+import {OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef} from '@angular/core';
+
 export declare class StyleOverrideDirective {
     scOverride: string;
     className: string;
@@ -25,7 +27,6 @@ export declare class AccordionComponent {
 export declare class AccordionModule {
 }
 
-import { OnInit } from '@angular/core';
 export declare class BlockSliderComponent implements OnInit {
     blockCount: number;
     startingPosition: number;
@@ -44,7 +45,6 @@ export declare class BlockSliderComponent implements OnInit {
 export declare class BlockSliderModule {
 }
 
-import { OnInit } from '@angular/core';
 export declare class BlockComponent implements OnInit {
     private _blocksSliderComp;
     w: string;
@@ -55,7 +55,6 @@ export declare class BlockComponent implements OnInit {
     ngOnInit(): void;
 }
 
-import { ViewContainerRef, Compiler, EventEmitter } from '@angular/core';
 export declare class ModalComponent {
     private _comp;
     wrapperRef: ViewContainerRef;
@@ -72,7 +71,6 @@ export declare class ModalComponent {
 export declare class ModalModule {
 }
 
-import { ViewContainerRef, Compiler } from '@angular/core';
 export declare class ModalService {
     private _comp;
     private _vc;
@@ -97,7 +95,6 @@ export interface ModalSettings {
 export declare class SingleModule {
 }
 
-import { EventEmitter, TemplateRef, ElementRef } from '@angular/core';
 export declare class SelectComponent {
     private _eref;
     animationState: string;
@@ -128,8 +125,6 @@ export declare class SelectComponent {
 
 export declare class SelectModule {
 }
-
-import { ElementRef, OnInit } from '@angular/core';
 export declare class TabComponent implements OnInit {
     private tabsComp;
     private _el;
