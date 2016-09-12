@@ -13,4 +13,6 @@ exports.ModalComponent = require('./lib/modal/modal.component').ModalComponent;
 exports.ModalModule = require('./lib/modal/modal.module').ModalModule;
 exports.ModalService = require('./lib/modal/modal.service').ModalService;
 exports.ModalSettings = require('./lib/modal/settings.interface').ModalSettings;
+exports.SearchPipeModule = require('./lib/pipes/search/search.module').SearchPipeModule;
+exports.SearchPipe = require('./lib/pipes/search/search.pipe').SearchPipe;
 exports.StyleOverrideDirective = require('./lib/style-override.directive').StyleOverrideDirective;

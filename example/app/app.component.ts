@@ -90,6 +90,14 @@ import {TestModule} from './modal-test/test.module';
         
         <button (click)="create()">Bla</button>
         
+        <input type="text" [(ngModel)]="searchConfig.search" name="search" />
+        
+        <div class="search-test">
+            <div *ngFor="let t of searchTest | search:[searchConfig.search, searchConfig.criteria, true, true]">
+                <p>{{t.name}}</p>
+            </div>    
+        </div> 
+        
         <!--<div class="slideToTest"-->
             <!--#slide-->
             <!--[@anim]="slide.animationState" -->
@@ -103,6 +111,14 @@ import {TestModule} from './modal-test/test.module';
         <!--<div class="slideToTest green"></div>-->
     `,
     styles: [`
+
+        .search-test {
+            width: 100%;
+            height: 500px;
+            float: left;
+            background: black;
+            color: red;
+        }
 
         .test:host .tab-content {
             background: red;
@@ -146,6 +162,26 @@ import {TestModule} from './modal-test/test.module';
 })
 
 export class AppComponent {
+
+    searchConfig = {
+        search: '',
+        criteria: ['name']
+    };
+
+    searchTest = [
+        {
+            name: 'Pero'
+        },
+        {
+            name: 'fRanjo'
+        },
+        {
+            name: 'stevo'
+        },
+        {
+            name: 'ante'
+        }
+    ];
 
     scItems: any = [
         {

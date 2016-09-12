@@ -29,6 +29,8 @@
     "src/modal/modal.module.ts",
     "src/modal/modal.service.ts",
     "src/modal/settings.interface.ts",
+    "src/pipes/search/search.module.ts",
+    "src/pipes/search/search.pipe.ts",
     "src/style-override.directive.ts"
   ]
 }

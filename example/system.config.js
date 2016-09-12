@@ -17,6 +17,7 @@
             'core',
             'platform-browser',
             'platform-browser-dynamic',
+            'forms',
             'upgrade'
         ];
 

@@ -1,4 +1,4 @@
-import {OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef} from '@angular/core';
+import { OnInit, ViewContainerRef, Compiler, EventEmitter, ElementRef, TemplateRef } from '@angular/core';
 
 export declare class StyleOverrideDirective {
     scOverride: string;
@@ -26,6 +26,7 @@ export declare class AccordionComponent {
 
 export declare class AccordionModule {
 }
+
 
 export declare class BlockSliderComponent implements OnInit {
     blockCount: number;
@@ -55,6 +56,7 @@ export declare class BlockComponent implements OnInit {
     ngOnInit(): void;
 }
 
+
 export declare class ModalComponent {
     private _comp;
     wrapperRef: ViewContainerRef;
@@ -70,6 +72,7 @@ export declare class ModalComponent {
 
 export declare class ModalModule {
 }
+
 
 export declare class ModalService {
     private _comp;
@@ -125,6 +128,7 @@ export declare class SelectComponent {
 
 export declare class SelectModule {
 }
+
 export declare class TabComponent implements OnInit {
     private tabsComp;
     private _el;
@@ -153,4 +157,16 @@ export declare class TabsComponent {
 }
 
 export declare class TabsModule {
+}
+
+export declare class SearchPipeModule {
+}
+
+export declare class SearchPipe {
+    transform(value: any[], args: [string, string[], boolean, boolean, boolean]): any[];
+    private _fromStart;
+    private _fromAny;
+    private _cFromStart;
+    private _cfromAny;
+    private _getValue(item, str);
 }
