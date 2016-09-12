@@ -42,6 +42,10 @@ var packages = {
 * [Select](https://github.com/flauc/ng2-simple-components/blob/master/docs/select.md)
 * [Modal](https://github.com/flauc/ng2-simple-components/blob/master/docs/modal.md)
 
+## Pipes
+
+* [Search](https://github.com/flauc/ng2-simple-components/blob/master/docs/pipes/search.md)
+
 ## Overriding Styles
 
 ## FAQ
