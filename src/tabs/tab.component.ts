@@ -44,7 +44,6 @@ import {TabsComponent} from './tabs.component';
     styles: [`
         :host {
             display: block;
-            opacity: 0;
             top: 0;
             left: 0;
             right: 0;
@@ -57,7 +56,8 @@ export class TabComponent implements OnInit {
     @Input() set active(act: boolean) {
         this.act = act;
         if (act) {
-            this.animate = 'first';
+            // TODO: Check for a better implementation
+            setTimeout(() => this.animate = 'first', 0);
             this.tabsComp.setStyle(this._el.nativeElement.offsetHeight);
         }
     };
@@ -66,7 +66,7 @@ export class TabComponent implements OnInit {
     @Input() disabled: boolean = false;
 
     act: boolean = false;
-    animate: string = 'default';
+    animate: string  = 'default';
     position: number;
     height: number;
 
