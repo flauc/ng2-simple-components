@@ -1,7 +1,4 @@
-import {
-    Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate,
-    ViewChild, HostListener, ElementRef, ViewEncapsulation
-} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild, HostListener, ElementRef, ViewEncapsulation} from '@angular/core';
 
 const animationTime = 300;
 
@@ -116,9 +113,10 @@ export class SelectComponent {
     }
 
     private _createDisplay(index?: number) {
-        const ind = index || this.itemsOriginal.indexOf(this.selected);
-        this.itemsToDisplay = this.itemsOriginal.filter((a, i) => {
-            if (i !== ind) return a;
-        })
+        this.itemsToDisplay = this.itemsOriginal;
+        // const ind = index || this.itemsOriginal.indexOf(this.selected);
+        // this.itemsToDisplay = this.itemsOriginal.filter((a, i) => {
+        //     if (i !== ind) return a;
+        // })
     }
 }

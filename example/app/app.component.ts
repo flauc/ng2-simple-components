@@ -213,7 +213,7 @@ export class AppComponent {
             proba: 'blabla'
         }
     ];
-    selectedItem = null;
+    selectedItem = this.scItems[0];
 
     constructor(
         private _slide: SlideToService,
