@@ -1,8 +1,12 @@
-import {Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate, ViewChild, HostListener, ElementRef} from '@angular/core';
+import {
+    Component, Input, Output, EventEmitter, ContentChild, TemplateRef, trigger, state, style, transition, animate,
+    ViewChild, HostListener, ElementRef, ViewEncapsulation
+} from '@angular/core';
 
 const animationTime = 300;
 
 @Component({
+    encapsulation: ViewEncapsulation.None,
     selector: 'sc-select',
     animations: [
         trigger('select', [
@@ -70,7 +74,7 @@ export class SelectComponent {
 
     @Input() set items(it: any) {
         this.itemsOriginal = it;
-        if (this.selected) this._createDisplay();
+        this._createDisplay();
     };
     @Input() placeholder: string = null;
     @Input() maxHeight: number = 250;
