@@ -82,6 +82,7 @@ export class BlockSliderComponent implements OnInit {
 
     @Input() blockCount: number = 4;
     @Input() startingPosition: number = 0;
+    @Input() gap: number = 2;
 
     blocks: BlockComponent[] = [];
 
@@ -97,6 +98,10 @@ export class BlockSliderComponent implements OnInit {
     }
 
     blockWidth(): number {
+        return (100 - this.gap * this.blockCount) / this.blockCount;
+    }
+
+    blockWidthWithGap(): number {
         return 100 / this.blockCount;
     }
 
@@ -109,12 +114,12 @@ export class BlockSliderComponent implements OnInit {
     moveLeft() {
         if (!this.position) this.position = this._lastSegment[0];
         else this.position--;
-        this.positionStyle = `-${this.position * this.blockWidth()}%`
+        this.positionStyle = `-${this.position * this.blockWidthWithGap()}%`
     }
 
     moveRight() {
         if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1]) this.position = 0;
         else this.position++;
-        this.positionStyle = `-${this.position * this.blockWidth()}%`
+        this.positionStyle = `-${this.position * this.blockWidthWithGap()}%`
     }
 }
