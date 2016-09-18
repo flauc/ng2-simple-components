@@ -1,6 +1,6 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
   "scripts": {
     "build": "typings install && tsc"
@@ -21,7 +21,8 @@
   "peerDependencies": {
     "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
-    "@angular/platform-browser": "^2.0.0"
+    "@angular/platform-browser": "^2.0.0",
+    "hammerjs": "^2.0.8"
   },
   "devDependencies": {
     "@angular/core": "^2.0.0",

@@ -72,7 +72,7 @@ import {BlockComponent} from './block.component';
             <span class="line"></span>    
             <span class="line"></span>    
         </div>
-        <div class="slide-wrapper"[ngStyle]="{'transform': 'translate3d(' + positionStyle + ', 0, 0'}">
+        <div class="slide-wrapper"[ngStyle]="{'transform': 'translate3d(' + positionStyle + ', 0, 0'}" (swipe)="onSwipe($event)">
             <ng-content></ng-content>
         </div>
     `
@@ -121,5 +121,10 @@ export class BlockSliderComponent implements OnInit {
         if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1]) this.position = 0;
         else this.position++;
         this.positionStyle = `-${this.position * this.blockWidthWithGap()}%`
+    }
+
+    onSwipe(event) {
+        if (event.deltaX > 0) this.moveLeft();
+        else this.moveRight();
     }
 }

@@ -19,14 +19,14 @@
     "@angular/router": "3.0.0",
     "@angular/upgrade": "2.0.0",
     "core-js": "^2.4.1",
+    "ng2-simple-components": "^0.2.3",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.23",
-    "ng2-simple-components": "^0.2.3"
+    "zone.js": "^0.6.23"
   },
   "devDependencies": {
     "typescript": "^2.0.2",
-    "typings":"^1.3.2"
+    "typings": "^1.3.2"
   }
 }
