@@ -23,6 +23,8 @@ export class BlockComponent implements OnInit {
         return `${this.gap}%`;
     }
 
+    @HostBinding('class.active') active: boolean = true;
+
     width: number;
     gap: number;
     index: number;
@@ -34,6 +36,7 @@ export class BlockComponent implements OnInit {
     ngOnInit(): void {
         this.width = this._blocksSliderComp.blockWidth();
         this.index = this._blocksSliderComp.blocks.length;
+        this.active = this._blocksSliderComp.calcActive(this.index);
         this.gap = this._blocksSliderComp.gap;
         this._blocksSliderComp.addBlock(this)
     }

@@ -114,17 +114,23 @@ export class BlockSliderComponent implements OnInit {
     moveLeft() {
         if (!this.position) this.position = this._lastSegment[0];
         else this.position--;
+        this.blocks.forEach((a, i) => a.active = this.calcActive(i));
         this.positionStyle = `-${this.position * this.blockWidthWithGap()}%`
     }
 
     moveRight() {
         if (this.position >= this._lastSegment[0] && this.position <= this._lastSegment[1]) this.position = 0;
         else this.position++;
+        this.blocks.forEach((a, i) => a.active = this.calcActive(i));
         this.positionStyle = `-${this.position * this.blockWidthWithGap()}%`
     }
 
     onSwipe(event) {
         if (event.deltaX > 0) this.moveLeft();
         else this.moveRight();
+    }
+
+    calcActive(index): boolean {
+        return index >= this.position && index < this.position + this.blockCount;
     }
 }
