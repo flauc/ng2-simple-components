@@ -5,8 +5,7 @@ import {BlockSliderComponent} from './block-slider.component';
     selector: 'sc-block',
     styles: [`
         :host {
-            height: 100%;
-            position: absolute;
+            display: inline-block;
         }
     `],
     template: `

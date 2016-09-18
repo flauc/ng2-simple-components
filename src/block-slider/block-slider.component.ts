@@ -7,9 +7,6 @@ import {BlockComponent} from './block.component';
     styles: [`
         :host {
             display: block;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
         }
         
         .arrow {
@@ -59,23 +56,11 @@ import {BlockComponent} from './block.component';
             background-color: #888;
             transition: background-color 0.3s;
         }       
-        
-        .block-wrapper {
-            width: 90%;
-            display: block;
-            margin: 0 5%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
+       
         .slide-wrapper {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            transition: all 0.3s ease-in-out;
-            left: 0;
-            height: 100%;
+            display: block;
+            white-space: nowrap;
+            transition: all .3s ease;
         }
     `],
     template: `
@@ -87,10 +72,8 @@ import {BlockComponent} from './block.component';
             <span class="line"></span>    
             <span class="line"></span>    
         </div>
-        <div class="block-wrapper">
-            <div class="slide-wrapper" [style.left]="positionStyle" [ngStyle]="{'width': blockWidth() * blockCount + '%'}">
-                <ng-content></ng-content>
-            </div>
+        <div class="slide-wrapper"[ngStyle]="{'transform': 'translate3d(' + positionStyle + ', 0, 0'}">
+            <ng-content></ng-content>
         </div>
     `
 })
