@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, HostListener} from '@angular/core';
 import {BlockComponent} from './block.component';
 
 
@@ -83,6 +83,11 @@ export class BlockSliderComponent implements OnInit {
     @Input() blockCount: number = 4;
     @Input() startingPosition: number = 0;
     @Input() gap: number = 2;
+    @Input() set mediaQuery(m: Array<{screenWidth: number, blockCount: number}>) {
+        this._mediaSorted = m.sort((a, b) => a.screenWidth - b.screenWidth)
+    }
+
+    initialCount: number = 4;
 
     blocks: BlockComponent[] = [];
 
@@ -91,10 +96,26 @@ export class BlockSliderComponent implements OnInit {
 
     private _segments: number;
     private _lastSegment: [number, number];
+    private _mediaSorted: Array<{screenWidth: number, blockCount: number}>;
+
+    @HostListener('window:resize', ['$event']) screenResize(event) {
+        if (this._mediaSorted) {
+
+            let found = this._mediaSorted.findIndex(a => a.screenWidth > event.target.innerWidth);
+
+            this.blockCount = found !== -1 ? this._mediaSorted[found].blockCount : this.initialCount;
+
+            const width = this.blockWidth();
+
+            this.blocks.forEach(a => a.width = width);
+            this.positionStyle = `-${this.position * width}%`;
+        }
+    }
 
     ngOnInit(): void {
         this.position = this.startingPosition;
-        this.positionStyle = `-${this.position * this.blockWidth()}%`
+        this.positionStyle = `-${this.position * this.blockWidth()}%`;
+        this.initialCount = this.blockCount;
     }
 
     blockWidth(): number {
