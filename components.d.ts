@@ -1,5 +1,3 @@
-import { OnInit, ViewContainerRef, Compiler, EventEmitter, ElementRef, TemplateRef } from '@angular/core';
-
 export declare class StyleOverrideDirective {
     scOverride: string;
     className: string;
@@ -27,36 +25,50 @@ export declare class AccordionComponent {
 export declare class AccordionModule {
 }
 
-
+import { OnInit } from '@angular/core';
 export declare class BlockSliderComponent implements OnInit {
     blockCount: number;
     startingPosition: number;
+    gap: number;
+    mediaQuery: Array<{
+        screenWidth: number;
+        blockCount: number;
+    }>;
+    initialCount: number;
     blocks: BlockComponent[];
     position: number;
     positionStyle: string;
     private _segments;
     private _lastSegment;
+    private _mediaSorted;
+    screenResize(event: any): void;
     ngOnInit(): void;
     blockWidth(): number;
+    blockWidthWithGap(): number;
     addBlock(block: BlockComponent): void;
     moveLeft(): void;
     moveRight(): void;
+    onSwipe(event: any): void;
+    calcActive(index: any): boolean;
 }
 
 export declare class BlockSliderModule {
 }
 
+import { OnInit } from '@angular/core';
 export declare class BlockComponent implements OnInit {
     private _blocksSliderComp;
     w: string;
-    l: string;
+    m: string;
+    active: boolean;
     width: number;
+    gap: number;
     index: number;
     constructor(_blocksSliderComp: BlockSliderComponent);
     ngOnInit(): void;
 }
 
-
+import { ViewContainerRef, Compiler, EventEmitter } from '@angular/core';
 export declare class ModalComponent {
     private _comp;
     wrapperRef: ViewContainerRef;
@@ -73,7 +85,7 @@ export declare class ModalComponent {
 export declare class ModalModule {
 }
 
-
+import { ViewContainerRef, Compiler } from '@angular/core';
 export declare class ModalService {
     private _comp;
     private _vc;
@@ -98,6 +110,7 @@ export interface ModalSettings {
 export declare class SingleModule {
 }
 
+import { EventEmitter, TemplateRef, ElementRef } from '@angular/core';
 export declare class SelectComponent {
     private _eref;
     animationState: string;
@@ -129,6 +142,7 @@ export declare class SelectComponent {
 export declare class SelectModule {
 }
 
+import { ElementRef, OnInit } from '@angular/core';
 export declare class TabComponent implements OnInit {
     private tabsComp;
     private _el;
@@ -157,6 +171,22 @@ export declare class TabsComponent {
 }
 
 export declare class TabsModule {
+}
+
+export declare class TooltipComponent {
+}
+
+import { Renderer, ElementRef, OnInit, ViewContainerRef, Compiler } from '@angular/core';
+export declare class TooltipDirective implements OnInit {
+    private _el;
+    private _vcRef;
+    private _compiler;
+    private _renderer;
+    constructor(_el: ElementRef, _vcRef: ViewContainerRef, _compiler: Compiler, _renderer: Renderer);
+    ngOnInit(): void;
+}
+
+export declare class TooltipModule {
 }
 
 export declare class SearchPipeModule {

@@ -31,6 +31,10 @@
     "src/modal/settings.interface.ts",
     "src/pipes/search/search.module.ts",
     "src/pipes/search/search.pipe.ts",
-    "src/style-override.directive.ts"
+    "src/directives/tooltip/tooltip.directive.ts",
+    "src/directives/tooltip/tooltip.component.ts",
+    "src/directives/tooltip/tooltip.module.ts",
+    "src/directives/scroll-animation/scroll-animation.directive.ts",
+    "src/directives/scroll-animation/scroll-animation.module.ts"
   ]
 }

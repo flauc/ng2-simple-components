@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {SlideToService} from './slide-to/slide-to.service';
 import {AnimationDirective} from './on-position/animation.directive';
-import {ModalModule, TabsModule, AccordionModule, BlockSliderModule, SelectModule, SearchPipeModule} from 'ng2-simple-components';
+import {ModalModule, TabsModule, AccordionModule, BlockSliderModule, SelectModule, SearchPipeModule, TooltipModule} from 'ng2-simple-components';
 
 @NgModule({
     imports: [
@@ -15,7 +15,8 @@ import {ModalModule, TabsModule, AccordionModule, BlockSliderModule, SelectModul
         BlockSliderModule,
         SelectModule,
         ModalModule,
-        SearchPipeModule
+        SearchPipeModule,
+        TooltipModule
     ],
     providers: [
         SlideToService
