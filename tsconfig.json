@@ -35,6 +35,11 @@
     "src/directives/tooltip/tooltip.component.ts",
     "src/directives/tooltip/tooltip.module.ts",
     "src/directives/scroll-animation/scroll-animation.directive.ts",
-    "src/directives/scroll-animation/scroll-animation.module.ts"
+    "src/directives/scroll-animation/scroll-animation.module.ts",
+    "src/utils/window/window.browser.ts",
+    "src/utils/window/window.node.ts",
+    "src/utils/window/window.ts",
+    "src/components/morph-overlay/morph-overlay.component.ts",
+    "src/components/morph-overlay/morph-overlay.module.ts"
   ]
 }

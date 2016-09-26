@@ -20,3 +20,5 @@ exports.TooltipDirective = require('./lib/directives/tooltip/tooltip.directive')
 exports.TooltipComponent = require('./lib/directives/tooltip/tooltip.component').TooltipComponent;
 exports.ScrollAnimationDirective = require('./lib/directives/scroll-animation/scroll-animation.directive').ScrollAnimationDirective;
 exports.ScrollAnimationModule = require('./lib/directives/scroll-animation/scroll-animation.module').ScrollAnimationModule;
+exports.MorphOverlayComponent = require('./lib/components/morph-overlay/morph-overlay.component').MorphOverlayComponent;
+exports.MorphOverlayModule = require('./lib/components/morph-overlay/morph-overlay.module').MorphOverlayModule;
