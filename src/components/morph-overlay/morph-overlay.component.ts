@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, ElementRef, TemplateRef, ContentChild, style} from '@angular/core';
+import {Component, ElementRef, TemplateRef, ContentChild, Input} from '@angular/core';
 import {Window} from '../../utils/window/window';
 
 const animationTime = 500;
@@ -21,7 +21,6 @@ const animationTime = 500;
             left: 0;
             height: 100%;
             width: 100%;
-            background: black;
         }
         
         .close {
@@ -32,8 +31,7 @@ const animationTime = 500;
         
         .animation-block {
             position: absolute;
-            background: black;
-            transition: transform 500ms ease-in-out;
+            transition: transform ${animationTime}ms ease-in-out;
         }
     `],
     template: `
@@ -41,17 +39,19 @@ const animationTime = 500;
             <template [ngTemplateOutlet]="triggerRef"></template>
         </div>
         <span class="animation-block" [ngStyle]="style"></span>
-        <div class="modal" [hidden]="modalHidden">
+        <div class="modal" [ngStyle]="{background: overlayBg}" [hidden]="modalHidden">
             <button (click)="close()" class="close">Close</button>
             <template [ngTemplateOutlet]="contentRef"></template>
         </div>    
     `
 })
-export class MorphOverlayComponent implements AfterViewInit {
+export class MorphOverlayComponent {
     constructor(
         private _el: ElementRef,
         private _window: Window
     ) {}
+
+    @Input() overlayBg: string = '#F44336';
 
     @ContentChild('scTrigger') triggerRef: TemplateRef<any>;
     @ContentChild('scContent') contentRef: TemplateRef<any>;
@@ -67,10 +67,18 @@ export class MorphOverlayComponent implements AfterViewInit {
     scaleY: number = 1;
 
     get style() {
-        return {width: `${this.width}px`, height: `${this.height}px`, top: `${this.top}px`, left: `${this.left}px`, transform: `scaleX(${this.scaleX}) scaleY(${this.scaleY})`}
+        return {
+            visibility: this.blockHidden ? 'hidden' : 'visible',
+            background: this.overlayBg,
+            width: `${this.width}px`,
+            height: `${this.height}px`,
+            top: `${this.top}px`,
+            left: `${this.left}px`,
+            transform: `scaleX(${this.scaleX}) scaleY(${this.scaleY})`
+        }
     }
 
-    ngAfterViewInit() {
+    open() {
 
         const rect = this._el.nativeElement.getBoundingClientRect();
 
@@ -78,13 +86,10 @@ export class MorphOverlayComponent implements AfterViewInit {
         this.height = rect.height;
         this.left = rect.left;
         this.top = rect.top;
-    }
-
-    open() {
 
         this.blockHidden = false;
         this.scaleY = this._calcScale(this.top, this.height, this._window.innerHeight());
-        this.scaleX = this._calcScale(this.left, this.width, this._window.innerWidth())
+        this.scaleX = this._calcScale(this.left, this.width, this._window.innerWidth());
         setTimeout(() => {
             this.blockHidden = true;
             this.modalHidden = false;
@@ -93,12 +98,10 @@ export class MorphOverlayComponent implements AfterViewInit {
 
     close() {
         this.blockHidden = false;
+        this.modalHidden = true;
         this.scaleX = 1;
         this.scaleY = 1;
-        setTimeout(() => {
-            this.blockHidden = true;
-            this.modalHidden = true;
-        })
+        setTimeout(() => this.blockHidden = true, animationTime)
     }
 
     private _calcScale(firstCoord: number, elSize: number, windowSize: number): number {

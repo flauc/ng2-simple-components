@@ -18,7 +18,7 @@ import {TestModule} from './modal-test/test.module';
         ])
     ],
     template: `
-        <sc-morph-overlay>
+        <sc-morph-overlay overlayBg="#673AB7">
             <template #scTrigger>
                 <div class="test">
                     <h1>This is a test</h1>
@@ -30,7 +30,8 @@ import {TestModule} from './modal-test/test.module';
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dolore doloremque nihil odit praesentium sequi tempora? Ad amet asperiores debitis, dolores inventore ipsum laudantium neque non, quasi quos recusandae!</p>
             </template>
         </sc-morph-overlay>
-                <sc-morph-overlay>
+        
+        <sc-morph-overlay overlayBg="#673AB7">
             <template #scTrigger>
                 <div class="test">
                     <h1>This is a test</h1>
@@ -42,19 +43,9 @@ import {TestModule} from './modal-test/test.module';
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dolore doloremque nihil odit praesentium sequi tempora? Ad amet asperiores debitis, dolores inventore ipsum laudantium neque non, quasi quos recusandae!</p>
             </template>
         </sc-morph-overlay>
-                <sc-morph-overlay>
-            <template #scTrigger>
-                <div class="test">
-                    <h1>This is a test</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae cumque cupiditate dicta doloremque excepturi labore minus mollitia odio odit, praesentium qui recusandae, reiciendis repellat rerum similique ut veritatis voluptatibus!</p>    
-                </div>
-            </template>
-            <template #scContent>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ad aut beatae commodi consectetur corporis dolorem doloremque exercitationem facere fuga libero mollitia, nesciunt nisi obcaecati provident quia rem velit voluptate?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dolore doloremque nihil odit praesentium sequi tempora? Ad amet asperiores debitis, dolores inventore ipsum laudantium neque non, quasi quos recusandae!</p>
-            </template>
-        </sc-morph-overlay>
-                <sc-morph-overlay>
+        
+        
+        <sc-morph-overlay overlayBg="#673AB7">
             <template #scTrigger>
                 <div class="test">
                     <h1>This is a test</h1>
@@ -70,11 +61,12 @@ import {TestModule} from './modal-test/test.module';
     styles: [`
         .test {
             display: block;
+            background: #673AB7;
+            overflow: hidden;
         }
     `]
 })
 
 export class AppComponent {
-
 
 }
