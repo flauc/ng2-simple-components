@@ -1,3 +1,5 @@
+import { OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef, Renderer, ModuleWithProviders } from '@angular/core';
+
 export declare class StyleOverrideDirective {
     scOverride: string;
     className: string;
@@ -25,7 +27,6 @@ export declare class AccordionComponent {
 export declare class AccordionModule {
 }
 
-import { OnInit } from '@angular/core';
 export declare class BlockSliderComponent implements OnInit {
     blockCount: number;
     startingPosition: number;
@@ -55,7 +56,6 @@ export declare class BlockSliderComponent implements OnInit {
 export declare class BlockSliderModule {
 }
 
-import { OnInit } from '@angular/core';
 export declare class BlockComponent implements OnInit {
     private _blocksSliderComp;
     w: string;
@@ -68,7 +68,6 @@ export declare class BlockComponent implements OnInit {
     ngOnInit(): void;
 }
 
-import { ViewContainerRef, Compiler, EventEmitter } from '@angular/core';
 export declare class ModalComponent {
     private _comp;
     wrapperRef: ViewContainerRef;
@@ -85,7 +84,6 @@ export declare class ModalComponent {
 export declare class ModalModule {
 }
 
-import { ViewContainerRef, Compiler } from '@angular/core';
 export declare class ModalService {
     private _comp;
     private _vc;
@@ -110,7 +108,6 @@ export interface ModalSettings {
 export declare class SingleModule {
 }
 
-import { EventEmitter, TemplateRef, ElementRef } from '@angular/core';
 export declare class SelectComponent {
     private _eref;
     animationState: string;
@@ -142,7 +139,6 @@ export declare class SelectComponent {
 export declare class SelectModule {
 }
 
-import { ElementRef, OnInit } from '@angular/core';
 export declare class TabComponent implements OnInit {
     private tabsComp;
     private _el;
@@ -173,20 +169,90 @@ export declare class TabsComponent {
 export declare class TabsModule {
 }
 
-export declare class TooltipComponent {
+export declare class ScrollAnimationDirective implements OnInit {
+    private _el;
+    private _renderer;
+    private _window;
+    constructor(_el: ElementRef, _renderer: Renderer, _window: Window);
+    sc: {
+        ref?: ElementRef;
+        offset?: number;
+        class?: string;
+        delay: number;
+        hideInitial?: boolean;
+    };
+    onScroll(): void;
+    onResize(): void;
+    top: number;
+    windowHeight: number;
+    hasClass: boolean;
+    options: {
+        ref: ElementRef;
+        offset: number;
+        class: string;
+        delay: number;
+        hideInitial: boolean;
+    };
+    ngOnInit(): void;
+    private _setTop();
+    private _hideInitial();
 }
 
-import { Renderer, ElementRef, OnInit, ViewContainerRef, Compiler } from '@angular/core';
+export declare class ScrollAnimationModule {
+    static environment(env: 'browser' | 'node'): ModuleWithProviders;
+}
+
+export declare class TooltipComponent {
+    simpleLabel: string;
+}
+
 export declare class TooltipDirective implements OnInit {
     private _el;
     private _vcRef;
     private _compiler;
     private _renderer;
     constructor(_el: ElementRef, _vcRef: ViewContainerRef, _compiler: Compiler, _renderer: Renderer);
+    options: {
+        simpleLabel: string;
+    };
+    private _component;
     ngOnInit(): void;
 }
 
 export declare class TooltipModule {
+}
+
+export declare class MorphOverlayComponent {
+    private _el;
+    private _window;
+    constructor(_el: ElementRef, _window: Window);
+    overlayBg: string;
+    triggerRef: TemplateRef<any>;
+    contentRef: TemplateRef<any>;
+    blockHidden: boolean;
+    modalHidden: boolean;
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+    scaleX: number;
+    scaleY: number;
+    style: {
+        visibility: string;
+        background: string;
+        width: string;
+        height: string;
+        top: string;
+        left: string;
+        transform: string;
+    };
+    open(): void;
+    close(): void;
+    private _calcScale(firstCoord, elSize, windowSize);
+}
+
+export declare class MorphOverlayModule {
+    static environment(env: 'browser' | 'node'): ModuleWithProviders;
 }
 
 export declare class SearchPipeModule {
@@ -199,4 +265,22 @@ export declare class SearchPipe {
     private _cFromStart;
     private _cfromAny;
     private _getValue(item, str);
+}
+
+export declare class WindowBrowser implements Window {
+    innerHeight(): number;
+    innerWidth(): number;
+    pageYOffset(): number;
+}
+
+export declare abstract class Window {
+    abstract innerHeight(): number;
+    abstract innerWidth(): number;
+    abstract pageYOffset(): number;
+}
+
+export declare class WindowNode implements Window {
+    innerHeight(): any;
+    innerWidth(): any;
+    pageYOffset(): any;
 }
