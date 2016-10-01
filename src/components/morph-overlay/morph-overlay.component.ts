@@ -13,6 +13,7 @@ const animationTime = 500;
             height: 200px;
             margin-top: 200px;
             margin-left: 300px;
+            position: relative;
         }
 
         .modal {
@@ -31,6 +32,8 @@ const animationTime = 500;
         
         .animation-block {
             position: absolute;
+            top: 0;
+            left: 0;
             transition: transform ${animationTime}ms ease-in-out;
         }
     `],
@@ -72,8 +75,8 @@ export class MorphOverlayComponent {
             background: this.overlayBg,
             width: `${this.width}px`,
             height: `${this.height}px`,
-            top: `${this.top}px`,
-            left: `${this.left}px`,
+            top: `0px`,
+            left: `0px`,
             transform: `scaleX(${this.scaleX}) scaleY(${this.scaleY})`
         }
     }
