@@ -1,6 +1,6 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.3.3",
+  "version": "0.3.31",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
   "repository": {
     "type": "git",
@@ -14,8 +14,7 @@
   "bugs": {
     "url": "https://github.com/flauc/ng2-simple-components/issues"
   },
-  "homepage": "https://github.com/flauc/ng2-simple-components",
-  "peerDependencies": {
+  "homepage": "https://github.com/flauc/ng2-simple-components", "peerDependencies": {
     "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
     "@angular/platform-browser": "^2.0.0",

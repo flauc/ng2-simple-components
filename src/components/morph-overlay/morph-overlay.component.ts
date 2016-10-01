@@ -38,7 +38,7 @@ const animationTime = 500;
         }
     `],
     template: `
-        <div class="trigger" (click)="open()">
+        <div class="trigger" [ngClass]="{active: triggerActive}" (click)="open()">
             <template [ngTemplateOutlet]="triggerRef"></template>
         </div>
         <span class="animation-block" [ngStyle]="style"></span>
@@ -55,12 +55,14 @@ export class MorphOverlayComponent {
     ) {}
 
     @Input() overlayBg: string = '#F44336';
+    @Input() initialDelay: number = 300;
 
     @ContentChild('scTrigger') triggerRef: TemplateRef<any>;
     @ContentChild('scContent') contentRef: TemplateRef<any>;
 
     blockHidden: boolean = true;
     modalHidden: boolean = true;
+    triggerActive: boolean = false;
 
     width: number;
     height: number;
@@ -90,13 +92,17 @@ export class MorphOverlayComponent {
         this.left = rect.left;
         this.top = rect.top;
 
-        this.blockHidden = false;
-        this.scaleY = this._calcScale(this.top, this.height, this._window.innerHeight());
-        this.scaleX = this._calcScale(this.left, this.width, this._window.innerWidth());
+        this.triggerActive = true;
+
         setTimeout(() => {
-            this.blockHidden = true;
-            this.modalHidden = false;
-        }, animationTime)
+            this.blockHidden = false;
+            this.scaleY = this._calcScale(this.top, this.height, this._window.innerHeight());
+            this.scaleX = this._calcScale(this.left, this.width, this._window.innerWidth());
+            setTimeout(() => {
+                this.blockHidden = true;
+                this.modalHidden = false;
+            }, animationTime)
+        }, this.initialDelay);
     }
 
     close() {
@@ -104,7 +110,10 @@ export class MorphOverlayComponent {
         this.modalHidden = true;
         this.scaleX = 1;
         this.scaleY = 1;
-        setTimeout(() => this.blockHidden = true, animationTime)
+        setTimeout(() => {
+            this.blockHidden = true;
+            this.triggerActive = false;
+        }, animationTime)
     }
 
     private _calcScale(firstCoord: number, elSize: number, windowSize: number): number {
