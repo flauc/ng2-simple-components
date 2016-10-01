@@ -42,7 +42,7 @@ const animationTime = 500;
             <template [ngTemplateOutlet]="triggerRef"></template>
         </div>
         <span class="animation-block" [ngStyle]="style"></span>
-        <div class="modal" [ngStyle]="{background: overlayBg}" [hidden]="modalHidden">
+        <div class="modal" [ngClass]="{active: !modalHidden}" [ngStyle]="{background: overlayBg}" [hidden]="modalHidden">
             <button (click)="close()" class="close">Close</button>
             <template [ngTemplateOutlet]="contentRef"></template>
         </div>    
