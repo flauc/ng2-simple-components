@@ -45,7 +45,7 @@ export class ScrollAnimationDirective implements OnInit {
     }
 
     private _setTop() {
-        this.top = this.options.ref.nativeElement.getBoundingClientRect() ? this.options.ref.nativeElement.getBoundingClientRect().top : 0;
+        this.top = this.options.ref.nativeElement.getBoundingClientRect ? this.options.ref.nativeElement.getBoundingClientRect().top : 0;
     }
 
     private _hideInitial() {
