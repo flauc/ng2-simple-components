@@ -1,4 +1,4 @@
-import {Component, ElementRef, TemplateRef, ContentChild, Input} from '@angular/core';
+import {Component, ElementRef, TemplateRef, ContentChild, Input, OnInit} from '@angular/core';
 import {Window} from '../../utils/window/window';
 
 const animationTime = 500;
@@ -24,12 +24,6 @@ const animationTime = 500;
             width: 100%;
         }
         
-        .close {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-        
         .animation-block {
             position: absolute;
             top: 0;
@@ -43,12 +37,15 @@ const animationTime = 500;
         </div>
         <span class="animation-block" [ngStyle]="style"></span>
         <div class="modal" [ngClass]="{active: !modalHidden}" [ngStyle]="{background: overlayBg}" [hidden]="modalHidden">
-            <button (click)="close()" class="close">Close</button>
+            <div class="modal__header">
+                <h3>{{modalTitle}}</h3>
+                <button (click)="close()" class="close">Close</button>
+            </div>
             <template [ngTemplateOutlet]="contentRef"></template>
         </div>    
     `
 })
-export class MorphOverlayComponent {
+export class MorphOverlayComponent implements OnInit {
     constructor(
         private _el: ElementRef,
         private _window: Window
@@ -56,6 +53,8 @@ export class MorphOverlayComponent {
 
     @Input() overlayBg: string = '#F44336';
     @Input() initialDelay: number = 300;
+    @Input() modalTitle: string = '';
+    @Input() overflowBody: boolean = true;
 
     @ContentChild('scTrigger') triggerRef: TemplateRef<any>;
     @ContentChild('scContent') contentRef: TemplateRef<any>;
@@ -63,6 +62,8 @@ export class MorphOverlayComponent {
     blockHidden: boolean = true;
     modalHidden: boolean = true;
     triggerActive: boolean = false;
+
+    document: any;
 
     width: number;
     height: number;
@@ -83,6 +84,10 @@ export class MorphOverlayComponent {
         }
     }
 
+    ngOnInit() {
+        this.document = this._window.getDocument()
+    }
+
     open() {
 
         const rect = this._el.nativeElement.getBoundingClientRect();
@@ -93,6 +98,9 @@ export class MorphOverlayComponent {
         this.top = rect.top;
 
         this.triggerActive = true;
+
+        if (this.document && this.overflowBody)
+            this.document.body.style.overflowY = 'hidden';
 
         setTimeout(() => {
             this.blockHidden = false;
@@ -110,6 +118,10 @@ export class MorphOverlayComponent {
         this.modalHidden = true;
         this.scaleX = 1;
         this.scaleY = 1;
+
+        if (this.document && this.overflowBody)
+            this.document.body.style.overflowY = 'initial';
+
         setTimeout(() => {
             this.blockHidden = true;
             this.triggerActive = false;

@@ -6,4 +6,5 @@ export class WindowBrowser implements Window {
     innerHeight() { return window.innerHeight}
     innerWidth() { return window.innerWidth}
     pageYOffset() { return window.pageXOffset}
+    getDocument() { return window.document}
 }
