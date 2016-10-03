@@ -1,4 +1,5 @@
-import { OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef, Renderer, ModuleWithProviders } from '@angular/core';
+import { OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef, Renderer, Compiler } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 
 export declare class StyleOverrideDirective {
     scOverride: string;
@@ -58,8 +59,8 @@ export declare class BlockSliderModule {
 
 export declare class BlockComponent implements OnInit {
     private _blocksSliderComp;
-    w: string;
-    m: string;
+    readonly w: string;
+    readonly m: string;
     active: boolean;
     width: number;
     gap: number;
@@ -99,10 +100,10 @@ export declare class ModalService {
 }
 
 export interface ModalSettings {
-    overlay: boolean;
-    overlayClickToClose: boolean;
-    defaultFooter: boolean;
-    showCloseButton: boolean;
+    overlay?: boolean;
+    overlayClickToClose?: boolean;
+    defaultFooter?: boolean;
+    showCloseButton?: boolean;
 }
 
 export declare class SingleModule {
@@ -125,11 +126,11 @@ export declare class SelectComponent {
     selectRef: TemplateRef<any>;
     placeholderRef: TemplateRef<any>;
     outsideClick(target: any): void;
-    style: {
+    readonly style: {
         'max-height': string;
         'overflow': string;
     };
-    inSelected: string;
+    readonly inSelected: string;
     constructor(_eref: ElementRef);
     select(index: number): void;
     toggle(): void;
@@ -167,6 +168,57 @@ export declare class TabsComponent {
 }
 
 export declare class TabsModule {
+}
+
+export declare class MorphOverlayComponent implements OnInit {
+    private _el;
+    private _window;
+    constructor(_el: ElementRef, _window: Window);
+    overlayBg: string;
+    initialDelay: number;
+    modalTitle: string;
+    overflowBody: boolean;
+    triggerRef: TemplateRef<any>;
+    contentRef: TemplateRef<any>;
+    blockHidden: boolean;
+    modalHidden: boolean;
+    triggerActive: boolean;
+    document: any;
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+    scaleX: number;
+    scaleY: number;
+    readonly style: {
+        visibility: string;
+        background: string;
+        width: string;
+        height: string;
+        top: string;
+        left: string;
+        transform: string;
+    };
+    ngOnInit(): void;
+    open(): void;
+    close(): void;
+    private _calcScale(firstCoord, elSize, windowSize);
+}
+
+export declare class MorphOverlayModule {
+    static environment(env: 'browser' | 'node'): ModuleWithProviders;
+}
+
+export declare class SearchPipeModule {
+}
+
+export declare class SearchPipe {
+    transform(value: any[], args: [string, string[], boolean, boolean, boolean]): any[];
+    private _fromStart;
+    private _fromAny;
+    private _cFromStart;
+    private _cfromAny;
+    private _getValue(item, str);
 }
 
 export declare class ScrollAnimationDirective implements OnInit {
@@ -222,65 +274,23 @@ export declare class TooltipDirective implements OnInit {
 export declare class TooltipModule {
 }
 
-export declare class MorphOverlayComponent {
-    private _el;
-    private _window;
-    constructor(_el: ElementRef, _window: Window);
-    overlayBg: string;
-    triggerRef: TemplateRef<any>;
-    contentRef: TemplateRef<any>;
-    blockHidden: boolean;
-    modalHidden: boolean;
-    width: number;
-    height: number;
-    top: number;
-    left: number;
-    scaleX: number;
-    scaleY: number;
-    style: {
-        visibility: string;
-        background: string;
-        width: string;
-        height: string;
-        top: string;
-        left: string;
-        transform: string;
-    };
-    open(): void;
-    close(): void;
-    private _calcScale(firstCoord, elSize, windowSize);
-}
-
-export declare class MorphOverlayModule {
-    static environment(env: 'browser' | 'node'): ModuleWithProviders;
-}
-
-export declare class SearchPipeModule {
-}
-
-export declare class SearchPipe {
-    transform(value: any[], args: [string, string[], boolean, boolean, boolean]): any[];
-    private _fromStart;
-    private _fromAny;
-    private _cFromStart;
-    private _cfromAny;
-    private _getValue(item, str);
-}
-
 export declare class WindowBrowser implements Window {
     innerHeight(): number;
     innerWidth(): number;
     pageYOffset(): number;
+    getDocument(): Document;
 }
 
 export declare abstract class Window {
     abstract innerHeight(): number;
     abstract innerWidth(): number;
     abstract pageYOffset(): number;
+    abstract getDocument(): any;
 }
 
 export declare class WindowNode implements Window {
     innerHeight(): any;
     innerWidth(): any;
     pageYOffset(): any;
+    getDocument(): any;
 }
