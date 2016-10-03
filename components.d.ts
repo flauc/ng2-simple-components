@@ -1,4 +1,4 @@
-import { OnInit, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef, Renderer, Compiler } from '@angular/core';
+import { OnInit, ViewContainerRef, EventEmitter, TemplateRef, ElementRef, Renderer, Compiler } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 
 export declare class StyleOverrideDirective {
