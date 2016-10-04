@@ -102,6 +102,7 @@ const animationTime = 200;
     `
 })
 export class ModalComponent {
+    constructor(private _comp: Compiler) {}
 
     @ViewChild('wrapper', {read: ViewContainerRef}) wrapperRef: ViewContainerRef;
     @Output() doClose: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -109,8 +110,6 @@ export class ModalComponent {
     settings: ModalSettings;
     state: string = 'open';
     toSet: any;
-
-    constructor(private _comp: Compiler) {}
 
     createWithComp(modal: any, comp: string) {
         this._comp.compileModuleAndAllComponentsAsync(modal).then(res => {

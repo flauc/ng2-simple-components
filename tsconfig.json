@@ -9,6 +9,7 @@
     "sourceMap": true,
     "outDir": "./lib",
     "declaration": true,
+    "lib": ["es6", "dom"],
     "types": [
       "node"
     ]

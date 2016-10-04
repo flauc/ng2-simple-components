@@ -13,7 +13,7 @@ export class TooltipDirective implements OnInit {
 
     @Input('sc-tooltip') options: {simpleLabel: string};
 
-    private _component: ComponentRef<TooltipComponent>;
+    private _component: ComponentRef<any>;
 
     ngOnInit() {
         this._compiler.compileModuleAndAllComponentsAsync(TooltipModule).then(res => {

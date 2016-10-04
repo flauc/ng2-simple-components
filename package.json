@@ -1,7 +1,10 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.3.39",
+  "version": "0.4.0",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
+  "scripts": {
+    "generate-dts": "tsc --outFile components"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flauc/ng2-simple-components.git"
