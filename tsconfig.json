@@ -8,38 +8,15 @@
     "removeComments": true,
     "sourceMap": true,
     "outDir": "./lib",
-    "declaration": true
+    "declaration": true,
+    "types": [
+      "node"
+    ]
   },
-  "files": [
-    "typings/browser.d.ts",
-    "components.d.ts",
-    "src/tabs/tabs.component.ts",
-    "src/tabs/tabs.module.ts",
-    "src/tabs/tab.component.ts",
-    "src/accordion/accord.component.ts",
-    "src/accordion/accordion.component.ts",
-    "src/accordion/accordion.module.ts",
-    "src/block-slider/block-slider.module.ts",
-    "src/block-slider/block-slider.component.ts",
-    "src/block-slider/block.component.ts",
-    "src/select/select.module.ts",
-    "src/select/select.component.ts",
-    "src/modal/modal.component.ts",
-    "src/modal/single.module.ts",
-    "src/modal/modal.module.ts",
-    "src/modal/modal.service.ts",
-    "src/modal/settings.interface.ts",
-    "src/pipes/search/search.module.ts",
-    "src/pipes/search/search.pipe.ts",
-    "src/directives/tooltip/tooltip.directive.ts",
-    "src/directives/tooltip/tooltip.component.ts",
-    "src/directives/tooltip/tooltip.module.ts",
-    "src/directives/scroll-animation/scroll-animation.directive.ts",
-    "src/directives/scroll-animation/scroll-animation.module.ts",
-    "src/utils/window/window.browser.ts",
-    "src/utils/window/window.node.ts",
-    "src/utils/window/window.ts",
-    "src/components/morph-overlay/morph-overlay.component.ts",
-    "src/components/morph-overlay/morph-overlay.module.ts"
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

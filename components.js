@@ -22,3 +22,6 @@ exports.ScrollAnimationDirective = require('./lib/directives/scroll-animation/sc
 exports.ScrollAnimationModule = require('./lib/directives/scroll-animation/scroll-animation.module').ScrollAnimationModule;
 exports.MorphOverlayComponent = require('./lib/components/morph-overlay/morph-overlay.component').MorphOverlayComponent;
 exports.MorphOverlayModule = require('./lib/components/morph-overlay/morph-overlay.module').MorphOverlayModule;
+exports.PaginationModule = require('./lib/pagination/pagination.module').PaginationModule;
+exports.PaginationComponent = require('./lib/pagination/pagination.component').PaginationComponent;
+exports.PaginationPipe = require('./lib/pagination/pagination.pipe').PaginationPipe;

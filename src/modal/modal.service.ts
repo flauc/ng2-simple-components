@@ -10,7 +10,7 @@ export class ModalService {
     private _vcToUse: ViewContainerRef;
 
     // Instance of the open module
-    private _openModal: ComponentRef<ModalComponent>;
+    private _openModal: ComponentRef<any>;
 
     // Default Settings
     private _settings: ModalSettings = {

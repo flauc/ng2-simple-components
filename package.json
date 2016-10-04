@@ -14,7 +14,8 @@
   "bugs": {
     "url": "https://github.com/flauc/ng2-simple-components/issues"
   },
-  "homepage": "https://github.com/flauc/ng2-simple-components", "peerDependencies": {
+  "homepage": "https://github.com/flauc/ng2-simple-components",
+  "peerDependencies": {
     "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
     "@angular/platform-browser": "^2.0.0",
@@ -22,20 +23,21 @@
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
-    "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
+    "@angular/core": "^2.0.0",
     "@angular/platform-browser": "^2.0.0",
+    "@types/node": "^6.0.42",
     "browser-sync": "^2.14.0",
-    "del": "^2.2.2",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.23",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-delete-lines": "0.0.7",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.12",
     "typescript": "^2.0.2",
-    "typings": "^1.3.2"
+    "typings": "^1.3.2",
+    "zone.js": "^0.6.23"
   },
   "main": "./components.js",
   "typings": "./components.d.ts"
