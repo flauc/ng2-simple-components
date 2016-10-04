@@ -260,7 +260,6 @@ export declare class TooltipComponent {
     simpleLabel: string;
 }
 
-import { Renderer, ElementRef, OnInit, ViewContainerRef, Compiler } from '@angular/core';
 export declare class TooltipDirective implements OnInit {
     private _el;
     private _vcRef;
