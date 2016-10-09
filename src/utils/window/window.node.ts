@@ -3,6 +3,7 @@ export class WindowNode {
     innerWidth: any;
     scrollY: any;
     scrollX: any;
+    pageYOffset: any;
 
     scrollTo() {}
     addEventListener() {}

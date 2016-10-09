@@ -1,4 +1,4 @@
-import {ElementRef, Directive, OnInit, Input, HostListener, Renderer} from '@angular/core';
+import {ElementRef, Directive, OnInit, Input, HostListener, Renderer, Inject} from '@angular/core';
 import {Window} from '../../utils/window/window';
 
 @Directive({selector: '[sc-animation]'})
@@ -6,7 +6,7 @@ export class ScrollAnimationDirective implements OnInit {
     constructor(
         private _el: ElementRef,
         private _renderer: Renderer,
-        private _window: Window
+        @Inject(Window) private _window: Window
     ) {}
 
     // Element that triggers the reached state
@@ -15,19 +15,19 @@ export class ScrollAnimationDirective implements OnInit {
     }
 
     @HostListener('window:scroll') onScroll() {
-        if (!this.hasClass && this._window.pageYOffset() + this.windowHeight >= this.top + this.options.offset) {
+        if (!this.hasClass && this._window.pageYOffset + this.windowHeight >= this.top + this.options.offset) {
             setTimeout(() => this._renderer.setElementClass(this._el.nativeElement, this.options.class, true), this.options.delay);
             this.hasClass = true;
         }
     }
 
     @HostListener('window:resize') onResize() {
-        this.windowHeight = this._window.innerHeight();
+        this.windowHeight = this._window.innerHeight;
         this._setTop()
     }
 
     top: number;
-    windowHeight: number = this._window.innerHeight();
+    windowHeight: number = this._window.innerHeight;
     hasClass: boolean = false;
 
     options: {ref: ElementRef, offset: number, class: string, delay: number, hideInitial: boolean} = {
