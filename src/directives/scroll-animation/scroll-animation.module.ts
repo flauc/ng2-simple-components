@@ -13,7 +13,7 @@ export class ScrollAnimationModule {
     static environment(env: 'browser' | 'node'): ModuleWithProviders {
         return {
             ngModule: ScrollAnimationModule,
-            providers: [{ provide: Window, useValue: 'node' ? new WindowNode() : window }]
+            providers: [{ provide: Window, useValue: env === 'node' ? new WindowNode() : window }]
         };
     }
 }
