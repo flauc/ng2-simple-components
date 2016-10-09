@@ -1,6 +1,6 @@
 {
   "name": "ng2-simple-components",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A set of helpful and minimalistic components, directives and services for angular 2 applications",
   "repository": {
     "type": "git",
