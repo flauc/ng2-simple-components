@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({name: 'sc-pagination-pipe', pure: false})
+@Pipe({name: 'scPaginationPipe', pure: false})
 export class PaginationPipe implements PipeTransform {
     transform(value, args) {
         // Check if values were received
