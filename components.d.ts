@@ -1,4 +1,4 @@
-import { OnInit, OpaqueToken, ViewContainerRef, Compiler, EventEmitter, TemplateRef, ElementRef, PipeTransform, Renderer, ModuleWithProviders, AfterViewInit } from '@angular/core';
+import { OnInit, OpaqueToken, PipeTransform, EventEmitter, Renderer, ElementRef, TemplateRef, ViewContainerRef, Compiler, ModuleWithProviders, AfterViewInit } from '@angular/core';
 
 export declare class AccordComponent {
     private accordionComp;
@@ -103,21 +103,6 @@ export interface ModalSettings {
 export declare class SingleModule {
 }
 
-export declare class PaginationComponent {
-    pagination: {
-        pagesArray: number[];
-        itemsPerPage: number;
-        activePage: number;
-    };
-}
-
-export declare class PaginationModule {
-}
-
-export declare class PaginationPipe implements PipeTransform {
-    transform(value: any, args: any): any;
-}
-
 export declare class SelectComponent {
     private _eref;
     animationState: string;
@@ -149,6 +134,21 @@ export declare class SelectComponent {
 export declare class SelectModule {
 }
 
+export declare class PaginationComponent {
+    pagination: {
+        pagesArray: number[];
+        itemsPerPage: number;
+        activePage: number;
+    };
+}
+
+export declare class PaginationModule {
+}
+
+export declare class PaginationPipe implements PipeTransform {
+    transform(value: any, args: any): any;
+}
+
 export declare class TabComponent implements OnInit {
     private tabsComp;
     private _el;
@@ -178,40 +178,6 @@ export declare class TabsComponent {
 
 export declare class TabsModule {
 }
-
-export declare class ScrollAnimationDirective implements OnInit {
-    private _el;
-    private _renderer;
-    private _window;
-    constructor(_el: ElementRef, _renderer: Renderer, _window: Window);
-    sc: {
-        ref?: ElementRef;
-        offset?: number;
-        class?: string;
-        delay: number;
-        hideInitial?: boolean;
-    };
-    onScroll(): void;
-    onResize(): void;
-    top: number;
-    windowHeight: number;
-    hasClass: boolean;
-    options: {
-        ref: ElementRef;
-        offset: number;
-        class: string;
-        delay: number;
-        hideInitial: boolean;
-    };
-    ngOnInit(): void;
-    private _setTop();
-    private _hideInitial();
-}
-
-export declare class ScrollAnimationModule {
-    static environment(env: 'browser' | 'node'): ModuleWithProviders;
-}
-
 
 export declare class IsActiveDirectiveBrowser implements IsActiveDirective {
     private _el;
@@ -249,6 +215,39 @@ export declare class IsActiveBrowserModule {
 export declare class IsActiveNodeModule {
 }
 
+export declare class ScrollAnimationDirective implements OnInit {
+    private _el;
+    private _renderer;
+    private _window;
+    constructor(_el: ElementRef, _renderer: Renderer, _window: Window);
+    sc: {
+        ref?: ElementRef;
+        offset?: number;
+        class?: string;
+        delay: number;
+        hideInitial?: boolean;
+    };
+    onScroll(): void;
+    onResize(): void;
+    top: number;
+    windowHeight: number;
+    hasClass: boolean;
+    options: {
+        ref: ElementRef;
+        offset: number;
+        class: string;
+        delay: number;
+        hideInitial: boolean;
+    };
+    ngOnInit(): void;
+    private _setTop();
+    private _hideInitial();
+}
+
+export declare class ScrollAnimationModule {
+    static environment(env: 'browser' | 'node'): ModuleWithProviders;
+}
+
 export declare class TooltipComponent {
     simpleLabel: string;
 }
@@ -269,45 +268,6 @@ export declare class TooltipDirective implements OnInit {
 export declare class TooltipModule {
 }
 
-export declare class MorphOverlayComponent implements OnInit {
-    private _el;
-    private _window;
-    constructor(_el: ElementRef, _window: Window);
-    overlayBg: string;
-    initialDelay: number;
-    modalTitle: string;
-    overflowBody: boolean;
-    triggerRef: TemplateRef<any>;
-    contentRef: TemplateRef<any>;
-    blockHidden: boolean;
-    modalHidden: boolean;
-    triggerActive: boolean;
-    document: any;
-    width: number;
-    height: number;
-    top: number;
-    left: number;
-    scaleX: number;
-    scaleY: number;
-    readonly style: {
-        visibility: string;
-        background: string;
-        width: string;
-        height: string;
-        top: string;
-        left: string;
-        transform: string;
-    };
-    ngOnInit(): void;
-    open(): void;
-    close(): void;
-    private _calcScale(firstCoord, elSize, windowSize);
-}
-
-export declare class MorphOverlayModule {
-    static environment(env: 'browser' | 'node'): ModuleWithProviders;
-}
-
 export declare class SearchPipeModule {
 }
 
@@ -320,44 +280,62 @@ export declare class SearchPipe {
     private _getValue(item, str);
 }
 
-export declare class WindowBrowser implements Window {
-    innerHeight(): number;
-    innerWidth(): number;
-    pageYOffset(): number;
-    getDocument(): Document;
-}
-
 export declare const Window: OpaqueToken;
 
 export declare class WindowNode {
+    closed: any;
+    defaultStatus: any;
+    document: any;
+    frameElement: any;
+    frames: any;
+    history: any;
     innerHeight: any;
     innerWidth: any;
-    scrollY: any;
-    scrollX: any;
+    length: any;
+    localStorage: any;
+    location: any;
+    name: any;
+    navigator: any;
+    opener: any;
+    outerHeight: any;
+    outerWidth: any;
+    pageXOffset: any;
     pageYOffset: any;
+    parent: any;
+    screen: any;
+    screenLeft: any;
+    screenTop: any;
+    screenX: any;
+    screenY: any;
+    sessionStorage: any;
+    scrollX: any;
+    scrollY: any;
+    self: any;
+    status: any;
+    top: any;
+    alert(): void;
+    atob(): void;
+    blur(): void;
+    btoa(): void;
+    clearInterval(): void;
+    clearTimeout(): void;
+    close(): void;
+    confirm(): void;
+    focus(): void;
+    getComputedStyle(): void;
+    getSelection(): void;
+    matchMedia(): void;
+    moveBy(): void;
+    moveTo(): void;
+    open(): void;
+    print(): void;
+    prompt(): void;
+    resizeBy(): void;
+    resizeTo(): void;
+    scroll(): void;
+    scrollBy(): void;
     scrollTo(): void;
-    addEventListener(): void;
-}
-
-export declare class IsActiveDirective implements AfterViewInit {
-    private _el;
-    private _renderer;
-    refEl: any;
-    classToSet: string;
-    onScroll(): void;
-    constructor(_el: ElementRef, _renderer: Renderer);
-    ngAfterViewInit(): void;
-    inPosition(): boolean;
-}
-
-export declare abstract class IsActiveDirective {
-    abstract refEl: any;
-    abstract classToSet: string;
-    abstract ngAfterViewInit(): void;
-    abstract onScroll(): void;
-    abstract inPosition(): boolean;
-}
-
-export declare class ScrollAnimationModule {
-    static environment(env: 'browser' | 'node'): ModuleWithProviders;
+    setInterval(): void;
+    setTimeout(): void;
+    stop(): void;
 }
