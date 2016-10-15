@@ -1,10 +1,58 @@
 export class WindowNode {
+    closed: any;
+    defaultStatus: any;
+    document: any;
+    frameElement: any;
+    frames: any;
+    history: any;
     innerHeight: any;
     innerWidth: any;
-    scrollY: any;
-    scrollX: any;
+    length: any;
+    localStorage: any;
+    location: any;
+    name: any;
+    navigator: any;
+    opener: any;
+    outerHeight: any;
+    outerWidth: any;
+    pageXOffset: any;
     pageYOffset: any;
+    parent: any;
+    screen: any;
+    screenLeft: any;
+    screenTop: any;
+    screenX: any;
+    screenY: any;
+    sessionStorage: any;
+    scrollX: any;
+    scrollY: any;
+    self: any;
+    status: any;
+    top: any;
 
+    alert() {}
+    atob() {}
+    blur() {}
+    btoa() {}
+    clearInterval() {}
+    clearTimeout() {}
+    close() {}
+    confirm() {}
+    focus() {}
+    getComputedStyle() {}
+    getSelection() {}
+    matchMedia() {}
+    moveBy() {}
+    moveTo() {}
+    open() {}
+    print() {}
+    prompt() {}
+    resizeBy() {}
+    resizeTo() {}
+    scroll() {}
+    scrollBy() {}
     scrollTo() {}
-    addEventListener() {}
+    setInterval() {}
+    setTimeout() {}
+    stop() {}
 }
