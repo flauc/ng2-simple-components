@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Renderer} from '@angular/core';
+import {Input, Directive, ElementRef, Renderer} from '@angular/core';
 import {IsActiveDirective} from './is-active.directive';
 
 @Directive({
@@ -10,8 +10,8 @@ export class IsActiveDirectiveNode implements IsActiveDirective {
         private _renderer: Renderer
     ) {}
 
-    refEl: any;
-    classToSet: string = 'active';
+    @Input('is-active') refEl: any;
+    @Input('to-set') classToSet: string = 'active';
 
     onScroll() {}
 
