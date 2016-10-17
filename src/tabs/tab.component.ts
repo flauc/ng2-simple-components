@@ -1,6 +1,5 @@
-import {Input, Component, trigger, state, style, transition, animate, ElementRef, OnInit} from '@angular/core';
+import {Input, Component, trigger, state, style, transition, animate, ElementRef, OnInit, HostBinding} from '@angular/core';
 import {TabsComponent} from './tabs.component';
-import {HostBinding} from '@angular/core/src/metadata/directives';
 
 @Component({
     selector: 'sc-tab',
