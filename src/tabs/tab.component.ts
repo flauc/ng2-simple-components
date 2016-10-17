@@ -1,5 +1,6 @@
 import {Input, Component, trigger, state, style, transition, animate, ElementRef, OnInit} from '@angular/core';
 import {TabsComponent} from './tabs.component';
+import {HostBinding} from '@angular/core/src/metadata/directives';
 
 @Component({
     selector: 'sc-tab',
@@ -7,7 +8,7 @@ import {TabsComponent} from './tabs.component';
       <ng-content></ng-content>
     `,
     host: {
-        '[@anim]': 'animate',
+        '[@anim]': 'animate'
     },
     animations: [
         trigger('anim', [
@@ -53,6 +54,11 @@ import {TabsComponent} from './tabs.component';
     `]
 })
 export class TabComponent implements OnInit {
+
+    @HostBinding('style.z-index')  get zIndex() {
+        return this.act ? 10 : 1;
+    }
+
     @Input() set active(act: boolean) {
         this.act = act;
         if (act) {
