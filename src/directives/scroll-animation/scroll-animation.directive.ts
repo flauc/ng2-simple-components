@@ -14,9 +14,15 @@ export class ScrollAnimationDirective implements OnInit {
         this.options = Object.assign(this.options, options);
     }
 
+    @Input() removeAfter: number = null;
+
     @HostListener('window:scroll') onScroll() {
         if (!this.hasClass && this._window.pageYOffset + this.windowHeight >= this.top + this.options.offset) {
-            setTimeout(() => this._renderer.setElementClass(this._el.nativeElement, this.options.class, true), this.options.delay);
+            setTimeout(() => {
+                this._renderer.setElementClass(this._el.nativeElement, this.options.class, true);
+                // Remove the class after the time specified if it was specified
+                if (this.removeAfter !== null) setTimeout(() => this._renderer.setElementClass(this._el.nativeElement, this.options.class, false), this.removeAfter)
+            }, this.options.delay);
             this.hasClass = true;
         }
     }
