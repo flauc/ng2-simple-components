@@ -20,7 +20,7 @@ import {TestModule} from './modal-test/test.module';
     template: `
         <div class="block" [sc-animation]></div>
         <div class="block" [is-active]="header"></div>
-        <div class="block" [sc-animation]="{class: 'pero', offset: 100}"></div>
+        <div class="block" [sc-animation]="{class: 'pero', offset: 100, removeAfter: 10000}"></div>
         <div class="block" #header></div>
         <div class="block"></div>
     `,
