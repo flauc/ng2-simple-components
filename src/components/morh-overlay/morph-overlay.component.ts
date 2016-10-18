@@ -1,5 +1,5 @@
 import {Component, ElementRef, TemplateRef, ContentChild, Input, Inject} from '@angular/core';
-import {Window} from '../utils/window/window';
+import {Window} from '../../utils/window/window';
 
 
 @Component({

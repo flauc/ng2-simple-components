@@ -1,7 +1,7 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MorphOverlayComponent} from './morph-overlay.component';
-import {WindowNode} from '../utils/window/window.node';
+import {WindowNode} from '../../utils/window/window.node';
 
 @NgModule({
     imports: [CommonModule],
