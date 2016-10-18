@@ -308,7 +308,6 @@ export declare class MorphOverlayComponent {
         left: string;
         transform: string;
     };
-    ngOnInit(): void;
     open(): void;
     close(): void;
     private _calcScale(firstCoord, elSize, windowSize);
