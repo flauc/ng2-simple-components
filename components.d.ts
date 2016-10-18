@@ -280,6 +280,44 @@ export declare class SearchPipe {
     private _getValue(item, str);
 }
 
+export declare class MorphOverlayComponent {
+    private _el;
+    private _window;
+    constructor(_el: ElementRef, _window: Window);
+    overlayBg: string;
+    initialDelay: number;
+    modalTitle: string;
+    overflowBody: boolean;
+    triggerRef: TemplateRef<any>;
+    contentRef: TemplateRef<any>;
+    blockHidden: boolean;
+    modalHidden: boolean;
+    triggerActive: boolean;
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+    scaleX: number;
+    scaleY: number;
+    readonly style: {
+        visibility: string;
+        background: string;
+        width: string;
+        height: string;
+        top: string;
+        left: string;
+        transform: string;
+    };
+    ngOnInit(): void;
+    open(): void;
+    close(): void;
+    private _calcScale(firstCoord, elSize, windowSize);
+}
+
+export declare class MorphOverlayModule {
+    static environment(env: 'browser' | 'node'): ModuleWithProviders;
+}
+
 export declare const Window: OpaqueToken;
 
 export declare class WindowNode {
