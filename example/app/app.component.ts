@@ -22,7 +22,16 @@ import {TestModule} from './modal-test/test.module';
         <div class="block" [is-active]="header"></div>
         <div class="block" [sc-animation]="{class: 'pero', offset: 100, removeAfter: 10000}"></div>
         <div class="block" #header></div>
-        <div class="block"></div>
+        <div class="block">
+            <sc-morph-overlay>
+                <template #scTrigger>
+                    <p>Test</p>
+                </template>
+                <template #scContent>
+                    <p>Lorem</p>
+                </template>
+            </sc-morph-overlay>
+        </div>
     `,
     styles: [`
         .block {

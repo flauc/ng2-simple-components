@@ -5,7 +5,6 @@ import {Window} from '../../utils/window/window';
 @Component({
     selector: 'sc-morph-overlay',
     styles: [`
-
         :host {
             display: block;
             width: 200px;

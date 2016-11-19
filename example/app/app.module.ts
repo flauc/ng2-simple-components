@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {SlideToService} from './slide-to/slide-to.service';
-import {ScrollAnimationModule, IsActiveBrowserModule, ModalModule, TabsModule, AccordionModule, BlockSliderModule, SelectModule, SearchPipeModule, TooltipModule} from 'ng2-simple-components';
+import {MorphOverlayModule, ScrollAnimationModule, IsActiveBrowserModule, ModalModule, TabsModule, AccordionModule, BlockSliderModule, SelectModule, SearchPipeModule, TooltipModule} from 'ng2-simple-components';
 
 @NgModule({
     imports: [
@@ -15,6 +15,7 @@ import {ScrollAnimationModule, IsActiveBrowserModule, ModalModule, TabsModule, A
         SelectModule,
         ModalModule,
         SearchPipeModule,
+        MorphOverlayModule,
         TooltipModule,
         ScrollAnimationModule.environment('browser'),
         IsActiveBrowserModule
